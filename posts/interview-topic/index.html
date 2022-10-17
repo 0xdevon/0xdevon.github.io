@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>面试高频知识点分享-2021 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"面试高频知识点分享-2021",
+      "item":"/posts/interview-topic/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/interview-topic/"
+    },
+    "headline": "面试高频知识点分享-2021 | Devon Chan","datePublished": "2021-07-16T21:42:51+08:00",
+    "dateModified": "2021-07-16T21:42:51+08:00",
+    "wordCount":  5178 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处"
+}
+</script><meta property="og:title" content="面试高频知识点分享-2021 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/interview-topic/" />
+
+
+
+
+<meta property="og:description" content="将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-07-16T21:42:51&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-07-16T21:42:51&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">面试高频知识点分享-2021</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-07-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>11 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~</p>
+<h3 id="aop重点动态代理">AOP（重点：动态代理）：</h3>
+<blockquote>
+<p>思想：定义一个切面，在切面的纵向定义处理方法，处理完成之后，回到横向业务流。</p>
+</blockquote>
+<ol>
+<li>目的：对业务的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率</li>
+<li>原理：采取横向抽取机制，即将分散在各个方法中的重复代码提取出来，然后在程序编译或运行阶段将这些抽取出来的代码应用到需要执行的地方。</li>
+</ol>
+<h3 id="mysql">MySQL：</h3>
+<ol>
+<li>事务：事务是指程序中一系列严密的操作，而且操作必须全部完成，否则在操作中所做的所有修改都会被撤销。</li>
+<li>事务的四个特性（ACID）：
+<ul>
+<li>原子性（Atomicity）：操作这些指令时，要么全部执行成功，要么全部都不执行。只要其中一个指令执行失败，所有的指令都执行失败，数据进行回滚，回到执行指令前的数据状态。</li>
+<li>一致性(Consistency)：事务的执行使数据从一个状态转换为另外一个状态，但是对于整个数据的完整性保持一致。</li>
+<li>隔离性(Isolation)：一个事务的进行不能对其他的事务造成干扰。</li>
+<li>持久性(Durability)：也称永久性，指一个事务但提交，它对数据库的改变就应该是永久性的</li>
+</ul>
+</li>
+<li>事务隔离级别：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读可能性</th>
+<th>不可重复读可能性</th>
+<th>幻读可能性</th>
+<th>加锁读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ_UNCOMMITTED</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>READ_COMMITTED</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>REPEATABLE_READ</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据结构">数据结构：</h3>
+<ol>
+<li>栈：</li>
+<li>队列：</li>
+<li>树：</li>
+<li>链表：</li>
+</ol>
+<h3 id="sql">SQL：</h3>
+<h3 id="谈谈finalfinallyfinalize的区别">谈谈final，finally，finalize的区别</h3>
+<ul>
+<li>final是Java的一个关键字，用于定义不能被继承的类，不能被覆盖（重写）的方法、变量。</li>
+<li>finally是Java的一个关键字，是异常处理操作的统一出口。</li>
+<li>finalize是Object类中所提供的的一个方法，用于在对象回收之前进行收尾操作。</li>
+</ul>
+<h3 id="请解释java跨平台可移植性的原理">请解释Java跨平台（可移植性）的原理</h3>
+<ul>
+<li>Java程序最终通过字节码文件运行，运行的时候需要JVM的支持，但是在不同的操作系统上有不同的JVM，程序不用关心操作系统，只关心JVM，只要JVM不改变，程序可以在操作系统间任意移植</li>
+</ul>
+<h3 id="请解释path和classpath的区别">请解释path和classpath的区别</h3>
+<ul>
+<li>path是windows的环境变量，用于指定执行命令的路径</li>
+<li>classpath是指在Java程序执行的时候，用于指定类的加载路径</li>
+</ul>
+<h3 id="请解释和-和--的区别">请解释&amp;和&amp;&amp;、| 和 || 的区别</h3>
+<ul>
+<li>&amp;（普通与）和|（普通或）指的是所有条件都进行判断；</li>
+<li>&amp;&amp;（短路与）如果前面的条件不满足，则后面不再进行判断，||（短路或）如果前面的条件判断满足则后面不再判断；</li>
+<li>在开发之中为了性能的提高，主要使用短路与和短路或操作；</li>
+<li>&amp;和|除了用于逻辑运算外，也可以进行位运算的操作；</li>
+</ul>
+<h3 id="请解释string类的两种比较方式">请解释String类的两种比较方式</h3>
+<ul>
+<li>在String类中可以使用“==”和equals（）两种操作来进行字符串的比较</li>
+<li>“==”比较的是两个字符串的内存地址数值，属于数值比较</li>
+<li>equals（）是String类中提供的一个方法，用于字符串内容的比较，最简单的做法就是比较字符串永远使用equals（）方法就行</li>
+</ul>
+<h3 id="请谈谈方法的重载和覆写的区别">请谈谈方法的重载和覆写的区别</h3>
+<ol>
+<li>首先重载和方法覆写都是面向对象多态性的一个体现</li>
+<li>重载
+<ul>
+<li>单词：Overloading</li>
+<li>概念：方法名称相同，参数的类型或个数不同</li>
+<li>范围：发生在一个类之中</li>
+<li>权限：重载的时候没有权限的限制</li>
+</ul>
+</li>
+<li>覆写
+<ul>
+<li>单词：Override</li>
+<li>概念：方法名称、返回值、参数的个数及类型全部相同</li>
+<li>范围：发生在继承关系中</li>
+<li>权限：子类覆写的方法不能拥有比父类更严格的访问控制权限</li>
+</ul>
+</li>
+<li>重载时可以返回值类型不同，但是没有任何意义</li>
+</ol>
+<h3 id="请谈谈this和super的区别">请谈谈this和super的区别</h3>
+<h4 id="1this">1.this</h4>
+<ul>
+<li>
+<p>属性：this.属性表示的是找到本类的属性，如果本类没有找到则继续查找父类</p>
+</li>
+<li>
+<p>方法：this.方法()则表示找到本类的方法，如果本类没有找到则极细查找父类</p>
+</li>
+<li>
+<p>构造：必须放在构造方法的首行，不能与super关键字同时出现</p>
+</li>
+<li>
+<p>特殊：表示当前对象</p>
+</li>
+</ul>
+<h4 id="2super">2.super</h4>
+<ul>
+<li>属性：super.属性直接在子类之中查找父类的指定属性，不在时查找子类本身</li>
+<li>方法：super.方法()直接在子类之中查找父类中的指定方法，不在查找子类本身</li>
+<li>构造：必须放在构造方法的首行，不能与this关键字同时出现</li>
+</ul>
+<blockquote>
+<p>总结：在开发之中使用this和super可以明确划分出子类和父类之间的操作</p>
+</blockquote>
+<h3 id="请解释collection和collections的关系">请解释Collection和Collections的关系</h3>
+<ul>
+<li>两者之间在定义上没有直接的关系</li>
+<li>Collection是单值集合的操作最大父接口</li>
+<li>Collections只是一个集合的工具操作类</li>
+</ul>
+<h3 id="为什么构造方法的定义上不写返回值类型如果不返回写一个void不也可以吗">为什么构造方法的定义上不写返回值类型，如果不返回写一个void不也可以吗？</h3>
+<p>如果构造方法上写了void的话，则表示的就是一个普通方法了，普通方法是在对象实例化之后调用的，而构造方法是在对象实例化的时候同时调用的</p>
+<h3 id="请解释error和exception的区别">请解释Error和Exception的区别</h3>
+<ul>
+<li>Error：表示的是JVM出错，即程序还没有运行时所发生的错误，用户无法处理；</li>
+<li>Exception：表示程序运行时发生的错误，用户可以处理</li>
+</ul>
+<h3 id="解释string和stringbuffer的区别分别在什么时候用">解释String和StringBuffer的区别，分别在什么时候用</h3>
+<ul>
+<li>String的内容不能改变（改变的是地址的指向），而StringBuffer的内容是可以改变的</li>
+<li>String类和StringBuffer类中定义的方法可以很好的实现互补</li>
+<li>从开发的角度来说，大部分情况使用的都是String类，很少使用StringBuffer，使用StringBuffer只有一个前提，当字符串的内容需要不断修改对象的时候</li>
+</ul>
+<h3 id="请解释throw和throws的区别">请解释throw和throws的区别</h3>
+<ul>
+<li>throw表示人为的进行异常抛出，手工抛出异常</li>
+<li>throws表示用于方法声明上，表示一个方法不处理异常，而是交给被调用处处理</li>
+</ul>
+<h3 id="使用char型数据能否表示一个汉字">使用char型数据能否表示一个汉字</h3>
+<p>首先一个汉字占2个字节，而UNICODE编码也是16位的，Java又是采用UNICODE编码，但是保存汉字，语言必须是中文才可以保存</p>
+<h3 id="是否可以继承string类">是否可以继承String类</h3>
+<p>不可以，因为String类是final类，不可以被继承</p>
+<h3 id="抽象类可以有构造方法吗">抽象类可以有构造方法吗</h3>
+<p>可以有构造方法，而且抽象类中的子类实例化对象的时候也依然符合子类对象实例化的过程，先调用父类的构造方法，为父类的属性初始化，而后调用子类自己的构造方法，所以抽象类中的属性，static属性，常量等都是可以定义的</p>
+<h3 id="抽象类中可以没有抽象方法吗">抽象类中可以没有抽象方法吗</h3>
+<p>可以没有抽象方法，尽管没有抽象方法，也不能直接使用关键字new实例化对象</p>
+<h3 id="请简述mysql的查询过程从客户端发送查询请求到返回结果数据库执行的查询过程有哪些列出步骤">请简述MySQL的查询过程，从客户端发送查询请求到返回结果，数据库执行的查询过程有哪些？列出步骤</h3>
+<ol>
+<li>
+<p><strong>客户端发送SQL请求到服务器</strong></p>
+</li>
+<li>
+<p><strong>服务器检查是否可以在查询缓存中命中该SQL</strong></p>
+</li>
+<li>
+<p><strong>服务器端进行SQL解析，预处理，再由优化器生成对应的执行计划</strong></p>
+</li>
+<li>
+<p><strong>根据执行计划，调用存储引擎API查询数据</strong></p>
+</li>
+<li>
+<p><strong>将结果返回到客户端</strong></p>
+</li>
+</ol>
+<h3 id="简单介绍mysql复合索引和使用条件">简单介绍MySQL复合索引和使用条件</h3>
+<h3 id="awr是oracle-10g版本推出的新特性简述awr作用">AWR是Oracle 10g版本推出的新特性，简述AWR作用</h3>
+<h3 id="描述jvm加载class文件的原理机制">描述JVM加载Class文件的原理机制</h3>
+<p>Java语言是一种具有动态性的解释型语言，类<code>.class</code>只有被加载到JVM后才能运行。当运行指定程序时，JVM会将编译生成的<code>.class</code>文件按照需求和一定的规则加载到内存中，并组织成为一个完整的Java应用程序。这个加载过程事由类加载器完成，具体来说，就是由ClassLoader和它的子类来实现的。类加载器本身也是一个类，其实质就是把类文件从硬盘读取到内存中。</p>
+<p>类加载的方式分为隐式加载和显式加载。隐式加载指的是程序在使用new等方式创建对象时，会隐式地调用类的加载器把对应的类加载到JVM中。显式加载指的是通过直接调用<code>class.forName()</code>方法来把所需的类加载到JVM中。</p>
+<p>任何一个工程项目都是由许多类组成的，当程序启动时，只把需要的类加载到JVM中，其他类只有被使用到的时候才会被加载，采用这种方法一方面可以加快加载速度，另一方面可以节约程序运行时对内存的开销。此外，在Java语言中，每个类或接口都对应一个<code>.class</code>文件，这些文件可以被看成是一个可以被动态加载的单元，因此当只有部分类被修改时，只需要重新编译变化的类即可，而不需要重新编译所有文件，因此加快了编译速度。</p>
+<p>在Java语言中，类的加载是动态的，它并不会一次性将所有类加载后再运行，而是保证程序运行的基础类（例如基类）完全加载到JVM中，至于其他类，则在需要的时候才加载。</p>
+<p>类加载的主要步骤：</p>
+<ul>
+<li>**装载：**根据查找路径找到相应的class文件、然后导入</li>
+<li>**链接：**链接又分为3小步（<strong>1.检查：</strong> 检查待加载的class文件的正确性 <strong>2.准备：</strong> 给类中的静态变量分配存储空间 <strong>3.解析：</strong> 将符号引用转换为直接引用[<em>可选</em>]）</li>
+<li>**初始化：**对静态变量和静态代码块执行初始化操作</li>
+</ul>
+<h3 id="分别描述什么是xss攻击sql注入攻击csrf攻击">分别描述什么是XSS攻击、SQL注入攻击、CSRF攻击？</h3>
+<h3 id="java新特性合集">Java新特性合集</h3>
+<h3 id="spring中自动装配的方式有哪些">Spring中自动装配的方式有哪些？</h3>
+<h3 id="应用服务器优化技术有哪些">应用服务器优化技术有哪些？</h3>
+<h3 id="用java写一个单例类">用Java写一个单例类</h3>
+<pre><code class="language-java">public class Singleton{
+    private Singleton{}
+    private static Singleton instance = new Singleton();
+    public Singleton getInstance(){
+        return instance;
+    }
+}
+</code></pre>
+<h3 id="垃圾回收算法概述">垃圾回收算法概述</h3>
+<h3 id="什么是线程安全说明一下线程安全的级别">什么是线程安全？说明一下线程安全的级别！</h3>
+<h3 id="什么是java反射机制java反射技术主要实现类有哪些作用分别是什么">什么是Java反射机制？Java反射技术主要实现类有哪些，作用分别是什么？</h3>
+<h3 id="线程安全与非线程安全集合说一下底层怎么实现的hashmapconcurrenthahmap详细说明concurrenthashmap如何实现线程安全">线程安全与非线程安全集合说一下，底层怎么实现的（HashMap，ConcurrentHahMap）？详细说明ConcurrentHashMap如何实现线程安全？</h3>
+<h3 id="java跨平台原理字节码文件虚拟机">Java跨平台原理（字节码文件、虚拟机）！</h3>
+<h3 id="谈谈你对sql的优化">谈谈你对SQL的优化。</h3>
+<h3 id="各种排序方法以及时间复杂度">各种排序方法以及时间复杂度</h3>
+<h3 id="谈谈从在浏览器输入url到显示页面经历了哪些过程">谈谈从在浏览器输入URL到显示页面经历了哪些过程？</h3>
+<blockquote>
+<p>明确一点：互联网内各设备间的通信都遵循TCP/IP协议，利用TCP/IP协议族进行网络通信时，会通过分层顺序与对方进行通信。分层由高到低分别为：<strong>应用层</strong>、<strong>传输层</strong>、<strong>网络层</strong>、<strong>数据链路层</strong> 。发送端从应用层往下走，接收端从数据链路层往上走。</p>
+</blockquote>
+<h4 id="一网络通信">一、网络通信</h4>
+<h4 id="1在浏览器中输入url">1.在浏览器中输入URL</h4>
+<p>用户输入URL，例如“https://www.baidu.com”，其中http为协议，“www.baidu.com”为网络地址，指出需要的资源在哪台计算机上。一般网络地址可以使用域名和IP地址，使用域名是为了方便记忆，但为了让计算机理解这个地址则需要把它解析为IP地址。</p>
+<h4 id="2应用层dns解析域名">2.应用层DNS解析域名</h4>
+<p>客户端先检查本地是否有对应的IP地址，若找到则返回相应的IP地址。若没有找到则请求上级DNS服务器，直至找到根结点。</p>
+<h4 id="3应用层客户端发送http请求">3.应用层客户端发送HTTP请求</h4>
+<p>HTTP请求包括请求头和请求主体两个部分，其中请求头包括请求的方法（GET/POST）、目标URL、遵循的协议（HTTP/HTTPS/FTP&hellip;），返回的信息是否需要缓存，以及客户端是否发送cookie等。</p>
+<h4 id="4传输层tcp传输报文">4.传输层TCP传输报文</h4>
+<p>位于传输层的TCP协议为传输报文提供可靠的字节流服务。他为了方便传输，将大块的数据分割成以报文段位段为单位的数据包进行管理，并为他们编号，方便服务器接收时能准确地还原报文信息。TCP协议通过“三次握手”等方法保证传输的安全可靠。</p>
+<h4 id="5网络层ip协议查询mac地址">5.网络层IP协议查询MAC地址</h4>
+<p>IP协议的作用是把TCP分割好的数据包传送给接收方，且要保证传到接收方的MAC地址，即物理地址。IP地址和MAC地址是一一对应的观念西，ARP协议可以将IP地址解析成对应的MAC地址。</p>
+<h4 id="6数据到达数据链路层">6.数据到达数据链路层</h4>
+<p>在找到对方的MAC地址后，就将数据发送到数据链路层传输。此时客户端请求阶段结束。</p>
+<h4 id="7服务器接收数据">7.服务器接收数据</h4>
+<p>接收端的服务器在里链路层收到数据包，再噌噌向上到应用层，过程中包括在传输层层通过TCP协议将分段的数据包重新组成原来的HTTP报文</p>
+<h4 id="8服务器响应请求">8.服务器响应请求</h4>
+<p>服务端收到客户端发送的HTTP请求后，查找客户端请求的资源，并返回响应报文，响应报文中包括重要的信息——状态码。</p>
+<blockquote>
+<p><strong>常见状态码：</strong></p>
+<p><strong>200 OK：</strong> 表示请求成功</p>
+<p><strong>301：</strong> 表示永久重定向，请求的资源已经永久转移到新的位置，再返回301状态码的同时，响应报文也会附带重定向的URL，客户端接收到后将HTTP请求的URL做相应改变再重新发送。</p>
+<p><strong>404 NOT FOUND：</strong> 表示客户端请求的资源找不到</p>
+</blockquote>
+<h4 id="9服务器返回相应文件">9.服务器返回相应文件</h4>
+<p>请求成功后，服务器会返回相应的HTML文件，接下来就到了页面渲染的阶段</p>
+<h4 id="二页面渲染">二、页面渲染</h4>
+<p>现代浏览器渲染页面的过程是这样的：解析HTML以构建DOM树 –&gt; 构建渲染树 –&gt; 布局渲染树 –&gt; 绘制渲染树。</p>
+<p>DOM树是由HTML文件中的标签排列组成，渲染树是在DOM树中加入CSS或HTML中的style样式而形成。渲染树只包含需要显示在页面中的DOM元素，像<code>&lt;head&gt;</code>元素或display属性值为none的元素都不在渲染树中。</p>
+<p>在浏览器还没接收到完整的HTML文件时，它就开始渲染页面了，在遇到外部链入的脚本标签或样式标签或图片时，会再次发送HTTP请求重复上述的步骤。在收到CSS文件后会对已经渲染的页面重新渲染，加入它们应有的样式，图片文件加载完立刻显示在相应位置。在这一过程中可能会触发页面的重绘或重排。</p>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/linuxshell-coding-learning-note/" class="block">LinuxShell编程学习札记</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aop重点动态代理">AOP（重点：动态代理）：</a></li>
+        <li><a href="#mysql">MySQL：</a></li>
+        <li><a href="#数据结构">数据结构：</a></li>
+        <li><a href="#sql">SQL：</a></li>
+        <li><a href="#谈谈finalfinallyfinalize的区别">谈谈final，finally，finalize的区别</a></li>
+        <li><a href="#请解释java跨平台可移植性的原理">请解释Java跨平台（可移植性）的原理</a></li>
+        <li><a href="#请解释path和classpath的区别">请解释path和classpath的区别</a></li>
+        <li><a href="#请解释和-和--的区别">请解释&amp;和&amp;&amp;、| 和 || 的区别</a></li>
+        <li><a href="#请解释string类的两种比较方式">请解释String类的两种比较方式</a></li>
+        <li><a href="#请谈谈方法的重载和覆写的区别">请谈谈方法的重载和覆写的区别</a></li>
+        <li><a href="#请谈谈this和super的区别">请谈谈this和super的区别</a>
+          <ul>
+            <li><a href="#1this">1.this</a></li>
+            <li><a href="#2super">2.super</a></li>
+          </ul>
+        </li>
+        <li><a href="#请解释collection和collections的关系">请解释Collection和Collections的关系</a></li>
+        <li><a href="#为什么构造方法的定义上不写返回值类型如果不返回写一个void不也可以吗">为什么构造方法的定义上不写返回值类型，如果不返回写一个void不也可以吗？</a></li>
+        <li><a href="#请解释error和exception的区别">请解释Error和Exception的区别</a></li>
+        <li><a href="#解释string和stringbuffer的区别分别在什么时候用">解释String和StringBuffer的区别，分别在什么时候用</a></li>
+        <li><a href="#请解释throw和throws的区别">请解释throw和throws的区别</a></li>
+        <li><a href="#使用char型数据能否表示一个汉字">使用char型数据能否表示一个汉字</a></li>
+        <li><a href="#是否可以继承string类">是否可以继承String类</a></li>
+        <li><a href="#抽象类可以有构造方法吗">抽象类可以有构造方法吗</a></li>
+        <li><a href="#抽象类中可以没有抽象方法吗">抽象类中可以没有抽象方法吗</a></li>
+        <li><a href="#请简述mysql的查询过程从客户端发送查询请求到返回结果数据库执行的查询过程有哪些列出步骤">请简述MySQL的查询过程，从客户端发送查询请求到返回结果，数据库执行的查询过程有哪些？列出步骤</a></li>
+        <li><a href="#简单介绍mysql复合索引和使用条件">简单介绍MySQL复合索引和使用条件</a></li>
+        <li><a href="#awr是oracle-10g版本推出的新特性简述awr作用">AWR是Oracle 10g版本推出的新特性，简述AWR作用</a></li>
+        <li><a href="#描述jvm加载class文件的原理机制">描述JVM加载Class文件的原理机制</a></li>
+        <li><a href="#分别描述什么是xss攻击sql注入攻击csrf攻击">分别描述什么是XSS攻击、SQL注入攻击、CSRF攻击？</a></li>
+        <li><a href="#java新特性合集">Java新特性合集</a></li>
+        <li><a href="#spring中自动装配的方式有哪些">Spring中自动装配的方式有哪些？</a></li>
+        <li><a href="#应用服务器优化技术有哪些">应用服务器优化技术有哪些？</a></li>
+        <li><a href="#用java写一个单例类">用Java写一个单例类</a></li>
+        <li><a href="#垃圾回收算法概述">垃圾回收算法概述</a></li>
+        <li><a href="#什么是线程安全说明一下线程安全的级别">什么是线程安全？说明一下线程安全的级别！</a></li>
+        <li><a href="#什么是java反射机制java反射技术主要实现类有哪些作用分别是什么">什么是Java反射机制？Java反射技术主要实现类有哪些，作用分别是什么？</a></li>
+        <li><a href="#线程安全与非线程安全集合说一下底层怎么实现的hashmapconcurrenthahmap详细说明concurrenthashmap如何实现线程安全">线程安全与非线程安全集合说一下，底层怎么实现的（HashMap，ConcurrentHahMap）？详细说明ConcurrentHashMap如何实现线程安全？</a></li>
+        <li><a href="#java跨平台原理字节码文件虚拟机">Java跨平台原理（字节码文件、虚拟机）！</a></li>
+        <li><a href="#谈谈你对sql的优化">谈谈你对SQL的优化。</a></li>
+        <li><a href="#各种排序方法以及时间复杂度">各种排序方法以及时间复杂度</a></li>
+        <li><a href="#谈谈从在浏览器输入url到显示页面经历了哪些过程">谈谈从在浏览器输入URL到显示页面经历了哪些过程？</a>
+          <ul>
+            <li><a href="#一网络通信">一、网络通信</a></li>
+            <li><a href="#1在浏览器中输入url">1.在浏览器中输入URL</a></li>
+            <li><a href="#2应用层dns解析域名">2.应用层DNS解析域名</a></li>
+            <li><a href="#3应用层客户端发送http请求">3.应用层客户端发送HTTP请求</a></li>
+            <li><a href="#4传输层tcp传输报文">4.传输层TCP传输报文</a></li>
+            <li><a href="#5网络层ip协议查询mac地址">5.网络层IP协议查询MAC地址</a></li>
+            <li><a href="#6数据到达数据链路层">6.数据到达数据链路层</a></li>
+            <li><a href="#7服务器接收数据">7.服务器接收数据</a></li>
+            <li><a href="#8服务器响应请求">8.服务器响应请求</a></li>
+            <li><a href="#9服务器返回相应文件">9.服务器返回相应文件</a></li>
+            <li><a href="#二页面渲染">二、页面渲染</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

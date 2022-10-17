@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>CSS复习小记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"CSS复习小记",
+      "item":"/posts/css-review-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/css-review-note/"
+    },
+    "headline": "CSS复习小记 | Devon Chan","datePublished": "2022-10-16T22:52:05+08:00",
+    "dateModified": "2022-10-16T22:52:05+08:00",
+    "wordCount":  982 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样"
+}
+</script><meta property="og:title" content="CSS复习小记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/css-review-note/" />
+
+
+
+
+<meta property="og:description" content="虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-16T22:52:05&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-16T22:52:05&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">CSS复习小记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下：</p>
+<h3 id="样式种类">样式种类</h3>
+<p>行内样式：直接在元素标签中添加<code>style</code>属性直接设置需要的样式，下面给出示例：</p>
+<pre><code class="language-html">&lt;p style=&quot;font-size:10px;color:red&quot;&gt;这是一个示例&lt;/p&gt;
+</code></pre>
+<p>内嵌样式：在页面头部<code>&lt;head&gt;</code>中添加<code>&lt;style&gt;</code>设置需要的样式，下面哥给出示例：</p>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        p{
+            font-size:10px;
+            color:red;    
+         }
+    &lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<p>外链式：将<code>css</code>层叠样式表以连接的形式引入<code>html</code>文件，下面给出示例：</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link href=&quot;./image/common.css&quot; rel=&quot;stylesheet&quot; /&gt;  
+&lt;/head&gt;
+</code></pre>
+<h3 id="选择器种类">选择器种类</h3>
+<ol>
+<li>
+<p><strong>id选择器</strong>，<code>#</code>后面不带空格</p>
+<pre><code class="language-css">#test{
+    font-size:10px;
+    color:red;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>通配符</strong>（用来清除<code>HTML</code>标签默认样式，效率不高，很少使用）</p>
+<pre><code class="language-css">*{
+    font-size:10px;
+    color:red;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>类选择器</strong></p>
+<pre><code class="language-css">.test{
+    font-size:10px;
+    color:#FFF;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>标签选择器</strong>，如下：</p>
+<pre><code class="language-css">html{
+    margin:10px;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>后代选择器</strong>，用空格隔开每一层</p>
+<blockquote>
+<p>后代选择器可以简写，也可以补全，但是必须有一个相对应的嵌套</p>
+</blockquote>
+<pre><code class="language-css">div p{
+    color:red;
+}
+.test p{
+    color:red;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>交并集选择器</strong></p>
+<pre><code class="language-css">/*交集选择器(设一个p标签组的某个特定p标签class为para),中间不需要加空格*/
+p.para{
+    font-size:10px;
+    color:#FFF;
+}
+/*并集选择器*/
+div,p,h1,h2,h3{
+    padding:0;
+    margin:0;
+    font-size:10px;
+    color:#FFF;
+}
+</code></pre>
+<p><strong>选择器权重</strong>：<em>id选择器 &gt; 类选择器 &gt; 标签选择器</em>，如果多种选择器同时选中一个元素，则权重高的选择器中设置的样式会层叠掉权重低的选择器中设置的样式</p>
+<p><strong>比较选择器权重</strong>（层叠性）：</p>
+<ul>
+<li>
+<p>先比较id选择器的数量，id选择器数量多的权重高；</p>
+</li>
+<li>
+<p>id选择器数量相同，就比较类选择器的属性，类选择器的数量多的权重高；</p>
+</li>
+<li>
+<p>id和类选择器的数量相同，就比较标签选择器的数量，标签选择器数量多的权重高；</p>
+</li>
+<li>
+<p>id、类选择器，以及标签选择器的数量都相同，就看哪种选择器写在最后，写在最后的选择器设置的样式则为最后被采用的样式</p>
+</li>
+</ul>
+<p><strong>继承性</strong>：</p>
+<ul>
+<li>遵循就近原则，如果距离相同，则根据选择器的权重原则来判断子元素最终采用的样式</li>
+</ul>
+<p><strong>!important</strong>:</p>
+<ul>
+<li><code>!important</code>加在属性值的后面，分号前面</li>
+<li><em><u>选中元素时</u></em>，<code>!important</code>权重最高</li>
+<li>没选中元素时，不影响就近原则</li>
+<li><code>!important</code>它只能调高一个属性的权重，不是选择器所有的属性</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>单行文本的垂直居中方法：将文本的<code>line-height</code>属性设置为容器（盒子）的高度</p>
+</li>
+<li>
+<p>使用百分比设置的文本的行高属性以文本自身的大小为参考，例如字体大小为20px，行高设置为200%后，一行文本占用的行高则为20px×2=40px</p>
+</li>
+<li>
+<p>使用复合属性设置样式时，多个属性之间使用空格来隔开</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/juc-coding-learning-note/" class="block">JUC学习札记</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#样式种类">样式种类</a></li>
+        <li><a href="#选择器种类">选择器种类</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

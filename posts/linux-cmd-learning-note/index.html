@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Linux命令学习札记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &quot;^-&quot;| wc -l 其中data_trs指代解压后的文">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Linux命令学习札记",
+      "item":"/posts/linux-cmd-learning-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/linux-cmd-learning-note/"
+    },
+    "headline": "Linux命令学习札记 | Devon Chan","datePublished": "2022-10-16T22:11:49+08:00",
+    "dateModified": "2022-10-16T22:11:49+08:00",
+    "wordCount":  2468 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c \u0026quot;unzip {} -d data_trs\u0026quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep \u0026quot;^-\u0026quot;| wc -l 其中data_trs指代解压后的文"
+}
+</script><meta property="og:title" content="Linux命令学习札记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/linux-cmd-learning-note/" />
+
+
+
+
+<meta property="og:description" content="1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &quot;^-&quot;| wc -l 其中data_trs指代解压后的文" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-16T22:11:49&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-16T22:11:49&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Linux命令学习札记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h3 id="1使用unzip命令批量递归解压缩文件">1.使用<code>unzip</code>命令批量递归解压缩文件</h3>
+<pre><code class="language-sh">ls  $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot;
+# 使用下面的命列出当前位置下的文件个数
+ls -l | grep &quot;^-&quot;| wc -l
+</code></pre>
+<p>其中<code>data_trs</code>指代解压后的文件另存到的文件夹目录</p>
+<h3 id="2hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据">2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据</h3>
+<pre><code class="language-sh">./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs
+</code></pre>
+<h3 id="3hybase批量导出数据trs格式数据文件">3.Hybase批量导出数据trs格式数据文件</h3>
+<pre><code class="language-sh">./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE
+</code></pre>
+<h3 id="4给文件或文件夹赋予权限">4.给文件或文件夹赋予权限</h3>
+<pre><code class="language-shell"># 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限
+chmod +x *.sh
+</code></pre>
+<h3 id="5基本开关机">5.基本开关机</h3>
+<pre><code class="language-shell">sync #将数据由内存同步到硬盘中
+shutdown #关机命令
+shutdown -h 10 #10分钟后关机
+shutdown -h now #立即关机
+shutdown -h 20:25 #在下午20:25关机
+shutdown -h +10 #十分钟后关机
+shutdown -r now #立即重启
+shutdown -r +10 #10分钟后重启
+rebot #重启，相当于shutdown -r now
+halt #关闭系统，等同于shutdown -h now 和 power off  
+</code></pre>
+<h3 id="6文件操作">6.文件操作</h3>
+<pre><code class="language-shell">rmdir #删除空文件夹
+rmdir -p #递归删除多个目录
+
+rm -f 强制删除
+rm -i 互动，询问是否删除
+rm -r 递归删除
+
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+
+vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&quot;:&quot;进入底线命令模式，继续输入&quot;wq&quot;保存修改内容并退出编辑器 
+#在编辑器中设置行号:set nu
+#命令模式下使用&quot;n(数字) &lt;Space&gt;&quot;使得可以将光标向右跳转n个位置
+#命令模式下使用&quot;n(数字) &lt;Enter&gt;&quot;使得可以将光标向下跳转n行
+</code></pre>
+<h3 id="7文件权限">7.文件权限</h3>
+<table>
+<thead>
+<tr>
+<th>文件类型</th>
+<th>属主权限</th>
+<th>属组权限</th>
+<th>其他用户权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d：目录 l:链接 -：文件</td>
+<td>r（读）w（写）x（执行）</td>
+<td>r（读）w（写）x（执行）</td>
+<td>r（读）w（写）x（执行）</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-shell">chgrp [-R] 属组名 文件名 #递归更改文件属组
+chown [-R] 属主名 文件名
+chown [-R] 属主名：属组名 文件名
+chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分
+</code></pre>
+<h3 id="8文件查看">8.文件查看</h3>
+<pre><code class="language-shell">cat #查看文件所有内容
+tac #倒序查看文件所有内容
+nl #带行号查看你
+more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行
+less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）
+head -n x（数字） #查看头x行文件内容
+tail -n x（数字） #查看尾部x行内容
+tail -f 文件名    #持续监控文件内容变化，ctrl+s暂停，ctrl+q继续
+</code></pre>
+<h3 id="9创建连接">9.创建连接</h3>
+<pre><code class="language-shell">ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化
+ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化
+</code></pre>
+<ul>
+<li>
+<p>软连接和硬连接的区别</p>
+<p>将上述创建的<code>f1</code>删除后，<code>f2</code>依旧可以访问原来<code>f1</code>中的内容，而<code>f3</code>因无法链接到<code>f1</code>而成为死链接</p>
+<p>实质：硬连接为一个<strong>文件</strong>，而软连接为一个<strong>链接</strong></p>
+</li>
+</ul>
+<h3 id="10账号管理">10.账号管理</h3>
+<pre><code class="language-shell">#添加用户
+useradd -选项 用户名
+#-m：自动创建这个用户的主目录/home/qinjiang 即在系统中创建文件夹并写入用户信息&quot;/etc/passwd&quot;
+#删除用户
+userdel -选项 用户名
+#-r:删除用户并递归删除用户的所有信息
+</code></pre>
+<h3 id="11硬盘挂载">11.硬盘挂载</h3>
+<pre><code class="language-shell">mount /dev/demo /mnt/demo #将/dev/demo挂载到/mnt/demo下
+unmount [挂载位置] #卸载指定位挂载的硬盘
+</code></pre>
+<h3 id="12查看进程信息">12.查看进程信息</h3>
+<p><code>ps</code>:查看当前系统中的正在执行的各种进程信息</p>
+<p><code>ps -xx</code>:</p>
+<ul>
+<li>-a：显示当前终端运行的所有进程信息</li>
+<li>-u：以用具的信息显示进程</li>
+<li>-x：显示后台运行进程的参数</li>
+</ul>
+<pre><code class="language-shell"># ps -aux查看所有的进程
+ps -aux|grep mysql
+
+# &quot;|&quot;在linux中称为管道符 A|B
+# grep查找文件中符合条件的字符串
+
+ps -ef|grep mysql #查看父进程消息
+
+pstree -pu #以目录树的结构查看父进程消息，-p：显示父id，-u：显示用户组
+
+kill -9 进程id 
+</code></pre>
+<h3 id="13linux安装java环境和发布应用">13.linux安装java环境和发布应用</h3>
+<ul>
+<li>下载JDKrpm包</li>
+<li>安装java环境</li>
+</ul>
+<pre><code class="language-shell">#检测当前系统是否存在java环境 &quot;java -version&quot;
+#如果存在则需要卸载linux自带的jdk
+rpm -qa|grep jdk #检测jdk版本信息
+rpm -e --nodeps [jdk名称] #卸载jdk，卸载完成后即可安装jdk
+rpm -ivh [rpm包名称] #安装JDKrpm包
+#完成上述步骤后配置环境变量
+vim /etc/profile #在配置文件中添加下面的内容
+JAVA_HOME=/usr/java/[具体名称]
+CLASSPATH=%JAVA_HOME%/lib;%JAVA_HOME%/jre/lib
+PATH=$JAVA_HOME/bin;$JAVA_HOME/jre/bin
+export PATH CLASSPATH JAVA_HOME
+#更新保存配置文件后，更新配置文件
+source /etc/profile
+</code></pre>
+<h3 id="14开启防火墙端口">14.开启防火墙端口</h3>
+<pre><code class="language-shell"># 开启防火墙端口
+firewall-cmd --zone=public --add-port=9000/tcp --permanent
+# 重启防火墙
+systemctl restart firewalld.service
+# 查看所有开启的端口
+firewall-cmd --list-ports
+
+# 查看firewall服务状态
+systemctl status firewalld
+
+# 开启、重启、关闭、firewalld.service服务
+# 开启
+service firewalld start
+# 重启
+service firewalld restart
+# 关闭
+service firewalld stop
+
+# 查看防火墙规则
+firewall-cmd --list-all # 查看全部信息
+firewall-cmd --list-ports # 只看端口信息
+
+# 开启端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent # 开启端口命令
+systemctl restart firewalld.service # 重启防火墙
+
+# 命令含义
+--zone # 作用域
+--add-port=80/tcp # 添加端口，格式为：端口/通讯协议
+--permanent # 永久生效，没有此参数重启失效
+</code></pre>
+<h3 id="16统计指定文件夹下某格式文件数量">16.统计指定文件夹下某格式文件数量</h3>
+<pre><code class="language-shell">#如在当前目录下统计pdf格式文件的数量
+find ./ -type f -iname '*.pdf' | wc -l
+</code></pre>
+<h3 id="17已知应用所用端口号查询服务进程号以及监听的端口号以及找到可执行文件路径">17.已知应用所用端口号查询服务进程号以及监听的端口号,以及找到可执行文件路径</h3>
+<pre><code class="language-sh">netstat -anp|grep -w LISTEN|grep 3306
+ls -l /proc/{进程id}/cwd (或者'cd /proc/{进程id}'后'ls -l cwd')
+# 或者使用以下命令快速查看当前进程的工作目录
+pwdx {进程id}
+</code></pre>
+<h3 id="18已知应用名称查询应用进程信息找到可执行文件路径">18.已知应用名称查询应用进程信息，找到可执行文件路径</h3>
+<pre><code class="language-sh">ps -aef|grep guns-vip-main
+cd /proc/{进程id}
+ls -l cwd
+# 或者使用以下命令快速查看当前进程的工作目录
+pwdx {进程id}
+</code></pre>
+<h3 id="19多种方式切换管理员身份">19.多种方式切换管理员身份</h3>
+<p><code>su</code>仅仅取得root权限，工作环境变不变，还是在切换之前用户的环境；<code>sudo</code>是完全取得root的权限和root的工作环境</p>
+<pre><code class="language-sh"># 环境用的是当前用户本身的环境
+sudo -s
+# 环境用的是目标用户(root)的环境
+sudo su
+# 以root身份登录,目录转换为root用户目录
+su - root (或su)
+# 与root建立一个链接，通过root执行命令,目录为原先用户目录
+su root
+</code></pre>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/tomcat-related-issues/" class="block">Tomcat相关问题汇总</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/idea-shortcut/" class="block">Idea快捷键汇总（Mac）</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1使用unzip命令批量递归解压缩文件">1.使用<code>unzip</code>命令批量递归解压缩文件</a></li>
+        <li><a href="#2hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据">2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据</a></li>
+        <li><a href="#3hybase批量导出数据trs格式数据文件">3.Hybase批量导出数据trs格式数据文件</a></li>
+        <li><a href="#4给文件或文件夹赋予权限">4.给文件或文件夹赋予权限</a></li>
+        <li><a href="#5基本开关机">5.基本开关机</a></li>
+        <li><a href="#6文件操作">6.文件操作</a></li>
+        <li><a href="#7文件权限">7.文件权限</a></li>
+        <li><a href="#8文件查看">8.文件查看</a></li>
+        <li><a href="#9创建连接">9.创建连接</a></li>
+        <li><a href="#10账号管理">10.账号管理</a></li>
+        <li><a href="#11硬盘挂载">11.硬盘挂载</a></li>
+        <li><a href="#12查看进程信息">12.查看进程信息</a></li>
+        <li><a href="#13linux安装java环境和发布应用">13.linux安装java环境和发布应用</a></li>
+        <li><a href="#14开启防火墙端口">14.开启防火墙端口</a></li>
+        <li><a href="#16统计指定文件夹下某格式文件数量">16.统计指定文件夹下某格式文件数量</a></li>
+        <li><a href="#17已知应用所用端口号查询服务进程号以及监听的端口号以及找到可执行文件路径">17.已知应用所用端口号查询服务进程号以及监听的端口号,以及找到可执行文件路径</a></li>
+        <li><a href="#18已知应用名称查询应用进程信息找到可执行文件路径">18.已知应用名称查询应用进程信息，找到可执行文件路径</a></li>
+        <li><a href="#19多种方式切换管理员身份">19.多种方式切换管理员身份</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

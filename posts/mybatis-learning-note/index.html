@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Mybatis学习札记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Mybatis学习札记",
+      "item":"/posts/mybatis-learning-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/mybatis-learning-note/"
+    },
+    "headline": "Mybatis学习札记 | Devon Chan","datePublished": "2022-10-16T22:21:23+08:00",
+    "dateModified": "2022-10-16T22:21:23+08:00",
+    "wordCount":  2130 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的"
+}
+</script><meta property="og:title" content="Mybatis学习札记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/mybatis-learning-note/" />
+
+
+
+
+<meta property="og:description" content="1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-16T22:21:23&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-16T22:21:23&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Mybatis学习札记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h3 id="1mybatis部分">1.MyBatis部分：</h3>
+<ul>
+<li>
+<p>mapper.xml文件通过<code>namespace</code>属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的<code>id</code>属性和mapper接口中的方法名称一一对应；查询标签中<code>resultType</code>属性用来设置结果类型，即查询的数据要转换为的java类型，<code>resultMap</code>自定义映射，处理多对多或一对多的映射关系</p>
+<blockquote>
+<p>mysql表清空和截断区别：<strong>清空</strong>表是将原来表中的内容全部删除，但是id不会重新开始编号；<strong>截断</strong>先删除原有的表，然后创建一模一样的表。</p>
+</blockquote>
+</li>
+<li>
+<p>使用<code>SqlSession</code>对象同时也可以实现不面向接口的数据库操作，例如以下的插入操作：</p>
+<pre><code class="language-java">int result = sqlSession.insert(&quot;com.example.demo.UserMapper.insertUser&quot;);
+</code></pre>
+</li>
+<li>
+<p>以下代码获取数据库连接</p>
+<pre><code class="language-java">//获取核心配置文件的输入流，配置文件命名推荐为&quot;mybatis-config.xml&quot;,无需严格执行
+InputStream is = Resources.getResourceAsStream.(&quot;mybatis-config.xml&quot;)
+//获取SqlSessionFactoryBuilder对象
+SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+//获取SqlSessionFactory对象
+SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
+//获取sql的会话对象SqlSession,是Mybatis提供的操作数据库的对象,openSession()方法添加true参数即可自动提交事务
+SqlSession sqlSession = sqlSessionFactory.openSession();
+//获取UserMapper的代理实现类对象(例)
+UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+//调用Mapper中的接口方法,实现添加用户的信息功能(例)
+int result = mapper.insertUser();
+//提交事务
+sqlSession.commit();
+//关闭数据库连接
+sqlSession.close();
+</code></pre>
+</li>
+<li>
+<p><code>log4j</code>日志的级别：FATAL(致命)&gt;WARN(警告)&gt;INFO(信息)&gt;DEBUG(调试)，级别从左至右越来越详细，在配置文件中配置的级别后显示该级别以及高于该级别的日志信息</p>
+</li>
+<li>
+<p>mybatis-config文件中可以指定多环境下不同的的数据库配置：</p>
+<p><code>default</code>属性：指定默认配置要采用的环境</p>
+<blockquote>
+<ul>
+<li>
+<p>引入<code>jdbc.properties</code>文件：<code>&lt;properties resource=&quot;jdbc.properties&quot; /&gt;</code>，添加完成后，即可在<code>mybatis-config</code>中使用<code>${}</code>来访问<code>properties</code>中的配置项</p>
+</li>
+<li>
+<p>设置<code>&lt;typeAlias&gt;&lt;/typeAlias&gt;</code>标签中的内容后（如果标签中的alias参数未指定，则默认将类名作为resultType，mapper文件中sql语句中的resultType就可以不区分大小写）</p>
+</li>
+<li>
+<p>如果在<code>&lt;typeAliases&gt;</code></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="2mybatis-plus部分">2.Mybatis-Plus部分：</h3>
+<ol>
+<li>
+<p><code>@TableID</code>注解：当实体类/数据库表的主键字段名称不为<code>id</code>（即实体类属性名称与数据库表的字段名称相同但不为id）时，需要在实体类主键属性上方添加该注解，将属性对应的字段设置为主键；当实体类中的主键属性名称与数据库表中的主键字段名称不一致且不为默认的<code>id</code>时，需要在注解内添加<code>value</code>属性标明该主键属性对应数据库表中的字段名称，例如<code>@TableID(value=&quot;uid&quot;)</code>或者<code>@TableID(&quot;uid&quot;)</code>；<code>type</code>属性用于指定该主键的添加方式，常用两种方式：<code>IdType.AUTO(自增)</code>和<code>IdType.ASSIGN_ID(默认，雪花算法)</code></p>
+<blockquote>
+<p>注：当<code>type = IdType.AUTO</code>属性开启时需同时设置数据库主键自增，否则无法生效</p>
+<ul>
+<li>无论是否设置主键生成策略(<code>type</code>)，当手动设置<code>id</code>值进行插入时则自动递增和雪花算法的主键插入策略自动失效</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>@TableName</code>注解：当实体类的类名与数据库表名不一致时，需要在实体类上方添加该注解绑定与之对应的数据库表，例如<code>TableName(&quot;t_user&quot;)</code></p>
+</li>
+<li>
+<p><code>@TableField</code>注解：使用该注解来解决实体类属性名与数据库表字段名称不一致的情况，例如<code>@TableField(&quot;user_name&quot;)</code>；数据库表字段以下划线方式命名时可以与实体类属性的驼峰命名相匹配(默认支持)</p>
+</li>
+<li>
+<p><code>@TableLogic</code>注解：当数据库表中有删除标志字段(默认值为0)时，则可以在实体类的删除标志属性上添加该字段来实现<strong>逻辑删除</strong>功能</p>
+</li>
+<li>
+<p><code>@Version</code>注解：该注解添加在实体类的乐观锁版本号属性上方用来标注乐观锁版本</p>
+</li>
+<li>
+<p><code>@EnumValue</code>注解：在枚举类中需要插入到数据库的属性上方添加该注解，在执行数据插入时会将枚举类的该属性值存储到数据库中；与此同时，需要在配置文件中添加<strong>扫描通用枚举</strong>的配置项，如下：</p>
+<pre><code class="language-yaml">type-enum-package: com.example.demo.enum
+</code></pre>
+</li>
+<li>
+<p>使用配置类来配置<code>MybatisPlus</code>分页插件和乐观锁插件</p>
+<pre><code class="language-java">//可以将mapper接口扫描的注解从启动类移到此处
+@MapperScan(&quot;com.example.demo&quot;)
+public class MybatisPlusConfig{
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        //添加分页插件
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        //添加乐观锁插件
+        interceptor.addInnerInterceptor(new OptimisticLockInnerInterceptor());
+        return interceptor;
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>全局配置数据库表前缀名称：需要在<code>application.yml</code>中配置以下内容:</p>
+<pre><code class="language-yaml">global-config:
+	db-config:
+		# 全局篇配置表名前缀
+		table-prefix: t_
+		# 全局主键生成策略
+		id-type: auto
+</code></pre>
+</li>
+<li>
+<p>使用<code>QueryWrapper</code>构造查询条件时，可以时用链式调用来同时设置多个条件，链式调用设置的各个条件默认以<code>AND</code>形拼接，若需要使用<code>OR</code>拼接查询条件，则可以在<code>AND</code>形式拼接和<code>OR</code>形式拼接的条件之间调用<code>OR()</code>方法</p>
+</li>
+<li>
+<p>使用<code>and()</code>或<code>or()</code>方法构造查询条件时如需设置条件的优先级，则可以将优先级较高的条件以<code>lambda</code>表达式的<code>Consumer</code>方式进行书写</p>
+</li>
+<li>
+<p>组装<code>select</code>子句</p>
+<pre><code class="language-java">queryWrapper.select(&quot;column1&quot;,&quot;column2&quot;,&quot;column3&quot;)
+</code></pre>
+</li>
+<li>
+<p>组装子查询</p>
+<pre><code class="language-java">queryWrapper.inSql(&quot;uid&quot;,&quot;select uid from user where uid &lt;= 100&quot;)
+</code></pre>
+</li>
+</ol>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/juc-coding-learning-note/" class="block">JUC学习札记</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/docker-image-deploy-steps/" class="block">Docker镜像简单部署（基于Kylin-Linux）</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1mybatis部分">1.MyBatis部分：</a></li>
+        <li><a href="#2mybatis-plus部分">2.Mybatis-Plus部分：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

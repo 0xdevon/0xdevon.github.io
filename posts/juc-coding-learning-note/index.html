@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>JUC学习札记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"JUC学习札记",
+      "item":"/posts/juc-coding-learning-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/juc-coding-learning-note/"
+    },
+    "headline": "JUC学习札记 | Devon Chan","datePublished": "2022-10-16T22:21:53+08:00",
+    "dateModified": "2022-10-16T22:21:53+08:00",
+    "wordCount":  1411 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T"
+}
+</script><meta property="og:title" content="JUC学习札记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/juc-coding-learning-note/" />
+
+
+
+
+<meta property="og:description" content="1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-16T22:21:53&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-16T22:21:53&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">JUC学习札记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h3 id="1理论部分">1.理论部分：</h3>
+<ul>
+<li>
+<p>线程和进程</p>
+<p>进程：系统进行资源分配和调度的基本单位</p>
+<p>线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）</p>
+</li>
+<li>
+<p>线程中的状态（<code>Thread.State</code>）</p>
+<p>NEW（创建）、 RUNNABLE（准备就绪）、 BLOCKED（阻塞）、 WAITING（不见不散）、 TIMED_WAITING（过期不候）、 TERMINATED（终结）</p>
+</li>
+<li>
+<p><code>sleep</code>和<code>wait</code>方法的区别</p>
+<p>1.<code>sleep</code>是<code>Thread</code>的静态方法；而<code>wait</code>是<code>Object</code>的方法，任何对象示例都可以调用</p>
+<p>2.<code>sleep</code>不会释放锁，因此也不许要占用锁，<code>wait</code>会释放锁，但调用的前提是当前线程占有锁，代码要在<code>synchronized</code>中</p>
+<p>3.它们都可以被<code>interrupted</code>方法中断</p>
+</li>
+<li>
+<p>并发和并行的区别</p>
+<p>并发：同一时间多个线程访问同一资源</p>
+<p>并行：多项一起执行，执行完毕后进行汇总</p>
+</li>
+<li>
+<p>用户线程和守护线程</p>
+<p>1.用户线程：主线程结束，用户线程还在运行，jvm存活</p>
+<p>2.守护线程：没有用户线程了，都是守护线程，jvm结束</p>
+</li>
+</ul>
+<h3 id="2应用实例">2.应用实例：</h3>
+<ul>
+<li>
+<p><strong>例1</strong>：卖票场景</p>
+<pre><code class="language-java">class Ticket{
+ 	//票数
+    private int number = 30;
+    //操作方法：卖票
+    public synchronized void sale(){
+        if(number &gt;= 0){
+            System.out.println(Thread.currentThread()
+                                     .getName+&quot;:卖出&quot;+(number--)+&quot;，剩下：&quot;+number);
+        }
+    }
+}
+public class SaleTicket{
+    //创建多个线程，调用资源类的操作方法
+    public static void main(String[] args){
+     	//创建Ticket对象
+    	Ticket ticket = new Ticket();
+    	//创建3个线程
+    	new Thread(new Runnable(){
+            @Override
+        	public void run(){
+           		//调用卖票方法
+                for(int i = 0; i &lt; 40; i++){
+                    ticket.sale();
+                }
+        	}
+    	},&quot;saler1&quot;).start();
+
+        new Thread(new Runnable(){
+            @Override
+        	public void run(){
+           		//调用卖票方法
+                for(int i = 0; i &lt; 40; i++){
+                    ticket.sale();
+                }
+        	}
+    	},&quot;saler2&quot;).start();
+
+        new Thread(new Runnable(){
+            @Override
+        	public void run(){
+           		//调用卖票方法
+                for(int i = 0; i &lt; 40; i++){
+                    ticket.sale();
+                }
+        	}
+    	},&quot;saler3&quot;).start();
+    }
+}
+</code></pre>
+<blockquote>
+<p>使用<code>synchronized</code>关键字修饰的方法能够自动实现加锁和解锁，如需手工进行加锁解锁操作，则可以使用<code>lock</code>接口（如果没有及时释放锁，可能导致出现死锁的现象）</p>
+</blockquote>
+</li>
+<li>
+<p><strong>例2</strong>：使用<code>lock</code>实现卖票场景</p>
+<pre><code class="language-java">class Ticket{
+ 	//票数
+    private int number = 30;
+    //创建可重入锁
+    private final ReentrantLock lock = new ReentrantLock();
+    //操作方法：卖票
+    public void sale(){
+        //上锁
+        lock.lock();
+        try{
+            //判断是否有票
+            if(number &gt;= 0){
+            System.out.println(Thread.currentThread()
+                                     .getName+&quot;:卖出&quot;+(number--)+&quot;，剩下：&quot;+number);
+        	}
+        }finally{
+            //解锁
+            lock.unlock();
+        }   
+    }
+}
+public class saleTicket{
+    public static void main(String[] args){
+        //创建Ticket对象
+    	Ticket ticket = new Ticket();
+        //创建3个线程,runnable为函数式接口,使用lambda表达式创建对象
+        new Thread(()-&gt;{
+            for(int i = 1; i&lt;40; i++){
+                ticket.sale();
+            }
+        },&quot;sale1&quot;).start();
+
+        new Thread(()-&gt;{
+            for(int i = 1; i&lt;40; i++){
+                ticket.sale();
+            }
+        },&quot;sale2&quot;).start();
+
+        new Thread(()-&gt;{
+            for(int i = 1; i&lt;40; i++){
+                ticket.sale();
+            }
+        },&quot;sale3&quot;).start();
+    }
+}
+</code></pre>
+</li>
+<li>
+<p><strong>例3</strong>：使用<code>synchronized</code>实现2个线程对同一变量进行数值加减</p>
+<blockquote>
+<p>在数值判断时使用<code>if</code>，会产生<strong>虚假唤醒</strong>的情况，因此使用<code>if</code>进行判断的位置需要用<code>while</code>进行替换，使其在唤醒和正常执行的情况下都必须进行数值判断，避免出现预期外的结果产生</p>
+</blockquote>
+<pre><code class="language-java">class Share{
+    //初始值
+    private int number = 0;
+
+    //数值增加方法
+    public synchronized void incr() throws InterruptedException{
+        //判断,如果number值不等于0时等待其值改变后做加法操作
+        if(number != 0){
+            this.wait();
+        }
+        //上方判断应替换为下面的形式
+        while(number != 0){
+            this.wait();
+        }
+        //如果number值等于0，则执行自增操作
+        number++;
+        System.out.println(Thread.currentThread().getName()+&quot;::&quot;+number);
+        //通知其他线程
+        this.notifyAll();
+    }
+
+    //数字减少方法
+    public synchronized void decr() throws InterruptedException{
+        //判断,如果number值不等于1时等待其值改变后做减法操作
+        if(number != 1){
+            this.wait();
+        }
+        //上方判断应替换为下面的形式
+        while(number != 0){
+            this.wait();
+        }
+        //如果number值等于1，则执行自减操作
+        number--;
+        System.out.println(Thread.currentThread().getName()+&quot;::&quot;+number);
+        //通知其他线程
+        this.notifyAll();
+    }
+}
+public class testThread{
+    //创建多个线程调用资源类的操作方法
+    Share share = new Share();
+    //创建两个线程
+    new Thread(()-&gt;{
+       	for(int i = 0; i &lt; 0; i++){
+            try{
+               share.incr();
+            }catch(InterruptedException e){
+               e.printStackTrace();
+            }
+        }
+    },&quot;AA&quot;).start();
+
+    new Thread(()-&gt;{
+       	for(int i = 0; i &lt; 0; i++){
+            try{
+               share.incr();
+            }catch(InterruptedException e){
+               e.printStackTrace();
+            }
+        }
+    },&quot;BB&quot;).start();
+}
+</code></pre>
+<pre><code>  							------ 持续更新中，敬请期待 ------</code></pre>
+</li>
+</ul>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/css-review-note/" class="block">CSS复习小记</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/mybatis-learning-note/" class="block">Mybatis学习札记</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1理论部分">1.理论部分：</a></li>
+        <li><a href="#2应用实例">2.应用实例：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

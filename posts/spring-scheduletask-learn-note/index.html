@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Spring定时任务学习札记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Spring定时任务学习札记",
+      "item":"/posts/spring-scheduletask-learn-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/spring-scheduletask-learn-note/"
+    },
+    "headline": "Spring定时任务学习札记 | Devon Chan","datePublished": "2022-10-15T19:24:57+08:00",
+    "dateModified": "2022-10-15T19:24:57+08:00",
+    "wordCount":  1756 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖"
+}
+</script><meta property="og:title" content="Spring定时任务学习札记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/spring-scheduletask-learn-note/" />
+
+
+
+
+<meta property="og:description" content="Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-15T19:24:57&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-15T19:24:57&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Spring定时任务学习札记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-15</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。</p>
+<p><strong>1. 添加Schedule依赖</strong></p>
+<pre><code class="language-xml">&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><strong>2. 在要执行定时任务的方法上新增定时器注解<code>@Scheduled</code></strong></p>
+<p><code>@Scheduled</code>注解中的cron属性表示任务触发时间的一种字符串表达式</p>
+<pre><code class="language-java">@Component
+public class ScheduledDemo{
+    @Scheduled(cron = &quot;0 0 0 * * ?&quot;)
+    public void scheduledMethod(){
+        Sysytem.out.println(&quot;这是一个定时任务&quot;);
+    }
+}
+</code></pre>
+<p><strong>3. 在启动类上新增开启定时任务的注解</strong></p>
+<pre><code class="language-java">@SpringBootApplication
+@EnableScheduling
+public class Application{
+    public void main(String[] args){
+        SpringBootAppication.run(Application.class,args);
+    }
+}
+</code></pre>
+<ul>
+<li><strong><code>cron</code>表达式详解</strong></li>
+</ul>
+<p>一个cron表达式有至少6个（也可能7个）有空格分隔的时间元素。</p>
+<p><strong>按顺序依次为</strong>：</p>
+<ol>
+<li>秒（0~59）</li>
+<li>分钟（0~59）</li>
+<li>小时（0~23）</li>
+<li>天（0~31）</li>
+<li>月（0~11）</li>
+<li>星期（1~7 1=SUN 或 SUN，MON，TUE，WED，THU，FRI，SAT）</li>
+<li>年份（1970－2099）</li>
+</ol>
+<p>其中每个元素可以是一个值(如6),一个连续区间(9-12),一个间隔时间(8-18/4)(/表示每隔4小时),一个列表(1,3,5),通配符。由于&quot;月份中的日期&quot;和&quot;星期中的日期&quot;这两个元素互斥的,必须要对其中一个设置&quot;?&quot;</p>
+<p><strong>下面举出一些实际例子</strong>:</p>
+<ul>
+<li><code>0 0 10,14,16 * * ?</code>:每天上午10点，下午2点，4点</li>
+<li><code>0 0/30 9-17 * * ?</code>:朝九晚五工作时间内每半小时</li>
+<li><code>0 0 12 ? * WED</code>:表示每个星期三中午12点</li>
+<li><code>0 0 12 * * ?</code>:每天中午12点触发</li>
+<li><code>0 15 10 ? * *</code>:每天上午10:15触发</li>
+<li><code>0 15 10 * * ?</code>:每天上午10:15触发</li>
+<li><code>0 15 10 * * ? *</code>:每天上午10:15触发</li>
+<li><code>0 15 10 * * ? 2005</code>:2005年的每天上午10:15触发</li>
+<li><code>0 * 14 * * ?</code>:在每天下午2点到下午2:59期间的每1分钟触发</li>
+<li><code>0 0/5 14 * * ?</code>:在每天下午2点到下午2:55期间的每5分钟触发</li>
+<li><code>0 0/5 14,18 * * ?</code>:在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发</li>
+<li><code>0 0-5 14 * * ?</code>:在每天下午2点到下午2:05期间的每1分钟触发</li>
+<li><code>0 10,44 14 ? 3 WED</code>:每年三月的星期三的下午2:10和2:44触发</li>
+<li><code>0 15 10 ? * MON-FRI</code>:周一至周五的上午10:15触发</li>
+<li><code>0 15 10 15 * ?</code>:每月15日上午10:15触发</li>
+<li><code>0 15 10 L * ?</code>:每月最后一日的上午10:15触发</li>
+<li><code>0 15 10 ? * 6L</code>:每月的最后一个星期五上午10:15触发</li>
+<li><code>0 15 10 ? * 6L 2002-2005</code>:2002年至2005年的每月的最后一个星期五上午10:15触发</li>
+<li><code>0 15 10 ? * 6#3</code>:每月的第三个星期五上午10:15触发</li>
+</ul>
+<p>有些子表达式能包含一些范围或列表
+例如：子表达式（天（星期））可以为 “MON-FRI”，“MON，WED，FRI”，“MON-WED,SAT”
+“”字符代表所有可能的值
+“/”字符用来指定数值的增量</p>
+<p><strong>例如</strong>：在子表达式（分钟）里的“0/15”表示从第0分钟开始，每15分钟
+在子表达式（分钟）里的“3/20”表示从第3分钟开始，每20分钟（它和“3，23，43”）的含义一样</p>
+<ul>
+<li><code>?</code>字符仅被用于天（月）和天（星期）两个子表达式，表示不指定值,当2个子表达式其中之一被指定了值以后，为了避免冲突，需要将另一个子表达式的值设为“?”</li>
+<li><code>L</code> 字符仅被用于天（月）和天（星期）两个子表达式，它是单词“last”的缩写,如果在“L”前有具体的内容，它就具有其他的含义了。例如：“6L”表示这个月的倒数第６天</li>
+</ul>
+<blockquote>
+<p>注意：在使用“L”参数时，不要指定列表或范围，因为这会导致问题</p>
+</blockquote>
+<ul>
+<li><code>W</code>字符代表着日(Mon-Fri)，并且仅能用于日域中。它用来指定离指定日的最近的一个日。大部分的商业处理都是基于工作周的，所以<code>W</code>字符可能是非常重要的。
+例如，日域中的 15W 意味着 &ldquo;离该月15号的最近一个日。假如15号是星期六，那么trigger会在14号(星期五)触发，因为星期四比星期一离15号更近。</li>
+<li><code>C</code>代表“Calendar”的意思。它的意思是计划所关联的日期，如果日期没有被关联，则相当于日历中所有日期。例如5C在日期字段中就相当于日历5日以后的第一天。1C在星期字段中相当于星期日后的第一天。</li>
+</ul>
+<p><strong>表达式个字段取值参考如下表所示</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>允许值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>秒</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>小时</td>
+<td>0-23</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>日期</td>
+<td>1-31</td>
+<td>, - * ? / L W C</td>
+</tr>
+<tr>
+<td>月份</td>
+<td>1-12或者JAN-DEC</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>星期</td>
+<td>1-7或者SUN-SAT</td>
+<td>, - * ? / L C #</td>
+</tr>
+<tr>
+<td>年（可选）</td>
+<td>留空，1970-2099</td>
+<td>, - * /</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/mysql-datainsert-badcharset-issue/" class="block">MySQL数据插入乱码问题解决</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/linuxshell-coding-learning-note/" class="block">LinuxShell编程学习札记</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devon Chan</title>
+    <link>/</link>
+    <description>Recent content on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 16 Oct 2022 22:52:05 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS复习小记</title>
+      <link>/posts/css-review-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
+      
+      <guid>/posts/css-review-note/</guid>
+      <description>虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样</description>
+    </item>
+    
+    <item>
+      <title>JUC学习札记</title>
+      <link>/posts/juc-coding-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
+      
+      <guid>/posts/juc-coding-learning-note/</guid>
+      <description>1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T</description>
+    </item>
+    
+    <item>
+      <title>Mybatis学习札记</title>
+      <link>/posts/mybatis-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
+      
+      <guid>/posts/mybatis-learning-note/</guid>
+      <description>1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的</description>
+    </item>
+    
+    <item>
+      <title>Docker镜像简单部署（基于Kylin-Linux）</title>
+      <link>/posts/docker-image-deploy-steps/</link>
+      <pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
+      
+      <guid>/posts/docker-image-deploy-steps/</guid>
+      <description>1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后</description>
+    </item>
+    
+    <item>
+      <title>Tomcat相关问题汇总</title>
+      <link>/posts/tomcat-related-issues/</link>
+      <pubDate>Sun, 16 Oct 2022 22:20:13 +0800</pubDate>
+      
+      <guid>/posts/tomcat-related-issues/</guid>
+      <description>1.Tomcat访问项目路径以外的资源 在javaweb项目中从页面预览（访问）静态资源是常见的场景，一般都是在项目下新建一个文件夹，将项目需要访问的静</description>
+    </item>
+    
+    <item>
+      <title>Linux命令学习札记</title>
+      <link>/posts/linux-cmd-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
+      
+      <guid>/posts/linux-cmd-learning-note/</guid>
+      <description>1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &amp;quot;^-&amp;quot;| wc -l 其中data_trs指代解压后的文</description>
+    </item>
+    
+    <item>
+      <title>Idea快捷键汇总（Mac）</title>
+      <link>/posts/idea-shortcut/</link>
+      <pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
+      
+      <guid>/posts/idea-shortcut/</guid>
+      <description>在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难： Alt+Insert: 添加父类或接口中的抽象方法 Alt配合鼠标拖拽同时编辑多行重复代码</description>
+    </item>
+    
+    <item>
+      <title>我的桌面备忘录分享「纯干货」</title>
+      <link>/posts/my-desktop-memo/</link>
+      <pubDate>Sun, 16 Oct 2022 21:44:49 +0800</pubDate>
+      
+      <guid>/posts/my-desktop-memo/</guid>
+      <description>1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名&amp;lt;SQL脚本绝对路径 2.使用cmd开启mysql服务 net start mysql 3.使用Navicat生成表结</description>
+    </item>
+    
+    <item>
+      <title>Vue学习札记</title>
+      <link>/posts/vue-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
+      
+      <guid>/posts/vue-learning-note/</guid>
+      <description>Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:</description>
+    </item>
+    
+    <item>
+      <title>关于为什么选择开通博客</title>
+      <link>/essays/reson-to-why-start-myblog/</link>
+      <pubDate>Sat, 15 Oct 2022 23:39:28 +0800</pubDate>
+      
+      <guid>/essays/reson-to-why-start-myblog/</guid>
+      <description>最开始写博客就是想着在一个随时自己可以访问的平台记录下自己的学习笔记，很多时候做过了事情你要是不总结，觉得会忘记。而且你做过以后这件事以后，再回头看你</description>
+    </item>
+    
+    <item>
+      <title>MySQL中datetime字段插入0值数据错误解决</title>
+      <link>/posts/mysql-datetimecolumn-0value-issue/</link>
+      <pubDate>Sat, 15 Oct 2022 19:58:44 +0800</pubDate>
+      
+      <guid>/posts/mysql-datetimecolumn-0value-issue/</guid>
+      <description>当使用Java在操作MySQL时，如果你的MySQL表中存在datetime类型的字段，相信你有可能会遇到这种情况，0值的datetime字段，显示在</description>
+    </item>
+    
+    <item>
+      <title>MySQL数据插入乱码问题解决</title>
+      <link>/posts/mysql-datainsert-badcharset-issue/</link>
+      <pubDate>Sat, 15 Oct 2022 19:52:26 +0800</pubDate>
+      
+      <guid>/posts/mysql-datainsert-badcharset-issue/</guid>
+      <description>今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制jdbc链接的方式解决了乱码问题，下面贴上链接： jdbc:mysql://localhost/test?user=monty&amp;amp;password=greatsqldb&amp;amp;useUnicode=true&amp;amp;characterEncoding=gb2312 希望能够帮到</description>
+    </item>
+    
+    <item>
+      <title>Spring定时任务学习札记</title>
+      <link>/posts/spring-scheduletask-learn-note/</link>
+      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+      
+      <guid>/posts/spring-scheduletask-learn-note/</guid>
+      <description>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖</description>
+    </item>
+    
+    <item>
+      <title>LinuxShell编程学习札记</title>
+      <link>/posts/linuxshell-coding-learning-note/</link>
+      <pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
+      
+      <guid>/posts/linuxshell-coding-learning-note/</guid>
+      <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
+    </item>
+    
+    <item>
+      <title>面试高频知识点分享-2021</title>
+      <link>/posts/interview-topic/</link>
+      <pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
+      
+      <guid>/posts/interview-topic/</guid>
+      <description>将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/docs/example-doc/chapter-1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/example-doc/chapter-1/</guid>
+      <description>&lt;p&gt;This is chapter 1 of example doc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/docs/example-doc/nested-chapter/chapter-1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/example-doc/nested-chapter/chapter-1/</guid>
+      <description>&lt;p&gt;This is chapter 1 of nested chapter.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>/docs/example-doc/chapter-2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/example-doc/chapter-2/</guid>
+      <description>&lt;p&gt;This is chapter 2 of example doc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>/docs/example-doc/nested-chapter/chapter-2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/example-doc/nested-chapter/chapter-2/</guid>
+      <description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

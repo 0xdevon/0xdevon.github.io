@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Vue学习札记 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Vue学习札记",
+      "item":"/posts/vue-learning-note/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/vue-learning-note/"
+    },
+    "headline": "Vue学习札记 | Devon Chan","datePublished": "2022-10-16T21:37:41+08:00",
+    "dateModified": "2022-10-16T21:37:41+08:00",
+    "wordCount":  6565 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:"
+}
+</script><meta property="og:title" content="Vue学习札记 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/vue-learning-note/" />
+
+
+
+
+<meta property="og:description" content="Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-10-16T21:37:41&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-10-16T21:37:41&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Vue学习札记</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-10-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>14 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h2 id="episode1初识vue">Episode1：初识vue</h2>
+<blockquote>
+<p>vue渐进式JavaScript框架</p>
+</blockquote>
+<blockquote>
+<p>渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能</p>
+</blockquote>
+<blockquote>
+<p>英文官网：https://vuejs.org/</p>
+</blockquote>
+<blockquote>
+<p>中文官网：https://cn.vuejs.org/</p>
+</blockquote>
+<ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>遵循MVVM模式</li>
+<li>编码简介，体积小，运行效率高，适合移动/PC端开发</li>
+<li>可轻松引入vue插件或第三方库开发项目</li>
+</ol>
+<ul>
+<li>与已有框架之间的关系：</li>
+</ul>
+<ol>
+<li>借鉴Angular.js的数据绑定技术和模板</li>
+<li>借鉴React.js的组件化和虚拟DOM技术</li>
+</ol>
+<ul>
+<li>vue扩展插件：</li>
+</ul>
+<ol>
+<li>vue-cli：vue脚手架</li>
+<li>vue-resource(axios)：ajax请求</li>
+<li>vue-router：路由</li>
+<li>vuex：状态管理</li>
+<li>vue-lazyload：图片懒加载</li>
+<li>vue-scroller：页面滑动相关</li>
+<li>mint-ui：基于vue的ui组件库（移动端）</li>
+<li>element-ui：基于vue的ui组件库（PC端）</li>
+</ol>
+<hr>
+<h2 id="episode2vue的基本使用">Episode2：vue的基本使用</h2>
+<p>hello，world！实例：</p>
+<p>直接上代码：</p>
+<pre><code class="language-html">&lt;head&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;--!&gt;
+      1.引入Vue.js    
+      2.创建Vue对象
+        el:指定根element（选择器）
+        data：初始化数据
+      3.双向数据绑定：v-model
+      4.显示数据：{{xxx}}
+      5.理解vue的MVVM实现
+    &lt;/--!&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;username&quot;&gt;
+        &lt;p&gt;Hello{{username}}&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      //创建vue实例
+      const vm = new Vue({ //配置对象
+          el：'#app',  //element:选择器
+          data:{  //数据（model）
+              username:'wuhuqifei'
+          }
+      })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<hr>
+<h2 id="episode3vue模板语法">Episode3：vue模板语法</h2>
+<ol>
+<li>模板的理解：
+动态的HTML页面，包含了一些js语法代码，双大括号表达式，指令（以v-开头的自定义标属性）</li>
+<li>双大括号表达式：
+语法：{{exp}}或{{{exp}}}
+功能：想页面输出数据，可以调用对象的方法</li>
+<li>指令一：强制数据绑定
+功能：指令变化的属性值
+完整写法：
+v-bind:xxx=&lsquo;yyy&rsquo; //yyy会作为表达式解析执行
+简洁写法：
+:xxx=&lsquo;yyy&rsquo;</li>
+<li>指令二：绑定事件监听
+功能绑定事件名的回调函数
+完整写法：
+v-on:click=&lsquo;xxx&rsquo;
+简洁写法：
+@click=&rsquo;'</li>
+</ol>
+<p>直接上代码：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode3_模板语法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--
+1.模板的理解：
+  动态的HTML页面，包含了一些js语法代码，双大括号表达式，指令（以v-开头的自定义标属性）
+2.双大括号表达式：
+  语法：{{exp}}或{{{exp}}}
+  功能：想页面输出数据，可以调用对象的方法
+3.指令一：强制数据绑定
+  功能：指令变化的属性值
+  完整写法：
+    v-bind:xxx='yyy' //yyy会作为表达式解析执行
+  简洁写法：
+    :xxx='yyy'
+4.指令二：绑定事件监听
+  功能绑定事件名的回调函数
+  完整写法：
+    v-on:click='xxx'
+  简洁写法：
+    @click=''
+--&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;h2&gt;1.双大括号表达式&lt;/h2&gt;
+        &lt;p&gt;{{msg}}&lt;/p&gt;  &lt;!--textContent--&gt;
+        &lt;p&gt;{{msg.toUpperCase()}}&lt;/p&gt;
+        &lt;p&gt;{{{msg}}}&lt;/p&gt;  //旧版本语法，现已不再使用
+        &lt;p&gt;{v-text=&quot;msg&quot;}&lt;/p&gt;  &lt;!--textContent--&gt;
+        &lt;p&gt;{v-html=&quot;msg&quot;}&lt;/p&gt;  &lt;!--innerHTML--&gt;
+        
+        &lt;h2&gt;2.指令一：强制数据绑定&lt;/h2&gt;
+        &lt;img v-bind:src=&quot;imgUrl&quot;&gt;&lt;/img&gt;  &lt;!--会被理解成文本，无法显示图片--&gt;
+        &lt;img v-bind:src=&quot;imgUrl&quot;&gt;&lt;/img&gt;
+        &lt;img :src=&quot;imgUrl&quot;&gt;&lt;/img&gt;
+        
+        &lt;h2&gt;3.指令二：绑定事件监听&lt;/h2&gt;
+        &lt;button v-on:click=&quot;test&quot;&gt;test1&lt;/button&gt;
+	    &lt;button @alick=&quot;test1(abc)&quot;&gt;test2&lt;/button&gt;
+        &lt;button @alick=&quot;test1(msg)&quot;&gt;test2&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    	new Vue({
+            el:&quot;#app&quot;,
+            data{
+            msg:'&lt;a href=&quot;http://www.baidu.com/&quot;&gt;度娘在这里&lt;/a&gt;'，
+            imgUrl:'https://cn.vuejs.org/images/logo.png'
+        	},
+            methods:{
+                test(){
+            		alert('hahahahahahaha')
+        		},
+                test1(content){
+            		alert(content)
+        		}
+             }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;   
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode4计算属性与监视">Episode4:计算属性与监视</h2>
+<ol>
+<li>
+<p>计算属性</p>
+<p>在computed属性对象中定义计算属性的方法</p>
+<p>在页面中使用{{方法名}}来显示计算的结果</p>
+</li>
+<li>
+<p>监视属性：</p>
+<p>通过vm对象的$watch()或watch()配置来监视指定的属性</p>
+<p>当属性变化是，回到函数自动调用，在函数内部进行计算</p>
+</li>
+<li>
+<p>计算属性高级：</p>
+<p>通过getter/setter实现对属性数据的显示和监视</p>
+<p>计算属性存在缓存，多次读取只执行一次getter计算</p>
+<p>​     getter：属性的get()方法，setter：sttter：属性的set()方法</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode3_模板语法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;demo&quot;&gt;
+        姓：&lt;input type=&quot;text&quot; placeholder=&quot;First Name&quot;&gt;&lt;br&gt;
+        名：&lt;input type=&quot;text&quot; placeholder=&quot;Last Name&quot;&gt;&lt;br&gt;
+        姓名1（单向）：&lt;input typw=&quot;text&quot; placeholder=&quot;Full Name1&quot; v-model=&quot;fullName1&quot;&gt;&lt;br&gt;&lt;!--通过计算属性实现--&gt;
+        姓名2（单向）：&lt;input type=&quot;text&quot; placeholder=&quot;Full Name2&quot; v-model=&quot;fullName2&quot;&gt;&lt;br&gt;&lt;!--通过监视实现--&gt;
+        姓名3（双向）：&lt;input type=&quot;text&quot; placeholder=&quot;Full Name3&quot; v-model=&quot;fullName3&quot;&gt;&lt;br&gt;&lt;!--通过计算属性实现双向更新数据--&gt;
+    &lt;/div&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    	&lt;script type=&quot;text/javascript&quot;&gt;new Vue({
+            el:'#demo',
+            data:{
+                firstName:'A',
+                lastName:'B',
+                fullName:'A B'
+            }，
+
+            computed:{
+            	//设么时候执行？初始化显示/相关的data属性数据发生改变时
+            	fullName1(){  //计算属性中的一个方法，方法的返回作为属性值
+            		console.log('fullName1')
+            		return this.firstName+' '+this.lastName
+        		}，
+
+        		fullName3：{
+                //回调函数的特点：1.你定义的 2.你没有调用 3.但最终它执行了
+                //注意：1.什么时候调用 2.用来做什么
+                //回调函数 当需要读取当前属性值时回调，根据相关的数据计算并返回当前属性的值
+                get(){
+                    return this.firstName+' '+this.lastName
+                },
+                //回调函数，当属性值发生改变时回调，更新相关的属性数据
+                set(value){  //value就是fullName3当前的值，set()方法作用为监视当前的属性值
+                    const names = vlaues.split(' ')
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                }
+            }	
+        	}，
+
+            watch：{  //配置监视
+                firstName:function(value){  //firstName发生了变化
+                    console.log(this)  //this就是vm对象
+                    this.fullName2 = value+' '+this.lastName
+                }
+            }
+
+        	vm.$watch('lastName',function(value){
+                //更新fullName2
+                this.fullName2 = this.firstName + ' ' +value
+            })
+
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="episode5class与style绑定">Episode5：class与style绑定</h2>
+<ol>
+<li>
+<p>理解</p>
+<p>在应用界面中，某个（些）元素的样式变化的</p>
+<p>class/style绑定就是专门用来实现动态样式效果的技术</p>
+</li>
+<li>
+<p>class绑定：：class=‘xxx’</p>
+<p>xxx是字符串，xxx是对象，xxx是数组</p>
+</li>
+<li>
+<p>style绑定</p>
+<p>：style=“{color：activeColor，fontSize：fontSize+‘px’}”</p>
+<p>其中activeColor/fontSize是data属性</p>
+</li>
+</ol>
+<p>下面是代码示例：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode5_class与style绑定&lt;/title&gt;
+    &lt;style&gt;
+        .aClass{
+            color:red;
+        }
+        .bClass{
+            color:blue;
+        }
+        .cClass{
+            font-size:30px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;demo&quot;&gt;
+        &lt;h2&gt;1.class绑定，：class = 'xxx'&lt;/h2&gt;
+        &lt;p class=&quot;cClass&quot;:class=&quot;a&quot;&gt;xxx是字符串，芜湖起飞&lt;/p&gt;
+        
+        &lt;p :class=&quot;{aClass:true,bClass:false}&quot;&gt;xxx是对象，芜湖起飞&lt;/p&gt;
+        &lt;p :class=&quot;{aClass:isA,bClass:isB}&quot;&gt;xxx是对象，芜湖起飞&lt;/p&gt;
+        
+        &lt;p :class=&quot;['aClass','cClass']&quot;&gt;xxx是数组，芜湖起飞&lt;/p&gt;
+        
+        &lt;h2&gt;2.style绑定&lt;/h2&gt;
+        &lt;p :style = &quot;{color：activeColor，fontSize：fontSize+'px'}&quot;&gt;&lt;/p&gt;
+        &lt;button @click=&quot;update&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    	&lt;script type=&quot;text/javascript&quot;&gt;new Vue({
+                el:'demo',
+                data{
+                  a:'aClass',
+                  isA:true,
+                  isB:false,
+                  activeColor:'red',
+                  fontSize:20
+            	},
+                methods{
+                  update() {
+                	this.a = 'bClass'
+                	this.isA = false
+                	this.isB = true
+                	this.activeColor = 'green'
+                	this.fontSize = 30
+            	  }                               
+                }
+            })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode6条件渲染">Episode6:条件渲染</h2>
+<ol>
+<li>条件渲染指令：v-if、v-else、v-show</li>
+<li>比较v-if与v-show：如果需要频繁切换，v-show较好，前者为彻底删除对象，后者只是display:none，对象依然在内存中</li>
+</ol>
+<p>以下为代码示例：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode6_条件渲染&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;demo&quot;&gt;
+      &lt;p v-if=&quot;ok&quot;&gt;成功了&lt;/p&gt;
+      &lt;p v-else&gt;失败了&lt;/p&gt; 
+      
+      &lt;p v-show=&quot;ok&quot;&gt;表白成功&lt;/p&gt;
+      &lt;p v-show=&quot;!ok&quot;&gt;表白失败&lt;/p&gt;
+      &lt;button @click=&quot;ok=!ok&quot;&gt;切换&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+      new Vue({
+      	el:'#demo',
+        data:{
+            ok = false,
+        }
+      })
+  &lt;/script&gt;  
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode7列表渲染">Episode7：列表渲染</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode7_列表渲染&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!--
+	1.列表显示
+		数组：v-for/index
+		对象：v-for/key
+	2.列表的更新显示
+		删除item
+		替换item
+	--&gt;
+    &lt;div id=&quot;demo&quot;&gt;
+        &lt;h2&gt;测试v-for遍历数组&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li v-for=&quot;(p,index) in persons&quot; :key=&quot;index&quot;&gt;
+            	{{index}---{p.name}---{p.age}}
+                ---&lt;button @click=&quot;deleteP(index)&quot;&gt;删除&lt;/button&gt; 
+                ---&lt;button @click=&quot;updateP(index,{name:'Cat',age:20})&quot;&gt;更新&lt;/button&gt; 
+            &lt;/li&gt;
+        &lt;/ul&gt;   
+       &lt;h2&gt;测试v-for遍历对象&lt;/h2&gt;
+        &lt;ur&gt;
+        	&lt;li v-for=&quot;(value,key) in persons[1]&quot; :key=&quot;key&quot;&gt;
+            	{{value}}-{{key}}
+            &lt;/li&gt;
+        &lt;/ur&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    	new Vue({
+            el:'#demo',
+            data:{
+                persons[
+                {name:'Tom',age:18},
+            	{name:'Jack',age:16},
+                {name:'Bob',age:17},
+                {name:'Rose',age:15}
+                ]
+            }
+            methods:{
+                deleteP(index){
+                    //删除persons中指定index的p
+                    this.persons.splice(index,1)
+                }，
+                updateP(index,newP){
+                    //并没有改变person本身，数组内部发生了变化，但并没有调用变异方法，vue不会更新界面
+                    //this.persons[index] = newP
+                    this.persons.splice(index,i,newP)
+                    //this.persons = []
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode8列表的搜索和排序">Episode8：列表的搜索和排序</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode8_列表的搜索和排序&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+&lt;!--
+1.列表过滤
+2.列表排序
+--&gt;
+    &lt;div id=&quot;test&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;searchName&quot;&gt;
+        &lt;ul&gt;
+            &lt;li v-for=&quot;(p,index) in filterPersons&quot; :key=&quot;index&quot;&gt;
+            	{{index}}---{{p.name}}---{{p.age}}
+            &lt;/li&gt;
+            &lt;button @click=&quot;setOrderType(1)&quot;&gt;年龄升序&lt;/button&gt;
+            &lt;button @click=&quot;setOrderType(2)&quot;&gt;年龄降序&lt;/button&gt;
+            &lt;button @click=&quot;setOrderType(0)&quot;&gt;原本顺序&lt;/button&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    	new Vue({
+            el:'#test',
+            data:{
+                searchName:'',
+                orderName:0,	//0代表原顺序，1代表升序，2代表降序
+                persons[
+                	{name:'Tom',age:18},
+            		{name:'Jack',age:16},
+                	{name:'Bob',age:17},
+                	{name:'Rose',age:15}
+                ]
+            },
+            computed:{
+                filterPersons(){
+                    //取出相关的数据
+                    const {searchName，persons} = this
+                    //最终要显示的数组
+                    let fPersons;
+                    //对persons进行过滤
+                    fPersons.fiter(p =&gt; p.name,indexOf()searchName)!==-1)
+                    
+                    //排序
+                    if(orderType!==0){
+                        fPersons.sort(function(p1,p2){	//如果返回负数，p1在前，返回正数，p2在前
+                            //1代表升序，2代表降序
+                            if(orderType===2){
+                                return p2.age-p1.age
+                            }else{
+                                return p1.age-p2.age
+                            }
+                        })
+                    }
+                    return fPersons
+                }
+            },
+            
+            methods:{
+                setOrderType(orderType){
+                    this.orderType = orderType
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode9事件处理">Episode9：事件处理</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode9_事件处理&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+    &lt;div id=&quot;example&quot;&gt;
+        &lt;h2&gt;1.绑定监听&lt;/h2&gt;
+        	&lt;button @click=&quot;test1()&quot;&gt;test1&lt;/button&gt;
+            &lt;button @click=&quot;test2(Oooops)&quot;&gt;test1&lt;/button&gt;  
+            &lt;button @click=&quot;test3($event)&quot;&gt;test1&lt;/button&gt;&lt;!--event会默认被传，写与不写等效--&gt;
+        	&lt;button @click=&quot;test4(123,$event)&quot;&gt;test1&lt;/button&gt;
+        
+        &lt;h2&gt;2.事件修饰符&lt;/h2&gt;
+        &lt;!--阻止冒泡事件的发生--&gt;
+        	&lt;div style=&quot;width:200px; height:200px; background:red;&quot; @click=&quot;test5&quot;&gt;
+                &lt;div style=&quot;width:100px; height:100px; background:blue;&quot; @click.stop=&quot;test6&quot;&gt;&lt;/div&gt;
+        	&lt;/div&gt;
+        &lt;!--阻止默认行为
+			@click.prevent
+		--&gt;
+        	&lt;a href=&quot;https://www.baidu.com/&quot; @click.prevent=&quot;test7&quot;&gt;去百度&lt;/a&gt;
+        
+        &lt;h2&gt;3.按键修饰符&lt;/h2&gt;
+        &lt;!--像@keyup.13、@keyup.13这样可以指定在某个按键按下的时候触发对应的方法（keycode和按键名皆可，仅有少数按键有按键名）--&gt;
+        	&lt;input type=&quot;text&quot; @keyup.13=&quot;test8&quot;&gt;
+        	&lt;input type=&quot;text&quot; @keyup.enter=&quot;test8&quot;&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        new Vue({
+            el:'#example',
+            data:{
+                test1(){
+                    alert('test1')
+                },
+                test2(msg){
+                    alert(msg)
+                },
+                test3(event){
+                    alert(event.target.innerHTML)
+                },
+                test5(){
+                    slert('out')
+                },
+                test6(){
+                    //event.stopPropagation()
+                    alert('inner')
+                },
+                test7(){
+                    //event.preventDefault()
+                    alert('点击了')
+                },
+                test8(event){
+                    alert(event.target.value)
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode10表单数据的自动收集">Episode10：表单数据的自动收集</h2>
+<p>使用v-model（双向数据绑定）自动收集数据</p>
+<p>text/textarea</p>
+<p>checkbox</p>
+<p>radio</p>
+<p>select</p>
+<p>下面直接附上示例代码：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode10_表单数据的自动收集&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+    &lt;div id=&quot;demo&quot;&gt;
+        &lt;form action=&quot;/xxx&quot;&gt;
+            &lt;span&gt;用户名：&lt;/span&gt;
+            &lt;input type=&quot;text&quot; v-model=&quot;username&quot;&gt;&lt;/br&gt;
+        	
+        	&lt;span&gt;密码：&lt;/span&gt;
+        	&lt;inuput type=&quot;password&quot; v-model=&quot;password&quot;&gt;&lt;/br&gt;
+            
+            &lt;span&gt;性别：&lt;/span&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;female&quot; vlaue=&quot;女&quot; v-model=&quot;sex&quot;&gt;
+            &lt;label for=&quot;female&quot;&gt;女&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;male&quot; value=&quot;男&quot; v-model=&quot;sex&quot;&gt;
+            &lt;label for=&quot;male&quot;&gt;男&lt;/label&gt;
+                
+            &lt;span&gt;爱好：&lt;/span&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;basket&quot; v-model=&quot;likes&quot;&gt;
+            &lt;label for=&quot;basket&quot;&gt;篮球&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;socker&quot; v-model=&quot;likes&quot;&gt;
+            &lt;label for=&quot;socker&quot;&gt;足球&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;pingpang&quot; v-model=&quot;likes&quot;&gt;
+            &lt;label for=&quot;pingpang&quot;&gt;乒乓球&lt;/label&gt;&lt;br&gt;
+        
+        	&lt;span&gt;城市：&lt;/span&gt;
+        		&lt;select v-model=&quot;cityId&quot;&gt;
+                    &lt;option value=&quot;&quot;&gt;未选择&lt;/option&gt;
+                    &lt;option :vlaue=&quot;city.id&quot; v-for=&quot;(city,index) in allCitys&quot;&gt;{{city.name}}&lt;/option&gt;
+                &lt;/select&gt;&lt;br&gt;
+        	&lt;span&gt;介绍：&lt;/span&gt;
+        	   &lt;textarea rows=&quot;10&quot; v-model=&quot;desc&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+        
+        	&lt;input type=&quot;submit&quot; value=&quot;注册&quot; @click.prevent=&quot;handleSubmit&quot;&gt;&lt;!--@click.prevent阻止提交按钮的默认提交行为--&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        new Vue({
+            data:{
+               el:'#demo',
+               username:'',
+                password:'',
+                sex:'男',	//默认选中性别为男
+                likes:['socker'],	//默认选中爱好为足球
+                allCitys:[{id:1,name:'BJ'},{id:2,name:'SH'},{id:3,name:'GD'}],
+                cityId:'3',
+                desc:''
+            },
+            methods:{
+                handleSubmit(){
+                    console.log(this.username,this.password,this.sex,this.likes,this.cityId,this.desc)
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode11生命周期钩子函数">Episode11:生命周期（钩子函数）</h2>
+<p>一、vue对象的生命周期的3个阶段：</p>
+<ol>
+<li>
+<p>初始化显示</p>
+<ul>
+<li>
+<p>beforeCreate（）</p>
+</li>
+<li>
+<p>created（）</p>
+</li>
+<li>
+<p>beforeMount（）</p>
+</li>
+<li>
+<p>mounted（）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>更新显示：this.xxx = value</p>
+<ul>
+<li>
+<p>beforeUpdate（）</p>
+</li>
+<li>
+<p>updated（）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>销毁vue实例：vm.$destroy（）</p>
+<ul>
+<li>
+<p>beforeDestroy（）</p>
+</li>
+<li>
+<p>destroyed（）</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>二、常用的生命周期函数：</p>
+<p>created（）/mounted（）：发送ajax请求，如：启动定时器异步任务</p>
+<p>beforeDestroy（）：做收尾工作，如：清除定时器</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode11_生命周期&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+	&lt;div id=&quot;test&quot;&gt;
+        &lt;button @click=&quot;destroyVM&quot;&gt;destroy&lt;/button&gt;
+        &lt;p v-show=&quot;isShow&quot;&gt;锋哥最棒~&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    	new Vue({
+            el:'#test',
+            data：{
+            isShow:true
+        	},
+            
+            //1.初始阶段
+            beforeCreate(){
+           		console.log('beforeCreate()')     
+            },
+        
+        	created(){
+                console.log('created()')
+            },
+ 			
+            beforeMount(){
+                console.log('beforeMount()')
+            },
+        
+            mounted(){	//初始化显示后立即调用1次
+                this.intervalId = setInterval(()=&gt;{
+            		console.log('---------')
+              		this.isShow = !this.isShow	//更新数据
+          		},1000)
+            }，
+            
+            //2.更新阶段
+            beforeUpdate(){
+            	console.log('beforeUpdate()')  
+            },
+                
+            updated(){
+                console.log('updated()')
+            },
+            
+            //3.死亡阶段
+            beforeDestroy(){	//死亡之前调用1次
+                console.log('beforeDestroy')
+                //消除定时器
+                clearInterval(this.intervalId)
+            },
+            
+            destroyed(){
+                conole.log('destroyed')
+            },
+                
+            methods：{
+                destroyVM(){
+                    //干掉VM
+                    this.$destroy()
+                }
+            }
+            
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="episode12vue过滤器">Episode12:Vue过滤器</h2>
+<p>下面示例代码通过过滤器实现将输入的字符串转化为特定格式的日期时间：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt; 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;episode11_生命周期&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+	&lt;div id=&quot;test&quot;&gt;
+        &lt;h2&gt;显示格式化日期时间&lt;/h2&gt;
+        &lt;p&gt;{{date}}&lt;/p&gt;
+        &lt;p&gt;完整版：{{date | dataString}}&lt;/p&gt; 
+        &lt;p&gt;年月日：{{date | dataString('YYYY-MM-DD')}}&lt;/p&gt;
+        &lt;p&gt;时分秒：{{date | dataString('HH:mm:ss')}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../**/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bootcss.com/moment.js/2.21.0/moment.js&quot;&gt;	&lt;/script&gt;
+        //引入moment.js库cdn    
+        
+    &lt;/script&gt;
+    	//自定义过滤
+    	Vue.filter('dateString',function(value,format){
+    		return moment(value).format(format || 'YYYY-MM-DD HH:mm:ss')
+    	})
+    
+    	new Vue({
+    		el:'#test',
+    		data:new Date()
+   		})
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="epidode13vue中ajax请求">Epidode13：Vue中Ajax请求</h2>
+<p>vue项目中常用2个Ajax库</p>
+<ol>
+<li>
+<p><strong>vue-resource</strong></p>
+<p>vue插件，非官方库，在<strong>vue 1.x</strong>中使用广泛</p>
+</li>
+<li>
+<p><strong>axios</strong></p>
+<p>通用的ajax请求库，官方推荐，在<strong>vue 2.x</strong>中使用广泛</p>
+</li>
+</ol>
+<p>以下附上示例代码展示两种库的使用方法（在<strong>App.vue</strong>中）：</p>
+<pre><code class="language-html">&lt;!--BELOW is App.vue--&gt;
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;div v-if=&quot;!repoUrl&quot;&gt;loading...&lt;/div&gt;    
+        &lt;div v-else&gt;The most star repo is&lt;a :href=&quot;repoUrl&quot;&gt;{{repoName}}&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    
+    import axios from 'axios'
+    export default{
+        data(){
+            return{
+                repoUrl:'',
+                repoName:''
+            }
+        },
+        
+        mounted(){
+            //在初始化时请求数据
+            const url = `https://api.github.com/search/repositories?q=v&amp;sort=stars`
+            this.$http.get(url).then(
+            	response =&gt;{
+                    //成功得到数据
+                    const result = response.data
+                    //得到最受欢迎的repo
+                    const mostRepo = result.items[0]
+                    this.repoUrl = mostRepo.html_url
+                    this.repoName = mostRepo.name
+                },
+                response =&gt;{
+                   alert('vue-resource请求失败') 
+                }
+            )
+            
+            //使用axios发送ajax请求
+            axios.get(url).then(response =&gt;{
+                    //成功得到数据
+                    const result = response.data
+                    //得到最受欢迎的repo
+                    const mostRepo = result.items[0]
+                    this.repoUrl = mostRepo.html_url
+                    this.repoName = mostRepo.name
+                }).catch(error =&gt;{
+                	alert('axios请求失败') 
+            	})
+            
+        }
+    }
+&lt;/script&gt;
+
+&lt;style&gt;
+&lt;/style&gt;
+
+</code></pre>
+<p>以下是对应的main.js:</p>
+<pre><code class="language-js">import Vue from 'vue'
+import App from './App.vue'
+import VueResource from 'vue-resource'
+
+//声明使用插件
+Vue.use(VueResource)//内部会给vm对象和组件对象添加一个属性：$http
+
+new Vue({
+    el:'#app',	//index.html中div对应的id
+    components:{App},
+    template:'&lt;App/&gt;'
+})
+</code></pre>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="/posts/my-desktop-memo/" class="block">我的桌面备忘录分享「纯干货」</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/mysql-datetimecolumn-0value-issue/" class="block">MySQL中datetime字段插入0值数据错误解决</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#episode1初识vue">Episode1：初识vue</a></li>
+    <li><a href="#episode2vue的基本使用">Episode2：vue的基本使用</a></li>
+    <li><a href="#episode3vue模板语法">Episode3：vue模板语法</a></li>
+    <li><a href="#episode4计算属性与监视">Episode4:计算属性与监视</a></li>
+    <li><a href="#episode5class与style绑定">Episode5：class与style绑定</a></li>
+    <li><a href="#episode6条件渲染">Episode6:条件渲染</a></li>
+    <li><a href="#episode7列表渲染">Episode7：列表渲染</a></li>
+    <li><a href="#episode8列表的搜索和排序">Episode8：列表的搜索和排序</a></li>
+    <li><a href="#episode9事件处理">Episode9：事件处理</a></li>
+    <li><a href="#episode10表单数据的自动收集">Episode10：表单数据的自动收集</a></li>
+    <li><a href="#episode11生命周期钩子函数">Episode11:生命周期（钩子函数）</a></li>
+    <li><a href="#episode12vue过滤器">Episode12:Vue过滤器</a></li>
+    <li><a href="#epidode13vue中ajax请求">Epidode13：Vue中Ajax请求</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>
