@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Devon Chan</title>
+    <link>/tags/mysql/</link>
+    <description>Recent content in MySQL on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 15 Oct 2022 19:58:44 +0800</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL中datetime字段插入0值数据错误解决</title>
+      <link>/posts/mysql-datetimecolumn-0value-issue/</link>
+      <pubDate>Sat, 15 Oct 2022 19:58:44 +0800</pubDate>
+      
+      <guid>/posts/mysql-datetimecolumn-0value-issue/</guid>
+      <description>当使用Java在操作MySQL时，如果你的MySQL表中存在datetime类型的字段，相信你有可能会遇到这种情况，0值的datetime字段，显示在</description>
+    </item>
+    
+    <item>
+      <title>MySQL数据插入乱码问题解决</title>
+      <link>/posts/mysql-datainsert-badcharset-issue/</link>
+      <pubDate>Sat, 15 Oct 2022 19:52:26 +0800</pubDate>
+      
+      <guid>/posts/mysql-datainsert-badcharset-issue/</guid>
+      <description>今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制jdbc链接的方式解决了乱码问题，下面贴上链接： jdbc:mysql://localhost/test?user=monty&amp;amp;password=greatsqldb&amp;amp;useUnicode=true&amp;amp;characterEncoding=gb2312 希望能够帮到</description>
+    </item>
+    
+  </channel>
+</rss>

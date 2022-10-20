@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学习札记 on Devon Chan</title>
+    <link>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</link>
+    <description>Recent content in 学习札记 on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Thu, 20 Oct 2022 22:46:27 +0800</lastBuildDate><atom:link href="/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux中sudo系列命令的区别</title>
+      <link>/posts/linux-sudo-cli-note/</link>
+      <pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
+      
+      <guid>/posts/linux-sudo-cli-note/</guid>
+      <description>前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式</description>
+    </item>
+    
+    <item>
+      <title>CSS复习小记</title>
+      <link>/posts/css-review-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
+      
+      <guid>/posts/css-review-note/</guid>
+      <description>虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样</description>
+    </item>
+    
+    <item>
+      <title>JUC学习札记</title>
+      <link>/posts/juc-coding-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
+      
+      <guid>/posts/juc-coding-learning-note/</guid>
+      <description>1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T</description>
+    </item>
+    
+    <item>
+      <title>Mybatis学习札记</title>
+      <link>/posts/mybatis-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
+      
+      <guid>/posts/mybatis-learning-note/</guid>
+      <description>1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的</description>
+    </item>
+    
+    <item>
+      <title>Linux命令学习札记</title>
+      <link>/posts/linux-cmd-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
+      
+      <guid>/posts/linux-cmd-learning-note/</guid>
+      <description>1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &amp;quot;^-&amp;quot;| wc -l 其中data_trs指代解压后的文</description>
+    </item>
+    
+    <item>
+      <title>Vue学习札记</title>
+      <link>/posts/vue-learning-note/</link>
+      <pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
+      
+      <guid>/posts/vue-learning-note/</guid>
+      <description>Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:</description>
+    </item>
+    
+    <item>
+      <title>Spring定时任务学习札记</title>
+      <link>/posts/spring-scheduletask-learn-note/</link>
+      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+      
+      <guid>/posts/spring-scheduletask-learn-note/</guid>
+      <description>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖</description>
+    </item>
+    
+    <item>
+      <title>LinuxShell编程学习札记</title>
+      <link>/posts/linuxshell-coding-learning-note/</link>
+      <pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
+      
+      <guid>/posts/linuxshell-coding-learning-note/</guid>
+      <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
+    </item>
+    
+  </channel>
+</rss>

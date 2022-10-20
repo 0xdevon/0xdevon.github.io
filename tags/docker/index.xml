@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Devon Chan</title>
+    <link>/tags/docker/</link>
+    <description>Recent content in Docker on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 16 Oct 2022 22:20:45 +0800</lastBuildDate><atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker镜像简单部署（基于Kylin-Linux）</title>
+      <link>/posts/docker-image-deploy-steps/</link>
+      <pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
+      
+      <guid>/posts/docker-image-deploy-steps/</guid>
+      <description>1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后</description>
+    </item>
+    
+  </channel>
+</rss>

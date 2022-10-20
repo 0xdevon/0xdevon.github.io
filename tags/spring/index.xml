@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on Devon Chan</title>
+    <link>/tags/spring/</link>
+    <description>Recent content in Spring on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 15 Oct 2022 19:24:57 +0800</lastBuildDate><atom:link href="/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring定时任务学习札记</title>
+      <link>/posts/spring-scheduletask-learn-note/</link>
+      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+      
+      <guid>/posts/spring-scheduletask-learn-note/</guid>
+      <description>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖</description>
+    </item>
+    
+  </channel>
+</rss>

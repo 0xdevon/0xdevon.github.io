@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on Devon Chan</title>
+    <link>/tags/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 面试 on Devon Chan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Jul 2021 21:42:51 +0800</lastBuildDate><atom:link href="/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试高频知识点分享-2021</title>
+      <link>/posts/interview-topic/</link>
+      <pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
+      
+      <guid>/posts/interview-topic/</guid>
+      <description>将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处</description>
+    </item>
+    
+  </channel>
+</rss>
