@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>文章 | Devon Chan</title>
+<title>模拟微信红包随机金额生成 | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
@@ -75,51 +75,59 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Eureka is a elegant and powerful theme for Hugo.">
-
+  content="如题，初步思路如下： 方法形参：总金额total，红包数piece 逻辑：产生红包数-1组随机数，最后一个红包的金额又剩余的金额填充 确定逻辑完成，下面是完">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"模拟微信红包随机金额生成",
+      "item":"/posts/coding-practice/"}]
+}
+</script>
 
 
 
 <script type="application/ld+json">
 {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[{
-            "@type":"ListItem",
-            "position":  1 ,
-            "name": "Docker镜像简单部署（基于Kylin-Linux）",
-            "description": "1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后",
-            "url": "/posts/docker-image-deploy-steps/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "Tomcat相关问题汇总",
-            "description": "1.Tomcat访问项目路径以外的资源 在javaweb项目中从页面预览（访问）静态资源是常见的场景，一般都是在项目下新建一个文件夹，将项目需要访问的静",
-            "url": "/posts/tomcat-related-issues/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Linux命令学习札记",
-            "description": "1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c \u0026quot;unzip {} -d data_trs\u0026quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep \u0026quot;^-\u0026quot;| wc -l 其中data_trs指代解压后的文",
-            "url": "/posts/linux-cmd-learning-note/"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/coding-practice/"
+    },
+    "headline": "模拟微信红包随机金额生成 | Devon Chan","datePublished": "2022-11-10T12:23:23+08:00",
+    "dateModified": "2022-11-10T12:23:23+08:00",
+    "wordCount":  667 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
         }
-    ]
+        },
+    "description": "如题，初步思路如下： 方法形参：总金额total，红包数piece 逻辑：产生红包数-1组随机数，最后一个红包的金额又剩余的金额填充 确定逻辑完成，下面是完"
 }
-</script><meta property="og:title" content="文章 | Devon Chan" />
-<meta property="og:type" content="website" />
+</script><meta property="og:title" content="模拟微信红包随机金额生成 | Devon Chan" />
+<meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/" />
+<meta property="og:url" content="/posts/coding-practice/" />
 
 
 
 
-
-<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
-
+<meta property="og:description" content="如题，初步思路如下： 方法形参：总金额total，红包数piece 逻辑：产生红包数-1组随机数，最后一个红包的金额又剩余的金额填充 确定逻辑完成，下面是完" />
 
 
 
@@ -136,14 +144,23 @@
 
 
 
-<meta property="og:updated_time" content="2022-11-10T12:23:23&#43;08:00" />
+<meta property="article:published_time" content="2022-11-10T12:23:23&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-11-10T12:23:23&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="Devon Chan" />
+<meta property="article:tag" content="练习" />
+
+<meta property="article:tag" content="编程" />
+
+
+
+
 
 
   <body class="flex min-h-screen flex-col">
@@ -218,75 +235,22 @@
     <main class="grow pt-16">
         <div class="pl-scrollbar">
           <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
-  <article class="prose mx-6 my-8">
-  <h1>文章</h1>
   
-</article>
-
-  <div class="bg-secondary-bg rounded px-6">
-    <div class="overflow-hidden divide-y">
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/docker-image-deploy-steps/" class="no-underline">
-    <h3 class="mt-0">Docker镜像简单部署（基于Kylin-Linux）</h3>
-  </a>
-  
-    1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后
-  
-
-  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-10-16</span
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
-  </div>
+      <article class="prose">
+  <h1 class="mb-4">模拟微信红包随机金额生成</h1>
 
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/tomcat-related-issues/" class="no-underline">
-    <h3 class="mt-0">Tomcat相关问题汇总</h3>
-  </a>
-  
-    1.Tomcat访问项目路径以外的资源 在javaweb项目中从页面预览（访问）静态资源是常见的场景，一般都是在项目下新建一个文件夹，将项目需要访问的静
-  
-
-  
-    <div
+  <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
 >
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-10-16</span
+      >2022-11-10</span
     >
   </div>
   <div class="me-6 my-2">
@@ -299,90 +263,93 @@
   
 </div>
 
+
   
+  
+
+  <p>如题，初步思路如下：</p>
+<p><strong>方法形参</strong>：总金额<code>total</code>，红包数<code>piece</code></p>
+<p><strong>逻辑</strong>：产生<code>红包数-1</code>组随机数，最后一个红包的金额又剩余的金额填充</p>
+<p>确定逻辑完成，下面是完整的编码实现：</p>
+<pre><code class="language-java">public void randomDivide(int total, int piece){
+    //初始化产生的piece-1份随机数的总和
+    double cost = 0;
+    //初始化存放结果的数组，初始化空间大小与红包数量相等
+    double[] result = new double[piece];
+
+    for (int i = 0; i &lt; piece-1; i++) {
+    /** Math.random()默认产生(0,1)范围的随机数
+      * &quot;Math.random()*total/piece&quot;这部分可以根据产生数据的实际情况进调整，可以使随机数之间的差值不过分夸张
+      * 这里使用String.format(String ,Object)对生成的double类型随机数限制需要的精度，返回值为String
+      * 限制double精度完成后,再使用double的包装类Double的parseDouble()方法将限制精度后的随机数字符串转换为double类型并赋值给第i个元素
+    **/
+        result[i] = Double.parseDouble(String.format(&quot;%.2f&quot;,Math.random()*total/piece));
+        cost += result[i];
+    }
+    //将产生piece-1个随机数结束后的余数赋给数组最后一个元素
+    result[piece-1] = Double.parseDouble(String.format(&quot;%.2f&quot;,total - cost));
+    //打印结果
+    for (int i = 0; i &lt; piece; i++) {
+        System.out.printf(&quot;第%d个随机数值为%.2f\t&quot;, i+1, result[i]);
+    }
+}
+</code></pre>
+<ul>
+<li>总结一下：上述的方法的确初步地实现了随机数额的生成，但是随着<code>total</code>和<code>piece</code>参数的变化可能存在数组最后一个元素的数值大小尤为突出的情况，需要手动调整前<code>piece-1</code>个随机数的生成逻辑，所以严格来讲，并不是很理想，还存在优化的空间，期待后面自己有新的idea能够改进下这个逻辑&hellip;</li>
+</ul>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="/tags/%E7%BB%83%E4%B9%A0/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#练习</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A8%8B/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#编程</a>
+    
 </div>
+      
 
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/mac-without-python/" class="block">关于Mac卸载使用pkg安装的Python</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+
+    
+    
   </div>
 
   
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/linux-cmd-learning-note/" class="no-underline">
-    <h3 class="mt-0">Linux命令学习札记</h3>
-  </a>
-  
-    1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &#34;unzip {} -d data_trs&#34; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &#34;^-&#34;| wc -l 其中data_trs指代解压后的文
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-10-16</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>5 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-</div>
-
-
-  </div>
-  
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/" aria-label="Page 1" class="page-link" role="button">1</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item active">
-        <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
 
           </div>
         </div>
