@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>使用SpringAOP实现低侵入的日志采集功能 | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"使用SpringAOP实现低侵入的日志采集功能",
+      "item":"/posts/aop-coding-practice/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/aop-coding-practice/"
+    },
+    "headline": "使用SpringAOP实现低侵入的日志采集功能 | Devon Chan","datePublished": "2022-11-22T10:16:11+08:00",
+    "dateModified": "2022-11-22T10:16:11+08:00",
+    "wordCount":  1322 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过"
+}
+</script><meta property="og:title" content="使用SpringAOP实现低侵入的日志采集功能 | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/aop-coding-practice/" />
+
+
+
+
+<meta property="og:description" content="最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-11-22T10:16:11&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-11-22T10:16:11&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="编程" />
+
+<meta property="article:tag" content="联系" />
+
+<meta property="article:tag" content="SpringAOP" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/coding-practice/" />
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">使用SpringAOP实现低侵入的日志采集功能</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-11-22</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>最近看过关注的B站up主<a href="https://b23.tv/Pb33BXE"><strong>极海Channel</strong></a>发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过合理的设计实现了不同业务操作下不同名称的入参向日志字段的灵活转换，个人觉得很有必要记录下来方便以后在遇到同样的场景时作为参考，同时也借此机会回忆下Spring AOP编程相关流程与知识点！</p>
+<p>下面通过代码和一些描述来「复盘」整个样例的实现过程（基于SpringBoot的环境）：</p>
+<h3 id="依赖引入">依赖引入</h3>
+<p>首先在<code>pom.xml</code>中加入<code>spring-boot-starter-aop</code>依赖完成AOP相关依赖的自动配置</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="编码实现">编码实现</h3>
+<ol>
+<li>创建<code>OrderService.java</code>来模拟订单操作相关业务类</li>
+</ol>
+<pre><code class="language-java">@Service
+public class OrderService {
+
+    @RecordOperation(desc = &quot;保存订单&quot;, convert = SaveOrderConvert.class)
+    public Boolean saveOrder(SaveOrder saveOrder){
+        System.out.println(&quot;save order, orderId :&quot; + saveOrder.getId());
+        return true;
+    }
+
+    @RecordOperation(desc = &quot;更新订单&quot;, convert = UpdateOrderConvert.class)
+    public Boolean updateOrder(UpdateOrder updateOrder){
+        System.out.println(&quot;update order, orederId:&quot; + updateOrder.getOrderId());
+        return true;
+    }
+}
+</code></pre>
+<ol start="2">
+<li>创建<code>SaveOrder.java</code>来定义保存订单业务操作实体类以及Id字段</li>
+</ol>
+<pre><code class="language-java">@Data
+public class SaveOrder {
+
+    //订单id
+    private Long id;
+}
+</code></pre>
+<ol start="3">
+<li>创建<code>UpdateOrder.java</code>来定义更新订单业务操作实体类以及Id字段</li>
+</ol>
+<pre><code class="language-java">@Data
+public class UpdateOrder {
+
+    //订单id
+    private Long orderId;
+}
+</code></pre>
+<ol start="4">
+<li>创建<code>OpreateLogDO.java</code>来定义日志（记录）实体类以及字段</li>
+</ol>
+<pre><code class="language-java">@Data
+public class OpreateLogDO {
+
+    //订单id
+    private long orderId;
+
+    //业务描述
+    private String desc;
+
+    //操作结果
+    private  String result;
+}
+</code></pre>
+<ol start="5">
+<li>创建<code>RecordOperation.java</code>定义注解来标注切入点</li>
+</ol>
+<pre><code class="language-java">//该注解在默认在编译期消失，需要指定在运行时也能保留它的功能
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface RecordOperation {
+
+    //业务描述
+    String desc() default &quot;&quot;;
+
+    //继承自Convert接口的业务实体，本案例中包含SaveOrderConvert、UpdateOrderConvert两个实现类
+    Class&lt;? extends Convert&gt; convert();
+}
+</code></pre>
+<ol start="6">
+<li>创建<code>OperateAspect.java</code>来定义切面类</li>
+</ol>
+<pre><code class="language-java">@Component
+//使用@Aspect将该类声明为一个切面类
+@Aspect
+public class OperateAspect {
+    /**
+     * 定义切点
+     * 定义横切逻辑
+     * 织入
+     */
+    @Pointcut(&quot;@annotation(com.devon.quiz.aop.RecordOperation)&quot;)
+    public void pointcut(){}
+
+    //使用异步执行方式记录日志，创建线程池
+    private ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+            1,1,1, TimeUnit.SECONDS,new LinkedBlockingDeque&lt;&gt;(100)
+    );
+
+    @Around(&quot;pointcut()&quot;)
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        Object result = proceedingJoinPoint.proceed();
+        threadPoolExecutor.execute(() -&gt; {
+            try {
+                //此处使用反射来拿到切入点位置的方法签名以及注解
+                MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
+                RecordOperation annotation = methodSignature.getMethod().getAnnotation(RecordOperation.class);
+
+                Class&lt;? extends Convert&gt; convert = annotation.convert();
+                Convert logConvert = convert.newInstance();
+                OpreateLogDO opreateLogDO = logConvert.convert(proceedingJoinPoint.getArgs()[0]);
+
+                //OpreateLogDO opreateLogDO = new OpreateLogDO();
+                opreateLogDO.setDesc(annotation.desc());
+                opreateLogDO.setResult(result.toString());
+
+                //opreateLogDO.setOrderId();
+                System.out.println(&quot;insert operationlog &quot; + JSON.toJSONString(opreateLogDO));
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        return result;
+    }
+
+}
+</code></pre>
+<ol start="7">
+<li>创建<code>Convert.java</code>定义入参适配接口</li>
+</ol>
+<pre><code class="language-java">//添加泛型来泛化入参
+public interface Convert&lt;PARAM&gt; {
+
+    OpreateLogDO convert(PARAM param);
+}
+</code></pre>
+<ol start="8">
+<li>创建<code>SaveOrderConvert.java</code>定义SaveOrder实体类的入参适配实现类</li>
+</ol>
+<pre><code class="language-java">public class SaveOrderConvert implements Convert&lt;SaveOrder&gt;{
+
+    @Override
+    public OpreateLogDO convert(SaveOrder saveOrder) {
+        OpreateLogDO opreateLogDO = new OpreateLogDO();
+        opreateLogDO.setOrderId(saveOrder.getId());
+        return opreateLogDO;
+    }
+}
+</code></pre>
+<ol start="9">
+<li>创建<code>UpdateOrderConvert.java</code>定义UpdateOrder实体类的入参适配实现类</li>
+</ol>
+<pre><code class="language-java">public class UpdateOrderConvert implements Convert&lt;UpdateOrder&gt;{
+    @Override
+    public OpreateLogDO convert(UpdateOrder updateOrder) {
+        OpreateLogDO opreateLogDO = new OpreateLogDO();
+        opreateLogDO.setOrderId(updateOrder.getOrderId());
+        return opreateLogDO;
+    }
+}
+</code></pre>
+<h3 id="测试运行">测试运行</h3>
+<p>在单元测试中测试运行日志采集功能:</p>
+<pre><code class="language-java">@Test
+	public void testOrderAop(){
+		SaveOrder saveOrder = new SaveOrder();
+		saveOrder.setId(1L);
+		orderService.saveOrder(saveOrder);
+		UpdateOrder updateOrder = new UpdateOrder();
+		updateOrder.setOrderId(2L);
+		orderService.updateOrder(updateOrder);
+	}
+</code></pre>
+<p>运行结果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/Snipaste_2022-11-22_13-40-52-20221122135023848.png" alt="Snipaste_2022-11-22_13-40-52"></p>
+<ul>
+<li><strong>另：期间出现的bug以及解决方法</strong></li>
+</ul>
+<p>上述过程中切点处的<code>@RecordOperation</code>注解默认没有做任何修饰，所以在SpringBoot项目编译期就无法起到作用，导致无法完成横切的操作，会出现下图所示的异常：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/Snipaste_2022-11-22_13-42-55.png" alt="Snipaste_2022-11-22_13-42-55"></p>
+<p>解决上述问题需要在自定义注解上方添加修饰来使该注解的效果持续到运行期，修饰部分代码如下：</p>
+<pre><code class="language-java">@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+</code></pre>
+<p>致此，使用Spring AOP实现低侵入性的日志采集就实现完成，希望能够帮助到你！</p>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="/tags/%E7%BC%96%E7%A8%8B/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#编程</a>
+    
+    <a href="/tags/%E8%81%94%E7%B3%BB/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#联系</a>
+    
+    <a href="/tags/springaop/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#SpringAOP</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/coding-practice/" class="block">模拟微信红包随机金额生成</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#依赖引入">依赖引入</a></li>
+        <li><a href="#编码实现">编码实现</a></li>
+        <li><a href="#测试运行">测试运行</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="/posts/coding-practice/" class="no-underline">模拟微信红包随机金额生成</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

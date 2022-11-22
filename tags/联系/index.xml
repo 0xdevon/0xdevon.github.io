@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>编程 on Devon Chan</title>
-    <link>/tags/%E7%BC%96%E7%A8%8B/</link>
-    <description>Recent content in 编程 on Devon Chan</description>
+    <title>联系 on Devon Chan</title>
+    <link>/tags/%E8%81%94%E7%B3%BB/</link>
+    <description>Recent content in 联系 on Devon Chan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 22 Nov 2022 10:16:11 +0800</lastBuildDate><atom:link href="/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Nov 2022 10:16:11 +0800</lastBuildDate><atom:link href="/tags/%E8%81%94%E7%B3%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用SpringAOP实现低侵入的日志采集功能</title>
       <link>/posts/aop-coding-practice/</link>
@@ -16,15 +16,6 @@
       
       <guid>/posts/aop-coding-practice/</guid>
       <description>最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过</description>
-    </item>
-    
-    <item>
-      <title>模拟微信红包随机金额生成</title>
-      <link>/posts/coding-practice/</link>
-      <pubDate>Thu, 10 Nov 2022 12:23:23 +0800</pubDate>
-      
-      <guid>/posts/coding-practice/</guid>
-      <description>如题，初步思路如下： 方法形参：总金额total，红包数piece 逻辑：产生红包数-1组随机数，最后一个红包的金额又剩余的金额填充 确定逻辑完成，下面是完</description>
     </item>
     
   </channel>
