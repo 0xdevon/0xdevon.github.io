@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2022 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 22 Nov 2022 10:16:11 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2022 22:02:32 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅谈Quicksort（快速排序）</title>
+      <link>/posts/quick-sort-notes/</link>
+      <pubDate>Mon, 05 Dec 2022 22:02:32 +0800</pubDate>
+      
+      <guid>/posts/quick-sort-notes/</guid>
+      <description>题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大</description>
+    </item>
+    
     <item>
       <title>使用SpringAOP实现低侵入的日志采集功能</title>
       <link>/posts/aop-coding-practice/</link>

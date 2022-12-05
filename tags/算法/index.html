@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>文章 | Devon Chan</title>
+<title>算法 | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
@@ -76,6 +76,21 @@
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Tags",
+      "item":"/tags/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"算法",
+      "item":"/tags/%E7%AE%97%E6%B3%95/"}]
+}
+</script>
 
 
 
@@ -87,32 +102,20 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "MySQL数据插入乱码问题解决",
-            "description": "今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制jdbc链接的方式解决了乱码问题，下面贴上链接： jdbc:mysql://localhost/test?user=monty\u0026amp;password=greatsqldb\u0026amp;useUnicode=true\u0026amp;characterEncoding=gb2312 希望能够帮到",
-            "url": "/posts/mysql-datainsert-badcharset-issue/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "Spring定时任务学习札记",
-            "description": "Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖",
-            "url": "/posts/spring-scheduletask-learn-note/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "LinuxShell编程学习札记",
-            "description": "# shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中",
-            "url": "/posts/linuxshell-coding-learning-note/"
+            "name": "浅谈Quicksort（快速排序）",
+            "description": "题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大",
+            "url": "/posts/quick-sort-notes/"
         }
     ]
 }
-</script><meta property="og:title" content="文章 | Devon Chan" />
+</script><meta property="og:title" content="算法 | Devon Chan" />
 <meta property="og:type" content="website" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/" />
+<meta property="og:url" content="/tags/%E7%AE%97%E6%B3%95/" />
 
 
 
@@ -140,10 +143,10 @@
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="tags" />
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="Devon Chan" />
+<link rel="alternate" type="application/rss+xml" href="/tags/%E7%AE%97%E6%B3%95/index.xml" title="Devon Chan" />
 
 
   <body class="flex min-h-screen flex-col">
@@ -166,7 +169,7 @@
         class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
         <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
             <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">文章</a>
             <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
         </div>
 
@@ -219,7 +222,7 @@
         <div class="pl-scrollbar">
           <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
   <article class="prose mx-6 my-8">
-  <h1>文章</h1>
+  <h1>算法</h1>
   
 </article>
 
@@ -231,11 +234,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="/posts/mysql-datainsert-badcharset-issue/" class="no-underline">
-    <h3 class="mt-0">MySQL数据插入乱码问题解决</h3>
+  <a href="/posts/quick-sort-notes/" class="no-underline">
+    <h3 class="mt-0">浅谈Quicksort（快速排序）</h3>
   </a>
   
-    今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制jdbc链接的方式解决了乱码问题，下面贴上链接： jdbc:mysql://localhost/test?user=monty&amp;password=greatsqldb&amp;useUnicode=true&amp;characterEncoding=gb2312 希望能够帮到
+    题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大
   
 
   
@@ -245,94 +248,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-10-15</span
+      >2022-12-05</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/spring-scheduletask-learn-note/" class="no-underline">
-    <h3 class="mt-0">Spring定时任务学习札记</h3>
-  </a>
-  
-    Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-10-15</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>4 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/linuxshell-coding-learning-note/" class="no-underline">
-    <h3 class="mt-0">LinuxShell编程学习札记</h3>
-  </a>
-  
-    # shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-10-15</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>3 min read</span>
+    <span>5 min read</span>
   </div>
 
   
@@ -354,35 +275,6 @@
 
   </div>
   
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/5/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item active">
-        <a aria-current="page" aria-label="Page 6" class="page-link" role="button">6</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/7/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/posts/page/7/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
 
           </div>
         </div>

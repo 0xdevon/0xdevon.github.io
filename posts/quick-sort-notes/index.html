@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>浅谈Quicksort（快速排序） | Devon Chan</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"浅谈Quicksort（快速排序）",
+      "item":"/posts/quick-sort-notes/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/quick-sort-notes/"
+    },
+    "headline": "浅谈Quicksort（快速排序） | Devon Chan","datePublished": "2022-12-05T22:02:32+08:00",
+    "dateModified": "2022-12-05T22:02:32+08:00",
+    "wordCount":  2086 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大"
+}
+</script><meta property="og:title" content="浅谈Quicksort（快速排序） | Devon Chan" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/quick-sort-notes/" />
+
+
+
+
+<meta property="og:description" content="题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Devon Chan" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-12-05T22:02:32&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-12-05T22:02:32&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="算法" />
+
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Devon Chan</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/essays/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">随笔</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">浅谈Quicksort（快速排序）</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-12-05</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h3 id="题外话">题外话</h3>
+<p>最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大部分资料都或多或少有些「照本宣科」的成分，加上「快速排序」这个知识点存在多种实现思想，看过一些视频后反而觉得大脑混沌杂乱，也感慨道有些粉丝量不少的博主在视频中讲解知识点时也会有层次不分明和不尽人意的地方，或许独立学会某个知识点和教会他人一个知识点这两件事之间并不是某种意义上的等价，遂打算爬帖来阅读，也终于在腾讯云社区找到一篇干货帖子，逻辑清晰并且可靠，帖子标题为<a href="https://cloud.tencent.com/developer/article/1819946"><strong>【算法图文动画详解系列】QuickSort 快速排序算法</strong></a>，这期内容主要援引自这篇帖子，打算作为「快速排序」问题的标准答案记录下！</p>
+<h3 id="1快速排序简介">1.快速排序简介</h3>
+<p>快速排序（Quicksort）是对冒泡排序算法的一种改进。</p>
+<p>快速排序由C. A. R. Hoare在1960年提出。它的基本思想是：<strong>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</strong></p>
+<h3 id="2快速排序原理">2.快速排序原理</h3>
+<p>快速排序算法通过多次比较和交换来实现排序，其排序流程如下：</p>
+<ol>
+<li>首先设定一个<strong>分界值（pivot）</strong>：通过该分界值将数组分成左右两部分（partition）</li>
+<li>Compare and Swap（比较&amp;交换）：将<strong>大于或等于</strong>分界值的数据集中到数组右边，小于分界值的数据集中到数组的左边。此时，左边部分中各元素都小于或等于分界值，而右边部分中各元素都大于或等于分界值。</li>
+<li>Recursive（递归）：然后，左边和右边的数据可以独立排序。对于左侧的数组数据，又可以取一个分界值，将该部分数据分成左右两部分，同样在左边放置较小值，右边放置较大值。右侧的数组数据也可以做类似处理。</li>
+<li>重复上述过程，可以看出，这是一个<strong>递归</strong>定义。通过递归将左侧部分排好序后，再递归排好右侧部分的顺序。当左、右两个部分各数据排序完成后，整个数组的排序也就完成了。</li>
+</ol>
+<ul>
+<li>综上总结核心思想：<strong>分治 + 取分界点 + 递归</strong></li>
+</ul>
+<h3 id="3详解快速排序">3.详解快速排序</h3>
+<p>快速排序（QuickSort ）是一个分治算法（Divide and Conquer）。它选择一个元素作为枢轴元素（pivot），并围绕选定的主元素对给定数组进行分区（partition）。</p>
+<p>快速排序有很多不同的版本，它们以不同的方式选择枢轴：</p>
+<ol>
+<li>总是选择第一个元素作为 pivot。</li>
+<li>总是选择最后一个元素作为 pivot。</li>
+<li>随机选一个元素作为 pivot。</li>
+<li>选择中值作为 pivot。</li>
+</ol>
+<p>QuickSort 中的关键步骤是 partition()。在数组中选择的一个元素为支点（pivot）,  把所有小于 pivot 的元素放到 pivot 左面, 大于 pivot 的放右边。这样数组 x[n] 会被划分成3个部分：</p>
+<p><strong>Part 1：</strong><code>x[0] , ... , x[pivot - 1]</code></p>
+<p><strong>Part 2：</strong><code>x[pivot]</code></p>
+<p><strong>Part 3：</strong><code>x[pivot+1] , ... , x[n]</code></p>
+<p>所有这应该是在线性时间内完成。</p>
+<p><strong>接下来，就是递归调用:</strong></p>
+<pre><code> quicksort(x, low, pivot - 1)
+ quicksort(x, pivot + 1， high)
+</code></pre>
+<p><strong>下面附上快速排序伪代码逻辑：</strong></p>
+<pre><code>/* low  --&gt; Starting index,  high  --&gt; Ending index */
+void quickSort(arr[], low, high)
+{
+    if (low &lt; high)
+    {
+        /* pi is partitioning index, arr[pi] is now
+           at right place */
+        pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);  // Before pi
+        quickSort(arr, pi + 1, high); // After pi
+    }
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/1620.png" alt="img"></p>
+<p><strong>下面附上求分界点位置伪代码逻辑：</strong></p>
+<pre><code>/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+    array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+partition (arr[], low, high)
+{
+    // pivot (Element to be placed at right position)
+    pivot = arr[high];  
+ 
+    i = (low - 1)  // Index of smaller element and indicates the 
+                   // right position of pivot found so far
+
+    for (j = low; j &lt;= high- 1; j++)
+    {
+        // If current element is smaller than the pivot
+        if (arr[j] &lt; pivot)
+        {
+            i++;    // increment index of smaller element
+            swap arr[i] and arr[j]
+        }
+    }
+    swap arr[i + 1] and arr[high])
+    return (i + 1)
+}
+</code></pre>
+<p><strong>下面附上排序逻辑实现过程：</strong></p>
+<pre><code>arr[] = {10, 80, 30, 90, 40, 50, 70}
+Indexes:  0   1   2   3   4   5   6 
+
+low = 0, high =  6, pivot = arr[h] = 70
+Initialize index of smaller element, i = -1
+
+Traverse elements from j = low to high-1
+j = 0 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 0 
+arr[] = {10, 80, 30, 90, 40, 50, 70} // No change as i and j 
+                                     // are same
+
+j = 1 : Since arr[j] &gt; pivot, do nothing
+// No change in i and arr[]
+
+j = 2 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 1
+arr[] = {10, 30, 80, 90, 40, 50, 70} // We swap 80 and 30 
+
+j = 3 : Since arr[j] &gt; pivot, do nothing
+// No change in i and arr[]
+
+j = 4 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 2
+arr[] = {10, 30, 40, 90, 80, 50, 70} // 80 and 40 Swapped
+j = 5 : Since arr[j] &lt;= pivot, do i++ and swap arr[i] with arr[j] 
+i = 3 
+arr[] = {10, 30, 40, 50, 80, 90, 70} // 90 and 50 Swapped 
+
+We come out of loop because j is now equal to high-1.
+Finally we place pivot at correct position by swapping
+arr[i+1] and arr[high] (or pivot) 
+arr[] = {10, 30, 40, 50, 70, 90, 80} // 80 and 70 Swapped 
+
+Now 70 is at its correct place. All elements smaller than
+70 are before it and all elements greater than 70 are after
+it.
+</code></pre>
+<h3 id="附快速排序java实现代码">附：快速排序Java实现代码</h3>
+<p><strong>下面贴上使用Java实现的快速排序代码：</strong></p>
+<pre><code class="language-java">// Java implementation of QuickSort
+import java.io.*;
+
+class QuickSort{
+    
+// A utility function to swap two elements
+static void swap(int[] arr, int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+/* This function takes last element as pivot, places
+the pivot element at its correct position in sorted
+array, and places all smaller (smaller than pivot)
+to left of pivot and all greater elements to right
+of pivot */
+static int partition(int[] arr, int low, int high)
+{ 
+    // pivot
+    int pivot = arr[high];
+    
+    // Index of smaller element and
+    // indicates the right position
+    // of pivot found so far
+    int i = (low - 1);
+
+    for(int j = low; j &lt;= high - 1; j++)
+    {
+        // If current element is smaller
+        // than the pivot
+        if (arr[j] &lt; pivot)
+        {
+            
+            // Increment index of
+            // smaller element
+            i++;
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return (i + 1);
+}
+
+/* The main function that implements QuickSort
+        arr[] --&gt; Array to be sorted,
+        low --&gt; Starting index,
+        high --&gt; Ending index
+*/
+static void quickSort(int[] arr, int low, int high)
+{
+    if (low &lt; high)
+    {
+        // pi is partitioning index, arr[p]
+        // is now at right place
+        int pi = partition(arr, low, high);
+
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+public static void main(String[] args)
+{
+    int[] arr = { 10, 7, 8, 9, 1, 5 };
+    int n = arr.length;
+    
+    quickSort(arr, 0, n - 1);
+}
+}
+
+// This code is contributed by Ayush Choudhary
+</code></pre>
+<p>优美的代码值得被记录，原帖内容精炼且满满都是干货，留给我补充的余地不多，所以本期内容摘抄居多，希望能够帮助到你！</p>
+<blockquote>
+<p>By the way：快速排序虽然基础，但依旧耐人寻味</p>
+</blockquote>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="/tags/%E7%AE%97%E6%B3%95/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#算法</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/aop-coding-practice/" class="block">使用SpringAOP实现低侵入的日志采集功能</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题外话">题外话</a></li>
+        <li><a href="#1快速排序简介">1.快速排序简介</a></li>
+        <li><a href="#2快速排序原理">2.快速排序原理</a></li>
+        <li><a href="#3详解快速排序">3.详解快速排序</a></li>
+        <li><a href="#附快速排序java实现代码">附：快速排序Java实现代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2022 <a href="https://weibo.com/zer09b">Devon Chan</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>
