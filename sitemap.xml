@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-12-05T22:02:32+08:00</lastmod>
+    <lastmod>2023-02-02T11:41:58+08:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2022-12-05T22:02:32+08:00</lastmod>
+    <lastmod>2023-02-02T11:41:58+08:00</lastmod>
+  </url><url>
+    <loc>/essays/agentzh-coding-life/</loc>
+    <lastmod>2023-02-02T11:41:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</loc>
+    <lastmod>2023-02-02T11:41:58+08:00</lastmod>
+  </url><url>
+    <loc>/essays/</loc>
+    <lastmod>2023-02-02T11:41:58+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
     <lastmod>2022-12-05T22:02:32+08:00</lastmod>
@@ -87,9 +96,6 @@
     <lastmod>2022-10-16T21:37:41+08:00</lastmod>
   </url><url>
     <loc>/essays/reson-to-why-start-myblog/</loc>
-    <lastmod>2022-10-15T23:39:28+08:00</lastmod>
-  </url><url>
-    <loc>/essays/</loc>
     <lastmod>2022-10-15T23:39:28+08:00</lastmod>
   </url><url>
     <loc>/tags/mysql/</loc>

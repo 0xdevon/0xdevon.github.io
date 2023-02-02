@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 05 Dec 2022 22:02:32 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 11:41:58 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从抄书到开源之巅：章亦春的程序人生</title>
+      <link>/essays/agentzh-coding-life/</link>
+      <pubDate>Thu, 02 Feb 2023 11:41:58 +0800</pubDate>
+      
+      <guid>/essays/agentzh-coding-life/</guid>
+      <description>最近从Nginx课程中偶然了解到OpenResty的创立者章亦春，他是我除尤雨溪外在网络上发现的第二位在全球开源社区具有如此大影响力的华人，在知乎上看</description>
+    </item>
+    
     <item>
       <title>浅谈Quicksort（快速排序）</title>
       <link>/posts/quick-sort-notes/</link>

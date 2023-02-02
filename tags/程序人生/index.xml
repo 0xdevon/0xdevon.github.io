@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>随笔 on Devon Chan</title>
-    <link>/essays/</link>
-    <description>Recent content in 随笔 on Devon Chan</description>
+    <title>程序人生 on Devon Chan</title>
+    <link>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</link>
+    <description>Recent content in 程序人生 on Devon Chan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Thu, 02 Feb 2023 11:41:58 +0800</lastBuildDate><atom:link href="/essays/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 11:41:58 +0800</lastBuildDate><atom:link href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从抄书到开源之巅：章亦春的程序人生</title>
       <link>/essays/agentzh-coding-life/</link>
@@ -16,15 +16,6 @@
       
       <guid>/essays/agentzh-coding-life/</guid>
       <description>最近从Nginx课程中偶然了解到OpenResty的创立者章亦春，他是我除尤雨溪外在网络上发现的第二位在全球开源社区具有如此大影响力的华人，在知乎上看</description>
-    </item>
-    
-    <item>
-      <title>关于为什么选择开通博客</title>
-      <link>/essays/reson-to-why-start-myblog/</link>
-      <pubDate>Sat, 15 Oct 2022 23:39:28 +0800</pubDate>
-      
-      <guid>/essays/reson-to-why-start-myblog/</guid>
-      <description>最开始写博客就是想着在一个随时自己可以访问的平台记录下自己的学习笔记，很多时候做过了事情你要是不总结，觉得会忘记。而且你做过以后这件事以后，再回头看你</description>
     </item>
     
   </channel>
