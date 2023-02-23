@@ -81,5 +81,14 @@
       <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
     </item>
     
+    <item>
+      <title>Maven项目整合Mybatis</title>
+      <link>/posts/mybatis-maven-demo-proj/</link>
+      <pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
+      
+      <guid>/posts/mybatis-maven-demo-proj/</guid>
+      <description>下面详细记录下Maven项目整合Mybatis的详细步骤： 在IDEA中开始界面选择“New Project” 左侧项目类型选择“Maven”，右侧选择jd</description>
+    </item>
+    
   </channel>
 </rss>

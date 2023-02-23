@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Thu, 02 Feb 2023 11:41:58 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Feb 2023 13:28:10 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
+      <link>/posts/shell-script-execute-error/</link>
+      <pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
+      
+      <guid>/posts/shell-script-execute-error/</guid>
+      <description>今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利</description>
+    </item>
+    
     <item>
       <title>从抄书到开源之巅：章亦春的程序人生</title>
       <link>/essays/agentzh-coding-life/</link>
@@ -196,6 +205,15 @@
       
       <guid>/posts/interview-topic/</guid>
       <description>将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处</description>
+    </item>
+    
+    <item>
+      <title>Maven项目整合Mybatis</title>
+      <link>/posts/mybatis-maven-demo-proj/</link>
+      <pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
+      
+      <guid>/posts/mybatis-maven-demo-proj/</guid>
+      <description>下面详细记录下Maven项目整合Mybatis的详细步骤： 在IDEA中开始界面选择“New Project” 左侧项目类型选择“Maven”，右侧选择jd</description>
     </item>
     
     <item>

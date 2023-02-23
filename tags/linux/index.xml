@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 22:46:27 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Feb 2023 13:28:10 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
+      <link>/posts/shell-script-execute-error/</link>
+      <pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
+      
+      <guid>/posts/shell-script-execute-error/</guid>
+      <description>今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利</description>
+    </item>
+    
     <item>
       <title>Linux中sudo系列命令的区别</title>
       <link>/posts/linux-sudo-cli-note/</link>
