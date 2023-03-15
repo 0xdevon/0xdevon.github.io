@@ -75,7 +75,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T">
+  content="I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -103,8 +103,8 @@
         "@id": "/posts/juc-coding-learning-note/"
     },
     "headline": "JUC学习札记 | Devon Chan","datePublished": "2022-10-16T22:21:53+08:00",
-    "dateModified": "2022-10-16T22:21:53+08:00",
-    "wordCount":  1411 ,
+    "dateModified": "2023-03-15T22:21:53+08:00",
+    "wordCount":  7252 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -113,7 +113,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T"
+    "description": "I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态"
 }
 </script><meta property="og:title" content="JUC学习札记 | Devon Chan" />
 <meta property="og:type" content="article" />
@@ -127,7 +127,7 @@
 
 
 
-<meta property="og:description" content="1.理论部分： 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 线程中的状态（T" />
+<meta property="og:description" content="I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态" />
 
 
 
@@ -147,7 +147,7 @@
 <meta property="article:published_time" content="2022-10-16T22:21:53&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2022-10-16T22:21:53&#43;08:00" />
+<meta property="article:modified_time" content="2023-03-15T22:21:53&#43;08:00" />
 
 
 
@@ -267,7 +267,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>3 min read</span>
+    <span>15 min read</span>
   </div>
 
   
@@ -279,38 +279,36 @@
   
   
 
-  <h3 id="1理论部分">1.理论部分：</h3>
-<ul>
-<li>
-<p>线程和进程</p>
+  <h3 id="i基础理论">I.基础理论：</h3>
+<h4 id="11-线程和进程">1.1 线程和进程</h4>
 <p>进程：系统进行资源分配和调度的基本单位</p>
 <p>线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）</p>
-</li>
-<li>
-<p>线程中的状态（<code>Thread.State</code>）</p>
+<h4 id="12-线程中的状态">1.2 线程中的状态</h4>
+<p>即<code>Thread.State</code>，有以下状态：</p>
 <p>NEW（创建）、 RUNNABLE（准备就绪）、 BLOCKED（阻塞）、 WAITING（不见不散）、 TIMED_WAITING（过期不候）、 TERMINATED（终结）</p>
-</li>
-<li>
-<p><code>sleep</code>和<code>wait</code>方法的区别</p>
-<p>1.<code>sleep</code>是<code>Thread</code>的静态方法；而<code>wait</code>是<code>Object</code>的方法，任何对象示例都可以调用</p>
-<p>2.<code>sleep</code>不会释放锁，因此也不许要占用锁，<code>wait</code>会释放锁，但调用的前提是当前线程占有锁，代码要在<code>synchronized</code>中</p>
-<p>3.它们都可以被<code>interrupted</code>方法中断</p>
-</li>
-<li>
-<p>并发和并行的区别</p>
-<p>并发：同一时间多个线程访问同一资源</p>
-<p>并行：多项一起执行，执行完毕后进行汇总</p>
-</li>
-<li>
-<p>用户线程和守护线程</p>
-<p>1.用户线程：主线程结束，用户线程还在运行，jvm存活</p>
-<p>2.守护线程：没有用户线程了，都是守护线程，jvm结束</p>
-</li>
-</ul>
-<h3 id="2应用实例">2.应用实例：</h3>
+<h4 id="13-sleep和wait方法的区别">1.3 <code>sleep</code>和<code>wait</code>方法的区别</h4>
 <ul>
 <li>
-<p><strong>例1</strong>：卖票场景</p>
+<p><code>sleep</code>是<code>Thread</code>的静态方法；而<code>wait</code>是<code>Object</code>的方法，任何对象示例都可以调用</p>
+</li>
+<li>
+<p><code>sleep</code>不会释放锁，因此也不许要占用锁，<code>wait</code>会释放锁，但调用的前提是当前线程占有锁，代码要在<code>synchronized</code>中</p>
+</li>
+<li>
+<p>它们都可以被<code>interrupted</code>方法中断</p>
+</li>
+</ul>
+<h4 id="14-并发和并行的区别">1.4 并发和并行的区别</h4>
+<p>并发：同一时间多个线程访问同一资源</p>
+<p>并行：多项一起执行，执行完毕后进行汇总</p>
+<h4 id="15-用户线程和守护线程">1.5 用户线程和守护线程</h4>
+<p>1.用户线程：主线程结束，用户线程还在运行，jvm存活</p>
+<p>2.守护线程：没有用户线程了，都是守护线程，jvm结束</p>
+<h3 id="ii核心知识点">II.核心知识点：</h3>
+<h4 id="21多线程简单应用">2.1多线程简单应用</h4>
+<ul>
+<li><strong>例1</strong>.卖票场景：</li>
+</ul>
 <pre><code class="language-java">class Ticket{
  	//票数
     private int number = 30;
@@ -337,7 +335,7 @@ public class SaleTicket{
                 }
         	}
     	},&quot;saler1&quot;).start();
-
+        
         new Thread(new Runnable(){
             @Override
         	public void run(){
@@ -347,7 +345,7 @@ public class SaleTicket{
                 }
         	}
     	},&quot;saler2&quot;).start();
-
+        
         new Thread(new Runnable(){
             @Override
         	public void run(){
@@ -363,9 +361,9 @@ public class SaleTicket{
 <blockquote>
 <p>使用<code>synchronized</code>关键字修饰的方法能够自动实现加锁和解锁，如需手工进行加锁解锁操作，则可以使用<code>lock</code>接口（如果没有及时释放锁，可能导致出现死锁的现象）</p>
 </blockquote>
-</li>
-<li>
-<p><strong>例2</strong>：使用<code>lock</code>实现卖票场景</p>
+<ul>
+<li><strong>例2</strong>.使用<code>lock</code>接口实现卖票场景：</li>
+</ul>
 <pre><code class="language-java">class Ticket{
  	//票数
     private int number = 30;
@@ -397,13 +395,13 @@ public class saleTicket{
                 ticket.sale();
             }
         },&quot;sale1&quot;).start();
-
+        
         new Thread(()-&gt;{
             for(int i = 1; i&lt;40; i++){
                 ticket.sale();
             }
         },&quot;sale2&quot;).start();
-
+        
         new Thread(()-&gt;{
             for(int i = 1; i&lt;40; i++){
                 ticket.sale();
@@ -412,16 +410,17 @@ public class saleTicket{
     }
 }
 </code></pre>
-</li>
-<li>
-<p><strong>例3</strong>：使用<code>synchronized</code>实现2个线程对同一变量进行数值加减</p>
+<h4 id="22线程间通信">2.2线程间通信</h4>
+<ul>
+<li><strong>例3</strong>.使用<code>synchronized</code>实现2个线程操作同一变量：</li>
+</ul>
 <blockquote>
 <p>在数值判断时使用<code>if</code>，会产生<strong>虚假唤醒</strong>的情况，因此使用<code>if</code>进行判断的位置需要用<code>while</code>进行替换，使其在唤醒和正常执行的情况下都必须进行数值判断，避免出现预期外的结果产生</p>
 </blockquote>
 <pre><code class="language-java">class Share{
     //初始值
     private int number = 0;
-
+    
     //数值增加方法
     public synchronized void incr() throws InterruptedException{
         //判断,如果number值不等于0时等待其值改变后做加法操作
@@ -438,7 +437,7 @@ public class saleTicket{
         //通知其他线程
         this.notifyAll();
     }
-
+    
     //数字减少方法
     public synchronized void decr() throws InterruptedException{
         //判断,如果number值不等于1时等待其值改变后做减法操作
@@ -469,7 +468,7 @@ public class testThread{
             }
         }
     },&quot;AA&quot;).start();
-
+    
     new Thread(()-&gt;{
        	for(int i = 0; i &lt; 0; i++){
             try{
@@ -480,10 +479,611 @@ public class testThread{
         }
     },&quot;BB&quot;).start();
 }
+
+/** 使用Lock接口实现线程间通信**/
+//创建资源类
+class Share{
+    private int number = 0;
+
+    //创建Lock
+    private final Lock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
+
+    //+1操作
+    public void incr() throws InterruptedException {
+        //上锁
+        lock.lock();
+        try {
+            while (number != 0){
+                condition.await();
+            }
+            //执行+1
+            number ++;
+            System.out.println(Thread.currentThread().getName() + &quot;::&quot; + number);
+
+            //通知其他线程
+            condition.signalAll();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            //解锁
+            lock.unlock();
+        }
+    }
+
+    //-1操作
+    public void decr() throws InterruptedException {
+        //上锁
+        lock.lock();
+        try {
+            while (number != 1){
+                condition.await();
+            }
+            number --;
+            System.out.println(Thread.currentThread().getName() + &quot;::&quot; + number);
+
+            //通知其他线程
+            condition.signalAll();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            //解锁
+            lock.unlock();
+        }
+    }
+
+}
+public class ThreadDemo {
+
+    public static void main(String[] args) {
+        Share share = new Share();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    share.incr();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;t1&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    share.decr();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;t2&quot;).start();
+        
+    }
+
+}
+
 </code></pre>
-<pre><code>  							------ 持续更新中，敬请期待 ------</code></pre>
-</li>
+<ul>
+<li><strong>例4</strong>.线程间定制通信：</li>
 </ul>
+<pre><code class="language-java">/**
+* 启动3个线程，按照如下要求：
+* t1打印5次，t2打印10次，t3打印15次
+* 进行10轮
+*/
+class SharedResource {
+
+    private int flag = 1;
+
+    //创建Lock对象
+    private Lock lock = new ReentrantLock();
+
+    //创建三个Condition对象
+    private Condition c1 = lock.newCondition();
+    private Condition c2 = lock.newCondition();
+    private Condition c3 = lock.newCondition();
+
+    public void print5(int loop) throws InterruptedException {
+        lock.lock();
+        try {
+            while (flag != 1){
+                c1.await();
+            }
+            for (int i = 0; i &lt; 5; i++) {
+                System.out.println(Thread.currentThread().getName() + &quot;::&quot; + i + &quot;:轮数&quot; +loop);
+            }
+            flag = 2;
+            c2.signal();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void print10(int loop) throws InterruptedException {
+        lock.lock();
+        try {
+            while (flag != 2){
+                c2.await();
+            }
+            for (int i = 0; i &lt; 10; i++) {
+                System.out.println(Thread.currentThread().getName() + &quot;::&quot; + i + &quot;:轮数&quot; +loop);
+            }
+            flag = 3;
+            c3.signal();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void print15(int loop) throws InterruptedException {
+        lock.lock();
+        try {
+            while (flag != 3){
+                c3.await();
+            }
+            for (int i = 0; i &lt; 15; i++) {
+                System.out.println(Thread.currentThread().getName() + &quot;::&quot; + i + &quot;:轮数&quot; +loop);
+            }
+            flag = 1;
+            c1.signal();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+
+public class ThreadDemo1 {
+    public static void main(String[] args) {
+        SharedResource sharedResource = new SharedResource();
+
+        new Thread(()-&gt;{
+            for (int i = 1; i &lt; 11; i++) {
+                try {
+                    sharedResource.print5(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;t1&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 1; i &lt; 11; i++) {
+                try {
+                    sharedResource.print10(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;t2&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 1; i &lt; 11; i++) {
+                try {
+                    sharedResource.print15(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;t3&quot;).start();
+    }
+}
+</code></pre>
+<p><strong><code>Lock</code>接口和<code>synchronized</code>关键字的区别：</strong></p>
+<ol>
+<li>Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现</li>
+<li>synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象的发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁</li>
+<li>Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断</li>
+<li>通过Lock可以知道有没有成功获取锁，而synchronized无法办到</li>
+<li>Lock可以提高多个线程进行读操作的效率</li>
+</ol>
+<blockquote>
+<p>在锁竞争不激烈的情况下，使用<code>synchronized</code>关键字和<code>Lock</code>接口加锁的性能是差不多的，但是在大量线程竞争资源时，则使用<code>Lock</code>加锁的性能要远远优于<code>synchronized</code></p>
+</blockquote>
+<p><strong><code>Synchronized</code>实现同步的基础：Java中的每一个对象都可以作为锁</strong></p>
+<p>具体表现为以下3种方式：对于普通方法，锁是当前实例对象；对于静态同步方法，锁是当前Class对象；对于同步方法块，锁是当前括号中配置的对象</p>
+<p><strong>ReentrantLock在创建时可以通过构造器中设置true/false来选择使用公平锁和非公平锁，使用前者使得各个县城都有机会访问资源，使用后者可能会出现线程抢占资源的情况（但是执行效率高于公平锁）</strong></p>
+<p><strong><code>synchronized</code>和<code>Lock</code>都是可重入锁（递归锁）：</strong></p>
+<p>前者隐式加锁、释放锁；后者手动加锁、释放锁。即拿到外层锁后内层的锁可以无障碍进入</p>
+<h4 id="23-死锁">2.3 死锁</h4>
+<p>**死锁：**两个或两个以上的进程在执行过程中，因为争夺资源而造成的一种互相等待的现象，如果没有外力干涉，它们无法再执行下去</p>
+<p>**造成死锁的原因：**系统资源不足、进程运行推进顺序不合适、资源分配不当</p>
+<p>手写<strong>死锁</strong>代码：</p>
+<pre><code class="language-java">public class DeadLockDemo {
+
+    //创建两个对象
+    static Object a = new Object();
+    static Object b = new Object();
+
+    public static void main(String[] args) {
+
+        new Thread(()-&gt;{
+            synchronized (a){
+                System.out.println(Thread.currentThread().getName()+&quot;：持有锁a，试图获取锁b&quot;);
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (b){
+                    System.out.println(Thread.currentThread().getName()+&quot;：获得锁b&quot;);
+                }
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            synchronized (b){
+                System.out.println(Thread.currentThread().getName()+&quot;：持有锁b，试图获取锁a&quot;);
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (a){
+                    System.out.println(Thread.currentThread().getName()+&quot;获得锁a&quot;);
+                }
+            }
+        },&quot;B&quot;).start();
+    }
+}
+</code></pre>
+<p><strong>验证是否产生死锁：</strong></p>
+<ol>
+<li>使用<code>jps -l</code>列出Java进程定位当前进程id</li>
+<li>使用JVM自带的堆栈跟踪工具<code>jstack &lt;进程id&gt;</code>查看栈信息，如果出现<code>Found 1 deadlock.</code>则可以确定出现死锁</li>
+</ol>
+<p>使用<strong>Callable</strong>接口创建线程：</p>
+<p><code>Callable</code>的实现类不能直接传入<code>Thread</code>的构造方法中，需要传入<code>FutureTask</code>（一个Runnable实现类）的构造器，再将<code>FutureTask</code>对象传入<code>Thread</code>构造器中</p>
+<pre><code class="language-java">class MyThread implements Callable{
+
+    @Override
+    public Integer call() {
+        System.out.println(Thread.currentThread().getName()+&quot;：使用callable创建线程&quot;);
+        return 200;
+    }
+}
+
+public class CallableDemo {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        FutureTask&lt;Integer&gt; futureTask = new FutureTask(()-&gt;{
+            System.out.println(Thread.currentThread().getName()+&quot;：使用callable创建线程&quot;);
+            return 1024;
+        });
+
+        new Thread(futureTask,&quot;callT&quot;).start();
+        new Thread(new FutureTask&lt;Integer&gt;(new MyThread()),&quot;callT1&quot;).start();
+
+        while (!futureTask.isDone()){
+            System.out.println(&quot;wait ...&quot;);
+        }
+
+        System.out.println(futureTask.get());
+        System.out.println(futureTask.get());
+
+        System.out.println(Thread.currentThread().getName()+&quot;：执行结束！&quot;);
+
+    }
+}
+</code></pre>
+<p><strong>FutureTask</strong>类的特点：</p>
+<p>主线程依次向下执行，可以单开几个线程做其他事情，最后做汇总，汇总只须做一次</p>
+<p><code>Callable</code>与<code>Runnable</code>之间的区别：</p>
+<ol>
+<li>是否具有返回值</li>
+<li>是否抛出异常</li>
+<li>需要重写的方法，前者重写<code>call()</code>后者重写<code>run()</code></li>
+</ol>
+<p><strong>读写锁</strong></p>
+<p>常见的几种锁：</p>
+<p>乐观锁：支持并发操作，使用版本号控制事务提交，后提交事务的线程无法完成对数据的操作</p>
+<p>悲观锁：不支持并发操作，每个线程操作操作前后需要上锁和释放锁，效率低下</p>
+<p>行锁：对正在被操作的行加锁，未加锁的行可以被正操作（会发生死锁）</p>
+<p>表锁：操作某条记录时对整张表进行加锁，其他的线程无法对该表进操作</p>
+<p>读锁（共享锁）：当两个线程对一条记都有读和修改的操作时，会出现死锁</p>
+<p>写锁（独占锁）：在两个线程对两条记录都有写操作时，会出现死锁</p>
+<p><strong>读写锁</strong>简单应用：</p>
+<pre><code class="language-java">class MyCache {
+    //创建集合
+    private volatile Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+
+    //读写锁
+    private ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();
+
+    //放数据
+    public void put(String key, Object value) {
+        //添加写锁
+        rwLock.writeLock().lock();
+        try {
+            System.out.println(Thread.currentThread().getName()+&quot;：正在写操作&quot; + key);
+            //暂停一会
+            TimeUnit.MICROSECONDS.sleep(300);
+            //放数据
+            map.put(key, value);
+            System.out.println(Thread.currentThread().getName()+&quot;：写完了&quot;+ key);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            //释放写锁
+            rwLock.writeLock().unlock();
+        }
+    }
+
+    //读数据
+    public Object get(String key) {
+        //添加读锁
+        rwLock.readLock().lock();
+        Object result = null;
+        try {
+            System.out.println(Thread.currentThread().getName()+&quot;：正在读操作&quot; + key);
+            //暂停一会
+            TimeUnit.MICROSECONDS.sleep(300);
+            //取数据
+            result = map.get(key);
+            System.out.println(Thread.currentThread().getName()+&quot;：读完了&quot;+ key);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            //释放读锁
+            rwLock.readLock().unlock();
+        }
+        return result;
+    }
+
+}
+public class ReadWriteLockDemo {
+    public static void main(String[] args) {
+        MyCache mc = new MyCache();
+
+        //创建线程放数据
+        for (int i = 0; i &lt; 5; i++) {
+            final int num  = i;
+            new Thread(()-&gt;{
+                mc.put(num+&quot;&quot;, num+&quot;&quot;);
+            },String.valueOf(i)).start();
+        }
+
+        //创建线程读数据
+        for (int i = 0; i &lt; 5; i++) {
+            final int num = i;
+            new Thread(()-&gt;{
+                mc.get(num+&quot;&quot;);
+            },String.valueOf(i)).start();
+        }
+    }
+}
+
+---------------------控制台输出------------------------
+
+0：正在写操作0
+0：写完了0
+1：正在写操作1
+1：写完了1
+2：正在写操作2
+2：写完了2
+3：正在写操作3
+3：写完了3
+4：正在写操作4
+4：写完了4
+0：正在读操作0
+1：正在读操作1
+2：正在读操作2
+3：正在读操作3
+4：正在读操作4
+0：读完了0
+2：读完了2
+3：读完了3
+1：读完了1
+4：读完了4
+</code></pre>
+<p>使用不同<strong>锁</strong>下的状态：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>无锁</th>
+<th>独占锁（synchronized、ReentrantLock）</th>
+<th>读写锁（ReentrantReadWriteLock）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>情况</td>
+<td>多线程抢夺资源</td>
+<td>每次只能由一个线程进行操作</td>
+<td>两个读操作之间可以进行共享，两个写操作之间只能由其中一个线程执行操作</td>
+</tr>
+<tr>
+<td>缺陷</td>
+<td>操作混乱，容易产生各种问题</td>
+<td>无论哪种操作都不能共享</td>
+<td>读完才可以进行写操作，写操作时可以进行读操作；容易造成<strong>锁饥饿</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>jdk8中写锁降级为读锁的过程</strong></p>
+<p>获取写锁  <code>-&gt;</code> 获取读锁 <code>-&gt;</code> 释放写锁  <code>-&gt;</code>  释放读锁</p>
+<blockquote>
+<p>注：读锁不能升级为写锁</p>
+</blockquote>
+<h4 id="24阻塞队列">2.4阻塞队列</h4>
+<p><strong>阻塞队列</strong>特点：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202303131219983.png" alt="image-20230313121934287"></p>
+<p>当队列是空的，从队列中获取元素的操作将会被阻塞</p>
+<p>当队列是满的，向队列中添加元素的操作将会被阻塞</p>
+<p>试图从空的队列中获取元素的线程将会被阻塞，直到其他的线程向空的队列中插入新的元素</p>
+<p>试图向已满的队列中插入元素的线程将会被阻塞，直到其他的线程从队列中移除一个或多个元素或者完全清空，使得队列变得空闲起来并继续新增元素</p>
+<p><strong>BlockingQueue中的核心方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法类型</th>
+<th>抛出异常</th>
+<th>特殊值</th>
+<th>阻塞</th>
+<th>超时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插入</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+<td>put()</td>
+<td>offer(e,time,unit)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>remove()</td>
+<td>poll()</td>
+<td>take()</td>
+<td>poll(time,unit)</td>
+</tr>
+<tr>
+<td>检查</td>
+<td>element()</td>
+<td>peek()</td>
+<td>/</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>抛出异常</th>
+<th>当阻塞队列满时，再往队列中add插入元素会抛出IllegalStateException：Queue full；当阻塞队列空时，再往队列中remove移除元素会抛出NoSuchElementException</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>特殊值</strong></td>
+<td>插入方法，成功返回true，失败返回false；移除方法，成功返回出队列的元素，队列里没有就返回null</td>
+</tr>
+<tr>
+<td><strong>一直阻塞</strong></td>
+<td>当阻塞队列满时，生产者线程继续往队列中put元素，队列会一直阻塞生产者线程直到take数据or响应中断退出；当阻塞队列空时，消费者线程试图从队列中take元素，队列会一直阻塞消费者线程直到队列可用</td>
+</tr>
+<tr>
+<td><strong>超时退出</strong></td>
+<td>当阻塞队列满时，队列会阻塞生产者线程一定时间，超过限时后生产者线程会退出</td>
+</tr>
+</tbody>
+</table>
+<h4 id="25线程池">2.5线程池</h4>
+<p><strong>线程池</strong>概念</p>
+<p>线程池是一种线程使用模式，线程过多会带来调度开销，进而影响局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。</p>
+<p><strong>优势</strong>：线程池的工作主要是控制运行的线程数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量，超出数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p>
+<p><strong>特点</strong>：降低资源消耗、提高响应速度、提高线程的可管理性</p>
+<blockquote>
+<p>Java中的线程池是通过<code>Executor</code>框架实现的，该框架中用到了<code>Executor</code>，<code>Executors</code>，<code>ExecutorService</code>、<code>ThreadPoolExecutor</code>这几个类</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202303131943300.png" alt="image-20230313194339273"></p>
+<p><strong>常用线程池</strong>类型</p>
+<pre><code class="language-java">/**一池n线程**/
+ExecutorService threadPool1 = Executors.newFixedThreadPool(10);
+
+/**一池一线程**/
+ExecutorService threadPool2 = Executors.newSingleThreadExecutor();
+
+/**可扩容线程池**/
+ExecutorService threadPool3 = Executors.newCachedThreadPool();
+
+try {
+    for (int i = 0; i &lt; 50; i++) {
+      	//执行execute方法后，线程才会创建
+        threadPool3.execute(()-&gt;{
+        		System.out.println(Thread.currentThread().getName()+&quot;:正在办理业务！&quot;);
+        });
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    threadPool3.shutdown();
+}
+</code></pre>
+<p>上述3种类型线程池底层都是使用<code>ThreadPoolExecutor</code>来实现。同时，也可以使用<code>ThreadPoolExecutor</code>来自定义线程池，自定义线程池时的7个参数如下所示：</p>
+<pre><code class="language-java">/** 1.常驻线程数量**/
+int corePoolSize,
+/** 2.最大线程数量**/
+int maximumPoolSize,
+/** 3.线程存活时间**/
+long keepAliveTime,
+/** 4.时间单位**/
+TimeUnit unit,
+/** 5.阻塞队列**/
+BlockingQueue&lt;Runnable&gt; workQueue,
+/** 6.线程工厂（用来创建线程）**/
+ThreadFactory threadFactory,
+/** 7.拒绝策略 **/
+RejectedExecutionHandler handler
+// 4种拒绝策略
+-CallerRunsPolicy：将任务回退到调用者，从而降低任务流量
+-AbortPolicy：默认，直接抛出RejectedExecutionException异常
+-DiscardPolicy：默认丢弃无法处理的任务，不做任何处理也不抛出异常
+-DiscardOldestPolicy：抛弃阻塞队列中等待最久的任务
+</code></pre>
+<p><strong>注意：</strong>【强制】通常情况下<strong>不允许</strong>通过<code>Executors</code>创建线程，而是通过<code>ThreadPoolExecutor</code>的方式自定义创建线程池，为了规避资源耗尽的风险：</p>
+<p><strong>Executors</strong>返回线程池对象的<strong>弊端</strong>：</p>
+<ol>
+<li><code>FixedTHreadPool</code>和<code>SingleThreadPool</code>允许的请求队列长度为<code>Integer.MAX_VALUE</code>,可能会堆积大量的请求，从而导致OOM</li>
+<li><code>CachedThreadPool</code>和<code>ScheduledThreadPool</code>允许创建线程数量为<code>Integer.MAX_VALUE</code>，从而导致OOM</li>
+</ol>
+<p>使用<code>ThreadPoolExecutor</code><strong>自定义线程池</strong>示例：</p>
+<pre><code class="language-java">public class CustomThreadPoolDemo {
+    public static void main(String[] args) {
+        ExecutorService threadpool = new ThreadPoolExecutor(7,
+                10,
+                2L,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue&lt;&gt;(3),
+                new CustomizableThreadFactory(&quot;devon-thread&quot;),
+                new ThreadPoolExecutor.DiscardPolicy());
+
+        try {
+            for (int i = 0; i &lt; 20; i++) {
+                threadpool.execute(()-&gt;{
+                    System.out.println(Thread.currentThread().getName()+&quot;:正在受理业务！&quot;);
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            threadpool.shutdown();
+        }
+    }
+}
+
+--------------------------控制台输出----------------------------
+devon-thread1:正在受理业务！
+devon-thread3:正在受理业务！
+devon-thread2:正在受理业务！
+devon-thread4:正在受理业务！
+devon-thread5:正在受理业务！
+devon-thread6:正在受理业务！
+devon-thread7:正在受理业务！
+devon-thread1:正在受理业务！
+devon-thread1:正在受理业务！
+devon-thread8:正在受理业务！
+devon-thread8:正在受理业务！
+devon-thread9:正在受理业务！
+devon-thread7:正在受理业务！
+devon-thread2:正在受理业务！
+devon-thread1:正在受理业务！
+devon-thread2:正在受理业务！
+devon-thread10:正在受理业务！
+devon-thread7:正在受理业务！
+devon-thread3:正在受理业务！
+devon-thread8:正在受理业务！
+
+Process finished with exit code 0
+
+</code></pre>
+<pre><code>								------ 持续更新中，敬请期待 ------</code></pre>
 
 </article>
 
@@ -546,8 +1146,24 @@ public class testThread{
   <ul>
     <li>
       <ul>
-        <li><a href="#1理论部分">1.理论部分：</a></li>
-        <li><a href="#2应用实例">2.应用实例：</a></li>
+        <li><a href="#i基础理论">I.基础理论：</a>
+          <ul>
+            <li><a href="#11-线程和进程">1.1 线程和进程</a></li>
+            <li><a href="#12-线程中的状态">1.2 线程中的状态</a></li>
+            <li><a href="#13-sleep和wait方法的区别">1.3 <code>sleep</code>和<code>wait</code>方法的区别</a></li>
+            <li><a href="#14-并发和并行的区别">1.4 并发和并行的区别</a></li>
+            <li><a href="#15-用户线程和守护线程">1.5 用户线程和守护线程</a></li>
+          </ul>
+        </li>
+        <li><a href="#ii核心知识点">II.核心知识点：</a>
+          <ul>
+            <li><a href="#21多线程简单应用">2.1多线程简单应用</a></li>
+            <li><a href="#22线程间通信">2.2线程间通信</a></li>
+            <li><a href="#23-死锁">2.3 死锁</a></li>
+            <li><a href="#24阻塞队列">2.4阻塞队列</a></li>
+            <li><a href="#25线程池">2.5线程池</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
