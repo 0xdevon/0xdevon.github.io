@@ -104,7 +104,7 @@
     },
     "headline": "解决SpringBoot循环依赖 | Devon Chan","datePublished": "2023-03-27T13:02:54+08:00",
     "dateModified": "2023-03-27T13:02:54+08:00",
-    "wordCount":  1243 ,
+    "wordCount":  1239 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -271,7 +271,7 @@
 <pre><code>Bean A -&gt; Bean B -&gt; Bean C
 </code></pre>
 <p>这样Spring会先创建bean C,然后Spring再创建Bean B(同时把C注入到B中),然后再创建Bean A(同时把bean B注入到A中)。</p>
-<p>但是，如果发生循环依赖，他们彼此依赖，导致Spring无法决定哪一个bean最先被创建。在这样的情况下，Spring将在加载context时产生一个**<code>BeanCurrentlyInCreationException</code>**</p>
+<p>但是，如果发生循环依赖，他们彼此依赖，导致Spring无法决定哪一个bean最先被创建。在这样的情况下，Spring将在加载context时产生一个<code>BeanCurrentlyInCreationException</code></p>
 <p>循环依赖只会在Spring使用 构造器注入(<strong>constructor injection</strong>)的时候才会产生;如果你使用其他类型的注入方式,这些bean只会在被调用的时候才加载到context中，这样你就不会遇到循环依赖的问题。</p>
 <h4 id="场景复现">场景复现</h4>
 <p>在SpringBoot项目中复现循环依赖的场景：</p>
