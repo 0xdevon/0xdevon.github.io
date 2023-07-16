@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34; | Devon Chan</title>
+<title>解决SpringBoot循环依赖 | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
@@ -75,7 +75,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利">
+  content="概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,8 +87,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"解决在Mac上执行shell脚本，报错\"/bin/bash^M：bad interpreter：No such file or directory\"",
-      "item":"/posts/shell-script-execute-error/"}]
+      "name":"解决SpringBoot循环依赖",
+      "item":"/posts/cycling-dependecy-solution/"}]
 }
 </script>
 
@@ -100,11 +100,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/shell-script-execute-error/"
+        "@id": "/posts/cycling-dependecy-solution/"
     },
-    "headline": "解决在Mac上执行shell脚本，报错\u0022\/bin\/bash^M：bad interpreter：No such file or directory\u0022 | Devon Chan","datePublished": "2023-02-21T13:28:10+08:00",
-    "dateModified": "2023-02-21T13:28:10+08:00",
-    "wordCount":  351 ,
+    "headline": "解决SpringBoot循环依赖 | Devon Chan","datePublished": "2023-03-27T13:02:54+08:00",
+    "dateModified": "2023-03-27T13:02:54+08:00",
+    "wordCount":  1243 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -113,21 +113,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利"
+    "description": "概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运"
 }
-</script><meta property="og:title" content="解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34; | Devon Chan" />
+</script><meta property="og:title" content="解决SpringBoot循环依赖 | Devon Chan" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/shell-script-execute-error/" />
+<meta property="og:url" content="/posts/cycling-dependecy-solution/" />
 
 
 
 
-<meta property="og:description" content="今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利" />
+<meta property="og:description" content="概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运" />
 
 
 
@@ -144,27 +144,15 @@
 
 
 
-<meta property="article:published_time" content="2023-02-21T13:28:10&#43;08:00" />
+<meta property="article:published_time" content="2023-03-27T13:02:54&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-02-21T13:28:10&#43;08:00" />
+<meta property="article:modified_time" content="2023-03-27T13:02:54&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
-
-<meta property="article:tag" content="Linux" />
-
-
-
-
-
-<meta property="og:see_also" content="/posts/linux-sudo-cli-note/" />
-
-<meta property="og:see_also" content="/posts/linux-cmd-learning-note/" />
-
-<meta property="og:see_also" content="/posts/linuxshell-coding-learning-note/" />
 
 
 
@@ -245,10 +233,10 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</h1>
+  <h1 class="mb-4">解决SpringBoot循环依赖</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -256,12 +244,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-02-21</span
+      >2023-03-27</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -273,35 +261,149 @@
   
   
 
-  <p>今天在Mac下执行shell脚本时，出现了这样的异常信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302211334341.png" alt="image-20230221133433289"></p>
-<p>其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过</p>
-<p>解决方法是利用vi编辑器，挺方便，按照如下步骤：</p>
-<ol>
-<li>
-<p>输入<code>vi intstall_dependency_2_mvn_local_repo.sh</code>，会显示部分内容出来</p>
-</li>
-<li>
-<p>输入 <code>:set ff</code>，会看到 <code>fileformat=dos</code>，这样就验证了刚才的想法：文件在Windows上被编辑过</p>
-</li>
-<li>
-<p>输入<code>:set ff=unix</code>，就会把文件转化为unix格式的，当然Mac上就可以正常使用了</p>
-</li>
-<li>
-<p>输入<code>:wq</code>，退出vi</p>
-</li>
-</ol>
-<p>具体为什么会报<code>^M</code>这个错误，应该是cofigure文件在Windows上编辑时，每行后面会加个ctrl+m就是^M，相应的利用shell执行时，就会变成sh^M，这个命令当然是没有的，就报了上述错误。</p>
+  <h4 id="概念引入">概念引入</h4>
+<p><strong>循环依赖</strong>：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运行出现异常。循环依赖通常会在软件设计或者系统架构中出现，需要采取相应的解决方案来避免或者处理它们。</p>
+<blockquote>
+<p>本文部分内容基于<code>Chat-GPT</code>完成</p>
+</blockquote>
+<h4 id="发生原理">发生原理</h4>
+<p>当Spring的context开始加载所有beans的时候,它尝试按照某种顺序去创建这些beans，从而使得他们能完全工作。例如，如果我们没有循环依赖的话，可能会有如下的案例:</p>
+<pre><code>Bean A -&gt; Bean B -&gt; Bean C
+</code></pre>
+<p>这样Spring会先创建bean C,然后Spring再创建Bean B(同时把C注入到B中),然后再创建Bean A(同时把bean B注入到A中)。</p>
+<p>但是，如果发生循环依赖，他们彼此依赖，导致Spring无法决定哪一个bean最先被创建。在这样的情况下，Spring将在加载context时产生一个**<code>BeanCurrentlyInCreationException</code>**</p>
+<p>循环依赖只会在Spring使用 构造器注入(<strong>constructor injection</strong>)的时候才会产生;如果你使用其他类型的注入方式,这些bean只会在被调用的时候才加载到context中，这样你就不会遇到循环依赖的问题。</p>
+<h4 id="场景复现">场景复现</h4>
+<p>在SpringBoot项目中复现循环依赖的场景：</p>
+<p><code>ServiceA.java</code></p>
+<pre><code class="language-java">@Service
+public class ServiceA {
+ 
+    private ServiceB serviceB;
+ 
+    @Autowired
+    public ServiceA(ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
+}
+</code></pre>
+<p><code>ServiceB.java</code></p>
+<pre><code class="language-java">@Service
+public class ServiceB {
+ 
+    private ServiceA serviceA;
+ 
+    @Autowired
+    public ServiceB(ServiceA serviceA) {
+        this.serviceA = serviceA;
+    }
+}
+</code></pre>
+<p>此时，在启动类启动过程中控制台会输出下列信息提示：</p>
+<pre><code>***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  serviceA defined in file [/Users/defchan/Documents/quiz/target/classes/com/devon/quiz/service/ServiceA.class]
+↑     ↓
+|  serviceB defined in file [/Users/defchan/Documents/quiz/target/classes/com/devon/quiz/service/ServiceB.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+
+Process finished with exit code 1
+</code></pre>
+<h4 id="解决方法">解决方法</h4>
+<ul>
+<li><strong>方式1</strong>:配置文件添加配置项（使用属性注入情况下可生效）</li>
+</ul>
+<p>在<code>application.yml</code>中添加以下配置项：</p>
+<pre><code class="language-yaml">spring:
+  main:
+    allow-circular-references: true
+</code></pre>
+<p>添加上述配置项后，Spring不再抛出循环依赖的错误</p>
+<ul>
+<li><strong>方式2</strong>：使用<code>@Lazy</code>注解</li>
+</ul>
+<p>这里有一个简单的方法来打破这种循环，就是告诉Spring 在加载context之后再初始化Beans，而不是完全初始化这个bean，使用@Lazy时,Spring将创建一个代理bean注入到其他bean中，这种注入只有在bean第一次调用时才会被完全生效。</p>
+<p>为了测试<code>@Lazy</code>注解，需要将上述代码修改为以下的形式：</p>
+<p><code>ServiceA.java</code>:</p>
+<pre><code class="language-java">@Service
+public class ServiceA {
+ 
+    private ServiceB serviceB;
+ 
+    @Autowired
+    public ServiceA(@Lazy ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
+}
+</code></pre>
+<p><code>ServiceB.java</code>:</p>
+<pre><code class="language-java">@Service
+public class ServiceB {
+ 
+    private ServiceA serviceA;
+ 
+    @Autowired
+    public ServiceB(@Lazy ServiceA serviceA) {
+        this.serviceA = serviceA;
+    }
+}
+</code></pre>
+<p>进过这次修改，可以发现能够正常启动了</p>
+<ul>
+<li><strong>方式3</strong>：使用Setter/Field注入</li>
+</ul>
+<p>使用Setter注入是<a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.spring.io%2Fspring%2Fdocs%2Fcurrent%2Fspring-framework-reference%2Fcore.html%23beans"><strong>Spring官方文档</strong></a>推荐的，也是最受欢迎的。</p>
+<p>你只需要把原来使用构造器注入(@Resource @AutoWired)的方式. 替换成setter注入(或field注入),就会解决问题，这样bean只会在被调用时才会被注入。</p>
+<p>如下是使用Setter注入的例子:</p>
+<p><code>ServiceA.java</code>:</p>
+<pre><code class="language-java">@Service
+public class ServiceA {
+ 
+    private ServiceB serviceB;
+ 
+    @Autowired
+    public void setServiceB(ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
+ 
+    public ServiceB getServiceB() {
+        return serviceB;
+    }
+}
+</code></pre>
+<p><code>ServiceB.java</code>:</p>
+<pre><code class="language-java">@Service
+public class ServiceB {
+ 
+    private ServiceA serviceA;
+ 
+    @Autowired
+    public void setServiceA(ServiceA serviceA) {
+        this.serviceA = serviceA;
+    }
+ 
+    public ServiceA getServiceA() {
+        return serviceA;
+    }
+}
+</code></pre>
 
 </article>
 
 
-      
-        <div class="my-4">
-    
-    <a href="/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Linux</a>
-    
-</div>
       
 
       
@@ -319,13 +421,13 @@
         <span class="text-primary-text block font-bold"
           >Previous</span
         >
-        <a href="/posts/cycling-dependecy-solution/" class="block">解决SpringBoot循环依赖</a>
+        <a href="/posts/mysql-on-docker/" class="block">MacBook使用docker方式部署MySQL 8踩坑经历</a>
       
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="/posts/quick-sort-notes/" class="block">浅谈Quicksort（快速排序）</a>
+        <a href="/posts/shell-script-execute-error/" class="block">解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</a>
       
     </div>
   </div>
@@ -337,24 +439,47 @@
 
     </div>
     
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#概念引入">概念引入</a></li>
+            <li><a href="#发生原理">发生原理</a></li>
+            <li><a href="#场景复现">场景复现</a></li>
+            <li><a href="#解决方法">解决方法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
 
-    
-    
-      <div
-        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
-      >
-        <h3>See Also</h3>
-        
-          <a href="/posts/linux-sudo-cli-note/" class="no-underline">Linux中sudo系列命令的区别</a>
-          <br />
-        
-          <a href="/posts/linux-cmd-learning-note/" class="no-underline">Linux命令学习札记</a>
-          <br />
-        
-          <a href="/posts/linuxshell-coding-learning-note/" class="no-underline">LinuxShell编程学习札记</a>
-          <br />
         
       </div>
+    
+
+    
     
   </div>
 

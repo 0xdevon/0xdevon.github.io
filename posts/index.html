@@ -87,21 +87,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "解决在Mac上执行shell脚本，报错\"/bin/bash^M：bad interpreter：No such file or directory\"",
-            "description": "今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利",
-            "url": "/posts/shell-script-execute-error/"
+            "name": "MacBook使用docker方式部署Redis踩坑经历",
+            "description": "问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused",
+            "url": "/posts/redis-on-docker/"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "浅谈Quicksort（快速排序）",
-            "description": "题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大",
-            "url": "/posts/quick-sort-notes/"
+            "name": "MacBook使用docker方式部署MySQL 8踩坑经历",
+            "description": "问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'biz.XXL_JOB_QRTZ' doesn't exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like '%case%' 如果区分大小写，则结果为： +------------------------+-------+ |",
+            "url": "/posts/mysql-on-docker/"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "使用SpringAOP实现低侵入的日志采集功能",
-            "description": "最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过",
-            "url": "/posts/aop-coding-practice/"
+            "name": "解决SpringBoot循环依赖",
+            "description": "概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运",
+            "url": "/posts/cycling-dependecy-solution/"
         }
     ]
 }
@@ -136,7 +136,7 @@
 
 
 
-<meta property="og:updated_time" content="2023-02-21T13:28:10&#43;08:00" />
+<meta property="og:updated_time" content="2023-07-16T00:26:21&#43;08:00" />
 
 
 
@@ -231,11 +231,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="/posts/shell-script-execute-error/" class="no-underline">
-    <h3 class="mt-0">解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</h3>
+  <a href="/posts/redis-on-docker/" class="no-underline">
+    <h3 class="mt-0">MacBook使用docker方式部署Redis踩坑经历</h3>
   </a>
   
-    今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利
+    问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused
   
 
   
@@ -245,7 +245,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-02-21</span
+      >2023-07-16</span
     >
   </div>
   <div class="me-6 my-2">
@@ -272,11 +272,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="/posts/quick-sort-notes/" class="no-underline">
-    <h3 class="mt-0">浅谈Quicksort（快速排序）</h3>
+  <a href="/posts/mysql-on-docker/" class="no-underline">
+    <h3 class="mt-0">MacBook使用docker方式部署MySQL 8踩坑经历</h3>
   </a>
   
-    题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大
+    问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： &#43;------------------------&#43;-------&#43; |
   
 
   
@@ -286,12 +286,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-12-05</span
+      >2023-07-16</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>5 min read</span>
+    <span>1 min read</span>
   </div>
 
   
@@ -313,11 +313,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="/posts/aop-coding-practice/" class="no-underline">
-    <h3 class="mt-0">使用SpringAOP实现低侵入的日志采集功能</h3>
+  <a href="/posts/cycling-dependecy-solution/" class="no-underline">
+    <h3 class="mt-0">解决SpringBoot循环依赖</h3>
   </a>
   
-    最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过
+    概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运
   
 
   
@@ -327,7 +327,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-11-22</span
+      >2023-03-27</span
     >
   </div>
   <div class="me-6 my-2">
@@ -380,7 +380,7 @@
         <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/7/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/8/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

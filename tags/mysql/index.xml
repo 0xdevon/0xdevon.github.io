@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sat, 15 Oct 2022 19:58:44 +0800</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 00:22:27 +0800</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
+      <link>/posts/mysql-on-docker/</link>
+      <pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
+      
+      <guid>/posts/mysql-on-docker/</guid>
+      <description>问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： +------------------------+-------+ |</description>
+    </item>
+    
     <item>
       <title>MySQL中datetime字段插入0值数据错误解决</title>
       <link>/posts/mysql-datetimecolumn-0value-issue/</link>

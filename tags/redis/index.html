@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Docker | Devon Chan</title>
+<title>Redis | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
@@ -87,8 +87,8 @@
       "item":"/tags/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Docker",
-      "item":"/tags/docker/"}]
+      "name":"Redis",
+      "item":"/tags/redis/"}]
 }
 </script>
 
@@ -105,29 +105,17 @@
             "name": "MacBook使用docker方式部署Redis踩坑经历",
             "description": "问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused",
             "url": "/posts/redis-on-docker/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "MacBook使用docker方式部署MySQL 8踩坑经历",
-            "description": "问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'biz.XXL_JOB_QRTZ' doesn't exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like '%case%' 如果区分大小写，则结果为： +------------------------+-------+ |",
-            "url": "/posts/mysql-on-docker/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Docker镜像简单部署（基于Kylin-Linux）",
-            "description": "1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后",
-            "url": "/posts/docker-image-deploy-steps/"
         }
     ]
 }
-</script><meta property="og:title" content="Docker | Devon Chan" />
+</script><meta property="og:title" content="Redis | Devon Chan" />
 <meta property="og:type" content="website" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/tags/docker/" />
+<meta property="og:url" content="/tags/redis/" />
 
 
 
@@ -158,7 +146,7 @@
 <meta property="article:section" content="tags" />
 
 
-<link rel="alternate" type="application/rss+xml" href="/tags/docker/index.xml" title="Devon Chan" />
+<link rel="alternate" type="application/rss+xml" href="/tags/redis/index.xml" title="Devon Chan" />
 
 
   <body class="flex min-h-screen flex-col">
@@ -234,7 +222,7 @@
         <div class="pl-scrollbar">
           <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
   <article class="prose mx-6 my-8">
-  <h1>Docker</h1>
+  <h1>Redis</h1>
   
 </article>
 
@@ -261,88 +249,6 @@
     <i class="fas fa-calendar me-1"></i>
     <span
       >2023-07-16</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/mysql-on-docker/" class="no-underline">
-    <h3 class="mt-0">MacBook使用docker方式部署MySQL 8踩坑经历</h3>
-  </a>
-  
-    问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： &#43;------------------------&#43;-------&#43; |
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2023-07-16</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="/posts/docker-image-deploy-steps/" class="no-underline">
-    <h3 class="mt-0">Docker镜像简单部署（基于Kylin-Linux）</h3>
-  </a>
-  
-    1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-10-16</span
     >
   </div>
   <div class="me-6 my-2">

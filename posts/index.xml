@@ -8,7 +8,34 @@
     <language>en</language>
     <copyright>Copyright &amp;copy; 2023 &lt;a href=&#34;https://weibo.com/zer09b&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 21 Feb 2023 13:28:10 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 00:26:21 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook使用docker方式部署Redis踩坑经历</title>
+      <link>/posts/redis-on-docker/</link>
+      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+      
+      <guid>/posts/redis-on-docker/</guid>
+      <description>问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused</description>
+    </item>
+    
+    <item>
+      <title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
+      <link>/posts/mysql-on-docker/</link>
+      <pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
+      
+      <guid>/posts/mysql-on-docker/</guid>
+      <description>问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： +------------------------+-------+ |</description>
+    </item>
+    
+    <item>
+      <title>解决SpringBoot循环依赖</title>
+      <link>/posts/cycling-dependecy-solution/</link>
+      <pubDate>Mon, 27 Mar 2023 13:02:54 +0800</pubDate>
+      
+      <guid>/posts/cycling-dependecy-solution/</guid>
+      <description>概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运</description>
+    </item>
+    
     <item>
       <title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
       <link>/posts/shell-script-execute-error/</link>
