@@ -10,7 +10,7 @@
 <title>JUC学习札记 | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,11 +71,16 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
-  content="I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态">
+  content="I.基础理论：
+1.1 线程和进程
+进程：系统进行资源分配和调度的基本单位
+线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）
+1.2 线程中的状态
+即Thread.State，有以下状态：">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,7 +118,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态"
+    "description": "\u003ch3 id=\u0022i基础理论\u0022\u003eI.基础理论：\u003c\/h3\u003e\n\u003ch4 id=\u002211-线程和进程\u0022\u003e1.1 线程和进程\u003c\/h4\u003e\n\u003cp\u003e进程：系统进行资源分配和调度的基本单位\u003c\/p\u003e\n\u003cp\u003e线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）\u003c\/p\u003e\n\u003ch4 id=\u002212-线程中的状态\u0022\u003e1.2 线程中的状态\u003c\/h4\u003e\n\u003cp\u003e即\u003ccode\u003eThread.State\u003c\/code\u003e，有以下状态：\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="JUC学习札记 | Devon Chan" />
 <meta property="og:type" content="article" />
@@ -127,7 +132,12 @@
 
 
 
-<meta property="og:description" content="I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态" />
+<meta property="og:description" content="I.基础理论：
+1.1 线程和进程
+进程：系统进行资源分配和调度的基本单位
+线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）
+1.2 线程中的状态
+即Thread.State，有以下状态：" />
 
 
 
@@ -171,6 +181,7 @@
 <meta property="og:see_also" content="/posts/linuxshell-coding-learning-note/" />
 
 <meta property="og:see_also" content="/posts/mybatis-maven-demo-proj/" />
+
 
 
 
@@ -883,28 +894,28 @@ public class ReadWriteLockDemo {
 </code></pre>
 <p>使用不同<strong>锁</strong>下的状态：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>无锁</th>
-<th>独占锁（synchronized、ReentrantLock）</th>
-<th>读写锁（ReentrantReadWriteLock）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>情况</td>
-<td>多线程抢夺资源</td>
-<td>每次只能由一个线程进行操作</td>
-<td>两个读操作之间可以进行共享，两个写操作之间只能由其中一个线程执行操作</td>
-</tr>
-<tr>
-<td>缺陷</td>
-<td>操作混乱，容易产生各种问题</td>
-<td>无论哪种操作都不能共享</td>
-<td>读完才可以进行写操作，写操作时可以进行读操作；容易造成<strong>锁饥饿</strong></td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>无锁</th>
+					<th>独占锁（synchronized、ReentrantLock）</th>
+					<th>读写锁（ReentrantReadWriteLock）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>情况</td>
+					<td>多线程抢夺资源</td>
+					<td>每次只能由一个线程进行操作</td>
+					<td>两个读操作之间可以进行共享，两个写操作之间只能由其中一个线程执行操作</td>
+			</tr>
+			<tr>
+					<td>缺陷</td>
+					<td>操作混乱，容易产生各种问题</td>
+					<td>无论哪种操作都不能共享</td>
+					<td>读完才可以进行写操作，写操作时可以进行读操作；容易造成<strong>锁饥饿</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>jdk8中写锁降级为读锁的过程</strong></p>
 <p>获取写锁  <code>-&gt;</code> 获取读锁 <code>-&gt;</code> 释放写锁  <code>-&gt;</code>  释放读锁</p>
@@ -920,60 +931,60 @@ public class ReadWriteLockDemo {
 <p>试图向已满的队列中插入元素的线程将会被阻塞，直到其他的线程从队列中移除一个或多个元素或者完全清空，使得队列变得空闲起来并继续新增元素</p>
 <p><strong>BlockingQueue中的核心方法</strong></p>
 <table>
-<thead>
-<tr>
-<th>方法类型</th>
-<th>抛出异常</th>
-<th>特殊值</th>
-<th>阻塞</th>
-<th>超时</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>插入</td>
-<td>add(e)</td>
-<td>offer(e)</td>
-<td>put()</td>
-<td>offer(e,time,unit)</td>
-</tr>
-<tr>
-<td>移除</td>
-<td>remove()</td>
-<td>poll()</td>
-<td>take()</td>
-<td>poll(time,unit)</td>
-</tr>
-<tr>
-<td>检查</td>
-<td>element()</td>
-<td>peek()</td>
-<td>/</td>
-<td>/</td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th>方法类型</th>
+					<th>抛出异常</th>
+					<th>特殊值</th>
+					<th>阻塞</th>
+					<th>超时</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>插入</td>
+					<td>add(e)</td>
+					<td>offer(e)</td>
+					<td>put()</td>
+					<td>offer(e,time,unit)</td>
+			</tr>
+			<tr>
+					<td>移除</td>
+					<td>remove()</td>
+					<td>poll()</td>
+					<td>take()</td>
+					<td>poll(time,unit)</td>
+			</tr>
+			<tr>
+					<td>检查</td>
+					<td>element()</td>
+					<td>peek()</td>
+					<td>/</td>
+					<td>/</td>
+			</tr>
+	</tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>抛出异常</th>
-<th>当阻塞队列满时，再往队列中add插入元素会抛出IllegalStateException：Queue full；当阻塞队列空时，再往队列中remove移除元素会抛出NoSuchElementException</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>特殊值</strong></td>
-<td>插入方法，成功返回true，失败返回false；移除方法，成功返回出队列的元素，队列里没有就返回null</td>
-</tr>
-<tr>
-<td><strong>一直阻塞</strong></td>
-<td>当阻塞队列满时，生产者线程继续往队列中put元素，队列会一直阻塞生产者线程直到take数据or响应中断退出；当阻塞队列空时，消费者线程试图从队列中take元素，队列会一直阻塞消费者线程直到队列可用</td>
-</tr>
-<tr>
-<td><strong>超时退出</strong></td>
-<td>当阻塞队列满时，队列会阻塞生产者线程一定时间，超过限时后生产者线程会退出</td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th>抛出异常</th>
+					<th>当阻塞队列满时，再往队列中add插入元素会抛出IllegalStateException：Queue full；当阻塞队列空时，再往队列中remove移除元素会抛出NoSuchElementException</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>特殊值</strong></td>
+					<td>插入方法，成功返回true，失败返回false；移除方法，成功返回出队列的元素，队列里没有就返回null</td>
+			</tr>
+			<tr>
+					<td><strong>一直阻塞</strong></td>
+					<td>当阻塞队列满时，生产者线程继续往队列中put元素，队列会一直阻塞生产者线程直到take数据or响应中断退出；当阻塞队列空时，消费者线程试图从队列中take元素，队列会一直阻塞消费者线程直到队列可用</td>
+			</tr>
+			<tr>
+					<td><strong>超时退出</strong></td>
+					<td>当阻塞队列满时，队列会阻塞生产者线程一定时间，超过限时后生产者线程会退出</td>
+			</tr>
+	</tbody>
 </table>
 <h4 id="25线程池">2.5线程池</h4>
 <p><strong>线程池</strong>概念</p>
@@ -1084,7 +1095,8 @@ devon-thread8:正在受理业务！
 Process finished with exit code 0
 
 </code></pre>
-<pre><code>								------ 持续更新中，敬请期待 ------</code></pre>
+<pre><code>								------ 持续更新中，敬请期待 ------
+</code></pre>
 
 </article>
 

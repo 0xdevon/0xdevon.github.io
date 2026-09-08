@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Redis on Devon Chan</title>
-    <link>/tags/redis/</link>
-    <description>Recent content in Redis on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>Redis on Devon Chan</title>
+		<link>/tags/redis/</link>
+		<description>Recent content in Redis on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 00:26:21 +0800</lastBuildDate><atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MacBook使用docker方式部署Redis踩坑经历</title>
-      <link>/posts/redis-on-docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
-      
-      <guid>/posts/redis-on-docker/</guid>
-      <description>问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Sun, 16 Jul 2023 00:26:21 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>MacBook使用docker方式部署Redis踩坑经历</title>
+				<link>/posts/redis-on-docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+				<guid>/posts/redis-on-docker/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; &#xA;nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool;&#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461)&#xA; &#xA;Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; &#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459)&#xA;&#x9;... 78 more&#xA;Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)&#xA; &#xA;Caused by: io.lettuce.core.RedisConnectionException: Connection closed prematurely&#xA;&#x9;at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:86)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;思路&lt;/strong&gt;：停止原有进程，删除容器，宿主机写好配置文件后与容器进行映射，镜像第一次启动时使用映射的配置文件进行启动&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

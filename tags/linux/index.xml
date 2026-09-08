@@ -1,49 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on Devon Chan</title>
-    <link>/tags/linux/</link>
-    <description>Recent content in Linux on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>Linux on Devon Chan</title>
+		<link>/tags/linux/</link>
+		<description>Recent content in Linux on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 21 Feb 2023 13:28:10 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
-      <link>/posts/shell-script-execute-error/</link>
-      <pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
-      
-      <guid>/posts/shell-script-execute-error/</guid>
-      <description>今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利</description>
-    </item>
-    
-    <item>
-      <title>Linux中sudo系列命令的区别</title>
-      <link>/posts/linux-sudo-cli-note/</link>
-      <pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
-      
-      <guid>/posts/linux-sudo-cli-note/</guid>
-      <description>前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式</description>
-    </item>
-    
-    <item>
-      <title>Linux命令学习札记</title>
-      <link>/posts/linux-cmd-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
-      
-      <guid>/posts/linux-cmd-learning-note/</guid>
-      <description>1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &amp;quot;^-&amp;quot;| wc -l 其中data_trs指代解压后的文</description>
-    </item>
-    
-    <item>
-      <title>LinuxShell编程学习札记</title>
-      <link>/posts/linuxshell-coding-learning-note/</link>
-      <pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
-      
-      <guid>/posts/linuxshell-coding-learning-note/</guid>
-      <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Tue, 21 Feb 2023 13:28:10 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
+				<link>/posts/shell-script-execute-error/</link>
+				<pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
+				<guid>/posts/shell-script-execute-error/</guid>
+				<description>&lt;p&gt;今天在Mac下执行shell脚本时，出现了这样的异常信息：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302211334341.png&#34; alt=&#34;image-20230221133433289&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过&lt;/p&gt;&#xA;&lt;p&gt;解决方法是利用vi编辑器，挺方便，按照如下步骤：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linux中sudo系列命令的区别</title>
+				<link>/posts/linux-sudo-cli-note/</link>
+				<pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
+				<guid>/posts/linux-sudo-cli-note/</guid>
+				<description>&lt;p&gt;前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式以及这些方式之间的差异：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linux命令学习札记</title>
+				<link>/posts/linux-cmd-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
+				<guid>/posts/linux-cmd-learning-note/</guid>
+				<description>&lt;h3 id=&#34;1使用unzip命令批量递归解压缩文件&#34;&gt;1.使用&lt;code&gt;unzip&lt;/code&gt;命令批量递归解压缩文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ls  $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot;&#xA;# 使用下面的命列出当前位置下的文件个数&#xA;ls -l | grep &amp;quot;^-&amp;quot;| wc -l&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;其中&lt;code&gt;data_trs&lt;/code&gt;指代解压后的文件另存到的文件夹目录&lt;/p&gt;&#xA;&lt;h3 id=&#34;2hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&#34;&gt;2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;3hybase批量导出数据trs格式数据文件&#34;&gt;3.Hybase批量导出数据trs格式数据文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;4给文件或文件夹赋予权限&#34;&gt;4.给文件或文件夹赋予权限&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限&#xA;chmod +x *.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;5基本开关机&#34;&gt;5.基本开关机&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sync #将数据由内存同步到硬盘中&#xA;shutdown #关机命令&#xA;shutdown -h 10 #10分钟后关机&#xA;shutdown -h now #立即关机&#xA;shutdown -h 20:25 #在下午20:25关机&#xA;shutdown -h +10 #十分钟后关机&#xA;shutdown -r now #立即重启&#xA;shutdown -r +10 #10分钟后重启&#xA;rebot #重启，相当于shutdown -r now&#xA;halt #关闭系统，等同于shutdown -h now 和 power off  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;6文件操作&#34;&gt;6.文件操作&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rmdir #删除空文件夹&#xA;rmdir -p #递归删除多个目录&#xA;&#xA;rm -f 强制删除&#xA;rm -i 互动，询问是否删除&#xA;rm -r 递归删除&#xA;&#xA;mv -f 强制移动&#xA;mv -u 只替换已经更新过的文件&#xA;&#xA;vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&amp;quot;:&amp;quot;进入底线命令模式，继续输入&amp;quot;wq&amp;quot;保存修改内容并退出编辑器 &#xA;#在编辑器中设置行号:set nu&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Space&amp;gt;&amp;quot;使得可以将光标向右跳转n个位置&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Enter&amp;gt;&amp;quot;使得可以将光标向下跳转n行&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;7文件权限&#34;&gt;7.文件权限&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;文件类型&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属主权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属组权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;其他用户权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;d：目录 l:链接 -：文件&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;chgrp [-R] 属组名 文件名 #递归更改文件属组&#xA;chown [-R] 属主名 文件名&#xA;chown [-R] 属主名：属组名 文件名&#xA;chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;8文件查看&#34;&gt;8.文件查看&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cat #查看文件所有内容&#xA;tac #倒序查看文件所有内容&#xA;nl #带行号查看你&#xA;more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行&#xA;less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）&#xA;head -n x（数字） #查看头x行文件内容&#xA;tail -n x（数字） #查看尾部x行内容&#xA;tail -f 文件名    #持续监控文件内容变化，ctrl+s暂停，ctrl+q继续&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;9创建连接&#34;&gt;9.创建连接&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化&#xA;ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;软连接和硬连接的区别&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>LinuxShell编程学习札记</title>
+				<link>/posts/linuxshell-coding-learning-note/</link>
+				<pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
+				<guid>/posts/linuxshell-coding-learning-note/</guid>
+				<description>&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# shell脚本开头&#xA;#!/bin/bash&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$n&lt;/code&gt;变量得到执行脚本时输入的第n个参数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$#&lt;/code&gt;变量拿到执行脚本时输入的参数个数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$*&lt;/code&gt;或&lt;code&gt;$@&lt;/code&gt;获取执行脚本输入的所有参数（其中&lt;code&gt;$*&lt;/code&gt;将所有参数当做一个整体）&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

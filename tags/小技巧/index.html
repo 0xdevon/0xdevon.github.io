@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>小技巧 | Devon Chan</title>
+<title>Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,8 +71,8 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
@@ -103,18 +103,18 @@
             "@type":"ListItem",
             "position":  1 ,
             "name": "Idea快捷键汇总（Mac）",
-            "description": "在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难： Alt+Insert: 添加父类或接口中的抽象方法 Alt配合鼠标拖拽同时编辑多行重复代码",
+            "description": "\u003cp\u003e在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难：\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eAlt+Insert\u003c/code\u003e: 添加父类或接口中的抽象方法\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eAlt\u003c/code\u003e配合鼠标拖拽同时编辑多行重复代码\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003econtrol + option + h\u003c/code\u003e: 查看方法与变量的使用\u003c/p\u003e",
             "url": "/posts/idea-shortcut/"
         },{
             "@type":"ListItem",
             "position":  2 ,
             "name": "我的桌面备忘录分享「纯干货」",
-            "description": "1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名\u0026lt;SQL脚本绝对路径 2.使用cmd开启mysql服务 net start mysql 3.使用Navicat生成表结",
+            "description": "\u003ch3 id=\"1使用sql脚本数据库cmd操作\"\u003e1.使用SQL脚本数据库cmd操作\u003c/h3\u003e\n\u003cp\u003emysql -u root -p 123456 已有数据库名\u0026lt;SQL脚本绝对路径\u003c/p\u003e\n\u003ch3 id=\"2使用cmd开启mysql服务\"\u003e2.使用cmd开启mysql服务\u003c/h3\u003e\n\u003cp\u003enet start mysql\u003c/p\u003e\n\u003ch3 id=\"3使用navicat生成表结构数据字典\"\u003e3.使用Navicat生成表结构数据字典\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e在Navicat中“新建查询”，输入下列脚本\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode class=\"language-sql\"\u003eSELECT\n\tCOLUMN_NAME 列名,\n\tCOLUMN_TYPE 数据类型,\n\tDATA_TYPE 字段类型,\n\tCHARACTER_MAXIMUM_LENGTH 长度,\n\tIS_NULLABLE 是否为空,\n\tCOLUMN_DEFAULT 默认值,\n\tCOLUMN_COMMENT 备注\nFROM\n\tINFORMATION_SCHEMA. COLUMNS\nWHERE\n\t-- super_express为数据库名称，到时候只需要修改成你要导出表结构的数据库即可\n\ttable_schema = 'super_express'\nAND \n\t-- s_patient_list为表名，到时候换成你要导出的表的名称\n\ttable_name = 'example'\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003e\n\u003cp\u003e全选输出的查询结果，右键选择复制为“制表符分隔值（字段名和数据）”\u003c/p\u003e",
             "url": "/posts/my-desktop-memo/"
         }
     ]
 }
-</script><meta property="og:title" content="小技巧 | Devon Chan" />
+</script><meta property="og:title" content="Devon Chan" />
 <meta property="og:type" content="website" />
 
 
@@ -153,6 +153,7 @@
 
 
 <link rel="alternate" type="application/rss+xml" href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/index.xml" title="Devon Chan" />
+
 
 
   <body class="flex min-h-screen flex-col">
@@ -245,7 +246,11 @@
     <h3 class="mt-0">Idea快捷键汇总（Mac）</h3>
   </a>
   
-    在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难： Alt&#43;Insert: 添加父类或接口中的抽象方法 Alt配合鼠标拖拽同时编辑多行重复代码
+    在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难：
+Alt&#43;Insert: 添加父类或接口中的抽象方法
+Alt配合鼠标拖拽同时编辑多行重复代码
+control &#43; option &#43; h: 查看方法与变量的使用
+
   
 
   
@@ -286,7 +291,10 @@
     <h3 class="mt-0">我的桌面备忘录分享「纯干货」</h3>
   </a>
   
-    1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名&lt;SQL脚本绝对路径 2.使用cmd开启mysql服务 net start mysql 3.使用Navicat生成表结
+    1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名&lt;SQL脚本绝对路径
+2.使用cmd开启mysql服务 net start mysql
+3.使用Navicat生成表结构数据字典 在Navicat中“新建查询”，输入下列脚本 SELECT COLUMN_NAME 列名, COLUMN_TYPE 数据类型, DATA_TYPE 字段类型, CHARACTER_MAXIMUM_LENGTH 长度, IS_NULLABLE 是否为空, COLUMN_DEFAULT 默认值, COLUMN_COMMENT 备注 FROM INFORMATION_SCHEMA. COLUMNS WHERE -- super_express为数据库名称，到时候只需要修改成你要导出表结构的数据库即可 table_schema = &#39;super_express&#39; AND -- s_patient_list为表名，到时候换成你要导出的表的名称 table_name = &#39;example&#39; 全选输出的查询结果，右键选择复制为“制表符分隔值（字段名和数据）”
+
   
 
   

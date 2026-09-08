@@ -1,292 +1,237 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Devon Chan</title>
-    <link>/</link>
-    <description>Recent content on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>Devon Chan</title>
+		<link>/</link>
+		<description>Recent content on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 00:38:35 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>左耳朵耗子-陈皓专访</title>
-      <link>/essays/chenhao-life/</link>
-      <pubDate>Sun, 16 Jul 2023 00:38:35 +0800</pubDate>
-      
-      <guid>/essays/chenhao-life/</guid>
-      <description>在5月中旬听闻耗子离世的消息后，深感世事难料，常在推特中文圈看到他的动态，是个有棱角、有技术实力的技术大牛，这里转载一篇关于他的专访，算是对他的悼念，</description>
-    </item>
-    
-    <item>
-      <title>MacBook使用docker方式部署Redis踩坑经历</title>
-      <link>/posts/redis-on-docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
-      
-      <guid>/posts/redis-on-docker/</guid>
-      <description>问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused</description>
-    </item>
-    
-    <item>
-      <title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
-      <link>/posts/mysql-on-docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
-      
-      <guid>/posts/mysql-on-docker/</guid>
-      <description>问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： +------------------------+-------+ |</description>
-    </item>
-    
-    <item>
-      <title>解决SpringBoot循环依赖</title>
-      <link>/posts/cycling-dependecy-solution/</link>
-      <pubDate>Mon, 27 Mar 2023 13:02:54 +0800</pubDate>
-      
-      <guid>/posts/cycling-dependecy-solution/</guid>
-      <description>概念引入 循环依赖：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运</description>
-    </item>
-    
-    <item>
-      <title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
-      <link>/posts/shell-script-execute-error/</link>
-      <pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
-      
-      <guid>/posts/shell-script-execute-error/</guid>
-      <description>今天在Mac下执行shell脚本时，出现了这样的异常信息： 其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过 解决方法是利</description>
-    </item>
-    
-    <item>
-      <title>从抄书到开源之巅：章亦春的程序人生</title>
-      <link>/essays/agentzh-coding-life/</link>
-      <pubDate>Thu, 02 Feb 2023 11:41:58 +0800</pubDate>
-      
-      <guid>/essays/agentzh-coding-life/</guid>
-      <description>最近从Nginx课程中偶然了解到OpenResty的创立者章亦春，他是我除尤雨溪外在网络上发现的第二位在全球开源社区具有如此大影响力的华人，在知乎上看</description>
-    </item>
-    
-    <item>
-      <title>浅谈Quicksort（快速排序）</title>
-      <link>/posts/quick-sort-notes/</link>
-      <pubDate>Mon, 05 Dec 2022 22:02:32 +0800</pubDate>
-      
-      <guid>/posts/quick-sort-notes/</guid>
-      <description>题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大</description>
-    </item>
-    
-    <item>
-      <title>使用SpringAOP实现低侵入的日志采集功能</title>
-      <link>/posts/aop-coding-practice/</link>
-      <pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
-      
-      <guid>/posts/aop-coding-practice/</guid>
-      <description>最近看过关注的B站up主极海Channel发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过</description>
-    </item>
-    
-    <item>
-      <title>模拟微信红包随机金额生成</title>
-      <link>/posts/coding-practice/</link>
-      <pubDate>Thu, 10 Nov 2022 12:23:23 +0800</pubDate>
-      
-      <guid>/posts/coding-practice/</guid>
-      <description>如题，初步思路如下： 方法形参：总金额total，红包数piece 逻辑：产生红包数-1组随机数，最后一个红包的金额又剩余的金额填充 确定逻辑完成，下面是完</description>
-    </item>
-    
-    <item>
-      <title>关于Mac卸载使用pkg安装的Python</title>
-      <link>/posts/mac-without-python/</link>
-      <pubDate>Wed, 02 Nov 2022 21:39:12 +0800</pubDate>
-      
-      <guid>/posts/mac-without-python/</guid>
-      <description>文章开头，先扯句题外话，强烈推荐购买Mac作为开发的伙伴在新电脑设置完成后一定先安装Homebrew来作为macOS的第三方包管理工具，对于后续安装开</description>
-    </item>
-    
-    <item>
-      <title>Linux中sudo系列命令的区别</title>
-      <link>/posts/linux-sudo-cli-note/</link>
-      <pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
-      
-      <guid>/posts/linux-sudo-cli-note/</guid>
-      <description>前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式</description>
-    </item>
-    
-    <item>
-      <title>CSS复习小记</title>
-      <link>/posts/css-review-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
-      
-      <guid>/posts/css-review-note/</guid>
-      <description>虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样</description>
-    </item>
-    
-    <item>
-      <title>JUC学习札记</title>
-      <link>/posts/juc-coding-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
-      
-      <guid>/posts/juc-coding-learning-note/</guid>
-      <description>I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态</description>
-    </item>
-    
-    <item>
-      <title>Mybatis学习札记</title>
-      <link>/posts/mybatis-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
-      
-      <guid>/posts/mybatis-learning-note/</guid>
-      <description>1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的</description>
-    </item>
-    
-    <item>
-      <title>Docker镜像简单部署（基于Kylin-Linux）</title>
-      <link>/posts/docker-image-deploy-steps/</link>
-      <pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
-      
-      <guid>/posts/docker-image-deploy-steps/</guid>
-      <description>1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后</description>
-    </item>
-    
-    <item>
-      <title>Tomcat相关问题汇总</title>
-      <link>/posts/tomcat-related-issues/</link>
-      <pubDate>Sun, 16 Oct 2022 22:20:13 +0800</pubDate>
-      
-      <guid>/posts/tomcat-related-issues/</guid>
-      <description>1.Tomcat访问项目路径以外的资源 在javaweb项目中从页面预览（访问）静态资源是常见的场景，一般都是在项目下新建一个文件夹，将项目需要访问的静</description>
-    </item>
-    
-    <item>
-      <title>Linux命令学习札记</title>
-      <link>/posts/linux-cmd-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
-      
-      <guid>/posts/linux-cmd-learning-note/</guid>
-      <description>1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &amp;quot;^-&amp;quot;| wc -l 其中data_trs指代解压后的文</description>
-    </item>
-    
-    <item>
-      <title>Idea快捷键汇总（Mac）</title>
-      <link>/posts/idea-shortcut/</link>
-      <pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
-      
-      <guid>/posts/idea-shortcut/</guid>
-      <description>在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难： Alt+Insert: 添加父类或接口中的抽象方法 Alt配合鼠标拖拽同时编辑多行重复代码</description>
-    </item>
-    
-    <item>
-      <title>我的桌面备忘录分享「纯干货」</title>
-      <link>/posts/my-desktop-memo/</link>
-      <pubDate>Sun, 16 Oct 2022 21:44:49 +0800</pubDate>
-      
-      <guid>/posts/my-desktop-memo/</guid>
-      <description>1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名&amp;lt;SQL脚本绝对路径 2.使用cmd开启mysql服务 net start mysql 3.使用Navicat生成表结</description>
-    </item>
-    
-    <item>
-      <title>Vue学习札记</title>
-      <link>/posts/vue-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
-      
-      <guid>/posts/vue-learning-note/</guid>
-      <description>Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:</description>
-    </item>
-    
-    <item>
-      <title>关于为什么选择开通博客</title>
-      <link>/essays/reson-to-why-start-myblog/</link>
-      <pubDate>Sat, 15 Oct 2022 23:39:28 +0800</pubDate>
-      
-      <guid>/essays/reson-to-why-start-myblog/</guid>
-      <description>最开始写博客就是想着在一个随时自己可以访问的平台记录下自己的学习笔记，很多时候做过了事情你要是不总结，觉得会忘记。而且你做过以后这件事以后，再回头看你</description>
-    </item>
-    
-    <item>
-      <title>MySQL中datetime字段插入0值数据错误解决</title>
-      <link>/posts/mysql-datetimecolumn-0value-issue/</link>
-      <pubDate>Sat, 15 Oct 2022 19:58:44 +0800</pubDate>
-      
-      <guid>/posts/mysql-datetimecolumn-0value-issue/</guid>
-      <description>当使用Java在操作MySQL时，如果你的MySQL表中存在datetime类型的字段，相信你有可能会遇到这种情况，0值的datetime字段，显示在</description>
-    </item>
-    
-    <item>
-      <title>MySQL数据插入乱码问题解决</title>
-      <link>/posts/mysql-datainsert-badcharset-issue/</link>
-      <pubDate>Sat, 15 Oct 2022 19:52:26 +0800</pubDate>
-      
-      <guid>/posts/mysql-datainsert-badcharset-issue/</guid>
-      <description>今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制jdbc链接的方式解决了乱码问题，下面贴上链接： jdbc:mysql://localhost/test?user=monty&amp;amp;password=greatsqldb&amp;amp;useUnicode=true&amp;amp;characterEncoding=gb2312 希望能够帮到</description>
-    </item>
-    
-    <item>
-      <title>Spring定时任务学习札记</title>
-      <link>/posts/spring-scheduletask-learn-note/</link>
-      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
-      
-      <guid>/posts/spring-scheduletask-learn-note/</guid>
-      <description>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖</description>
-    </item>
-    
-    <item>
-      <title>LinuxShell编程学习札记</title>
-      <link>/posts/linuxshell-coding-learning-note/</link>
-      <pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
-      
-      <guid>/posts/linuxshell-coding-learning-note/</guid>
-      <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
-    </item>
-    
-    <item>
-      <title>面试高频知识点分享-2021</title>
-      <link>/posts/interview-topic/</link>
-      <pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
-      
-      <guid>/posts/interview-topic/</guid>
-      <description>将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~ AOP（重点：动态代理）： 思想：定义一个切面，在切面的纵向定义处</description>
-    </item>
-    
-    <item>
-      <title>Maven项目整合Mybatis</title>
-      <link>/posts/mybatis-maven-demo-proj/</link>
-      <pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
-      
-      <guid>/posts/mybatis-maven-demo-proj/</guid>
-      <description>下面详细记录下Maven项目整合Mybatis的详细步骤： 在IDEA中开始界面选择“New Project” 左侧项目类型选择“Maven”，右侧选择jd</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1</title>
-      <link>/docs/example-doc/chapter-1/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/example-doc/chapter-1/</guid>
-      <description>&lt;p&gt;This is chapter 1 of example doc.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1</title>
-      <link>/docs/example-doc/nested-chapter/chapter-1/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/example-doc/nested-chapter/chapter-1/</guid>
-      <description>&lt;p&gt;This is chapter 1 of nested chapter.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2</title>
-      <link>/docs/example-doc/chapter-2/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/example-doc/chapter-2/</guid>
-      <description>&lt;p&gt;This is chapter 2 of example doc.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2</title>
-      <link>/docs/example-doc/nested-chapter/chapter-2/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/example-doc/nested-chapter/chapter-2/</guid>
-      <description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Sun, 16 Jul 2023 00:38:35 +0800</lastBuildDate>
+		
+			<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>左耳朵耗子-陈皓专访</title>
+				<link>/essays/chenhao-life/</link>
+				<pubDate>Sun, 16 Jul 2023 00:38:35 +0800</pubDate>
+				<guid>/essays/chenhao-life/</guid>
+				<description>&lt;p&gt;在5月中旬听闻耗子离世的消息后，深感世事难料，常在推特中文圈看到他的动态，是个有棱角、有技术实力的技术大牛，这里转载一篇关于他的专访，算是对他的悼念，愿他在天堂没有996，他励志的经历值得各位朋友共勉&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MacBook使用docker方式部署Redis踩坑经历</title>
+				<link>/posts/redis-on-docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+				<guid>/posts/redis-on-docker/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; &#xA;nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool;&#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461)&#xA; &#xA;Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; &#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459)&#xA;&#x9;... 78 more&#xA;Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)&#xA; &#xA;Caused by: io.lettuce.core.RedisConnectionException: Connection closed prematurely&#xA;&#x9;at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:86)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;思路&lt;/strong&gt;：停止原有进程，删除容器，宿主机写好配置文件后与容器进行映射，镜像第一次启动时使用映射的配置文件进行启动&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
+				<link>/posts/mysql-on-docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
+				<guid>/posts/mysql-on-docker/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：启动项目时报错&lt;code&gt;Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：MySQL大小写敏感配置&lt;/p&gt;&#xA;&lt;p&gt;查看MySQL大小写敏感配置：&lt;code&gt;show variables like &#39;%case%&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果区分大小写，则结果为：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;+------------------------+-------+&#xA;| Variable_name          | Value |&#xA;+------------------------+-------+&#xA;| lower_case_file_system | OFF   |&#xA;| lower_case_table_names | 0     |&#xA;+------------------------+-------+&#xA;2 rows in set (0.01 sec)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;常规思路&lt;/strong&gt;：修改&lt;code&gt;my.cnf&lt;/code&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>解决SpringBoot循环依赖</title>
+				<link>/posts/cycling-dependecy-solution/</link>
+				<pubDate>Mon, 27 Mar 2023 13:02:54 +0800</pubDate>
+				<guid>/posts/cycling-dependecy-solution/</guid>
+				<description>&lt;h4 id=&#34;概念引入&#34;&gt;概念引入&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;循环依赖&lt;/strong&gt;：是指两个或多个模块之间相互依赖，形成一个循环的依赖关系。当这种情况发生时，编译器无法确定哪个模块应该先被编译，导致编译错误或者程序运行出现异常。循环依赖通常会在软件设计或者系统架构中出现，需要采取相应的解决方案来避免或者处理它们。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>解决在Mac上执行shell脚本，报错&#34;/bin/bash^M：bad interpreter：No such file or directory&#34;</title>
+				<link>/posts/shell-script-execute-error/</link>
+				<pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
+				<guid>/posts/shell-script-execute-error/</guid>
+				<description>&lt;p&gt;今天在Mac下执行shell脚本时，出现了这样的异常信息：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302211334341.png&#34; alt=&#34;image-20230221133433289&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;其原因是不同系统编码格式引起的，应该是这个shell脚本在window上被编辑过&lt;/p&gt;&#xA;&lt;p&gt;解决方法是利用vi编辑器，挺方便，按照如下步骤：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>从抄书到开源之巅：章亦春的程序人生</title>
+				<link>/essays/agentzh-coding-life/</link>
+				<pubDate>Thu, 02 Feb 2023 11:41:58 +0800</pubDate>
+				<guid>/essays/agentzh-coding-life/</guid>
+				<description>&lt;p&gt;最近从Nginx课程中偶然了解到&lt;a href=&#34;https://openresty.org/en/&#34;&gt;OpenResty&lt;/a&gt;的创立者&lt;a href=&#34;http://agentzh.org/&#34;&gt;章亦春&lt;/a&gt;，他是我除尤雨溪外在网络上发现的第二位在全球开源社区具有如此大影响力的华人，在知乎上看到了大家对于他的高度评价——“&lt;u&gt;&lt;strong&gt;人品好，性格佳，心如止水，不撕逼不偏执不造话题，对技术有纯粹的热爱，是我见过的最接近圣人的程序员&lt;/strong&gt;&lt;/u&gt; ”，也从&lt;strong&gt;伙伴云&lt;/strong&gt;的一篇专访中了解到他程序人生的启蒙到创立&lt;a href=&#34;https://openresty.com/cn/&#34;&gt;OpenResty Inc.&lt;/a&gt;的心路历程，感触颇深。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;下文转载自&lt;strong&gt;伙伴云&lt;/strong&gt;，原文链接：https://www.huoban.com/news/post/326.html&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>浅谈Quicksort（快速排序）</title>
+				<link>/posts/quick-sort-notes/</link>
+				<pubDate>Mon, 05 Dec 2022 22:02:32 +0800</pubDate>
+				<guid>/posts/quick-sort-notes/</guid>
+				<description>&lt;h3 id=&#34;题外话&#34;&gt;题外话&lt;/h3&gt;&#xA;&lt;p&gt;最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大部分资料都或多或少有些「照本宣科」的成分，加上「快速排序」这个知识点存在多种实现思想，看过一些视频后反而觉得大脑混沌杂乱，也感慨道有些粉丝量不少的博主在视频中讲解知识点时也会有层次不分明和不尽人意的地方，或许独立学会某个知识点和教会他人一个知识点这两件事之间并不是某种意义上的等价，遂打算爬帖来阅读，也终于在腾讯云社区找到一篇干货帖子，逻辑清晰并且可靠，帖子标题为&lt;a href=&#34;https://cloud.tencent.com/developer/article/1819946&#34;&gt;&lt;strong&gt;【算法图文动画详解系列】QuickSort 快速排序算法&lt;/strong&gt;&lt;/a&gt;，这期内容主要援引自这篇帖子，打算作为「快速排序」问题的标准答案记录下！&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>使用SpringAOP实现低侵入的日志采集功能</title>
+				<link>/posts/aop-coding-practice/</link>
+				<pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
+				<guid>/posts/aop-coding-practice/</guid>
+				<description>&lt;p&gt;最近看过关注的B站up主&lt;a href=&#34;https://b23.tv/Pb33BXE&#34;&gt;&lt;strong&gt;极海Channel&lt;/strong&gt;&lt;/a&gt;发表的一条关于使用Spring AOP实现日志记录的视频，对业务代码低侵入的前提下完成了日志的记录，同时也通过合理的设计实现了不同业务操作下不同名称的入参向日志字段的灵活转换，个人觉得很有必要记录下来方便以后在遇到同样的场景时作为参考，同时也借此机会回忆下Spring AOP编程相关流程与知识点！&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>模拟微信红包随机金额生成</title>
+				<link>/posts/coding-practice/</link>
+				<pubDate>Thu, 10 Nov 2022 12:23:23 +0800</pubDate>
+				<guid>/posts/coding-practice/</guid>
+				<description>&lt;p&gt;如题，初步思路如下：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方法形参&lt;/strong&gt;：总金额&lt;code&gt;total&lt;/code&gt;，红包数&lt;code&gt;piece&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：产生&lt;code&gt;红包数-1&lt;/code&gt;组随机数，最后一个红包的金额又剩余的金额填充&lt;/p&gt;&#xA;&lt;p&gt;确定逻辑完成，下面是完整的编码实现：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>关于Mac卸载使用pkg安装的Python</title>
+				<link>/posts/mac-without-python/</link>
+				<pubDate>Wed, 02 Nov 2022 21:39:12 +0800</pubDate>
+				<guid>/posts/mac-without-python/</guid>
+				<description>&lt;p&gt;文章开头，先扯句题外话，强烈推荐购买Mac作为开发的伙伴在新电脑设置完成后一定先安装&lt;code&gt;Homebrew&lt;/code&gt;来作为macOS的第三方包管理工具，对于后续安装开发环境的过程来说是百利而无一害的，其中包括软件的统一安装、卸载以及版本升级等等&amp;hellip;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linux中sudo系列命令的区别</title>
+				<link>/posts/linux-sudo-cli-note/</link>
+				<pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
+				<guid>/posts/linux-sudo-cli-note/</guid>
+				<description>&lt;p&gt;前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式以及这些方式之间的差异：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CSS复习小记</title>
+				<link>/posts/css-review-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
+				<guid>/posts/css-review-note/</guid>
+				<description>&lt;p&gt;虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下：&lt;/p&gt;&#xA;&lt;h3 id=&#34;样式种类&#34;&gt;样式种类&lt;/h3&gt;&#xA;&lt;p&gt;行内样式：直接在元素标签中添加&lt;code&gt;style&lt;/code&gt;属性直接设置需要的样式，下面给出示例：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JUC学习札记</title>
+				<link>/posts/juc-coding-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
+				<guid>/posts/juc-coding-learning-note/</guid>
+				<description>&lt;h3 id=&#34;i基础理论&#34;&gt;I.基础理论：&lt;/h3&gt;&#xA;&lt;h4 id=&#34;11-线程和进程&#34;&gt;1.1 线程和进程&lt;/h4&gt;&#xA;&lt;p&gt;进程：系统进行资源分配和调度的基本单位&lt;/p&gt;&#xA;&lt;p&gt;线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）&lt;/p&gt;&#xA;&lt;h4 id=&#34;12-线程中的状态&#34;&gt;1.2 线程中的状态&lt;/h4&gt;&#xA;&lt;p&gt;即&lt;code&gt;Thread.State&lt;/code&gt;，有以下状态：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Mybatis学习札记</title>
+				<link>/posts/mybatis-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
+				<guid>/posts/mybatis-learning-note/</guid>
+				<description>&lt;h3 id=&#34;1mybatis部分&#34;&gt;1.MyBatis部分：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mapper.xml文件通过&lt;code&gt;namespace&lt;/code&gt;属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的&lt;code&gt;id&lt;/code&gt;属性和mapper接口中的方法名称一一对应；查询标签中&lt;code&gt;resultType&lt;/code&gt;属性用来设置结果类型，即查询的数据要转换为的java类型，&lt;code&gt;resultMap&lt;/code&gt;自定义映射，处理多对多或一对多的映射关系&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Docker镜像简单部署（基于Kylin-Linux）</title>
+				<link>/posts/docker-image-deploy-steps/</link>
+				<pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
+				<guid>/posts/docker-image-deploy-steps/</guid>
+				<description>&lt;h3 id=&#34;1-安装docker&#34;&gt;1. 安装docker&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;有网环境下安装：&lt;code&gt;apt install docker docker.io&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;无网络环境下安装：在&lt;code&gt;deb&lt;/code&gt;包所在目录下执行&lt;code&gt;dpkg -i *.deb&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-启动docker&#34;&gt;2. 启动docker&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;执行&lt;code&gt;service restart docker&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;执行命令后执行&lt;code&gt;systemctl status docker&lt;/code&gt;查看docker运行状态&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Tomcat相关问题汇总</title>
+				<link>/posts/tomcat-related-issues/</link>
+				<pubDate>Sun, 16 Oct 2022 22:20:13 +0800</pubDate>
+				<guid>/posts/tomcat-related-issues/</guid>
+				<description>&lt;h3 id=&#34;1tomcat访问项目路径以外的资源&#34;&gt;1.Tomcat访问项目路径以外的资源&lt;/h3&gt;&#xA;&lt;p&gt;在javaweb项目中从页面预览（访问）静态资源是常见的场景，一般都是在项目下新建一个文件夹，将项目需要访问的静态资源全部上传到该文件夹里面，但是遇到项目部署时需要将移动大量的附件内容到另外的位置，跟随项目一起移动，很不方便，下面是Tomcat中访问项目以外的资源的两种方法：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linux命令学习札记</title>
+				<link>/posts/linux-cmd-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
+				<guid>/posts/linux-cmd-learning-note/</guid>
+				<description>&lt;h3 id=&#34;1使用unzip命令批量递归解压缩文件&#34;&gt;1.使用&lt;code&gt;unzip&lt;/code&gt;命令批量递归解压缩文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ls  $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot;&#xA;# 使用下面的命列出当前位置下的文件个数&#xA;ls -l | grep &amp;quot;^-&amp;quot;| wc -l&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;其中&lt;code&gt;data_trs&lt;/code&gt;指代解压后的文件另存到的文件夹目录&lt;/p&gt;&#xA;&lt;h3 id=&#34;2hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&#34;&gt;2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;3hybase批量导出数据trs格式数据文件&#34;&gt;3.Hybase批量导出数据trs格式数据文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;4给文件或文件夹赋予权限&#34;&gt;4.给文件或文件夹赋予权限&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限&#xA;chmod +x *.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;5基本开关机&#34;&gt;5.基本开关机&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sync #将数据由内存同步到硬盘中&#xA;shutdown #关机命令&#xA;shutdown -h 10 #10分钟后关机&#xA;shutdown -h now #立即关机&#xA;shutdown -h 20:25 #在下午20:25关机&#xA;shutdown -h +10 #十分钟后关机&#xA;shutdown -r now #立即重启&#xA;shutdown -r +10 #10分钟后重启&#xA;rebot #重启，相当于shutdown -r now&#xA;halt #关闭系统，等同于shutdown -h now 和 power off  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;6文件操作&#34;&gt;6.文件操作&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rmdir #删除空文件夹&#xA;rmdir -p #递归删除多个目录&#xA;&#xA;rm -f 强制删除&#xA;rm -i 互动，询问是否删除&#xA;rm -r 递归删除&#xA;&#xA;mv -f 强制移动&#xA;mv -u 只替换已经更新过的文件&#xA;&#xA;vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&amp;quot;:&amp;quot;进入底线命令模式，继续输入&amp;quot;wq&amp;quot;保存修改内容并退出编辑器 &#xA;#在编辑器中设置行号:set nu&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Space&amp;gt;&amp;quot;使得可以将光标向右跳转n个位置&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Enter&amp;gt;&amp;quot;使得可以将光标向下跳转n行&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;7文件权限&#34;&gt;7.文件权限&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;文件类型&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属主权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属组权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;其他用户权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;d：目录 l:链接 -：文件&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;chgrp [-R] 属组名 文件名 #递归更改文件属组&#xA;chown [-R] 属主名 文件名&#xA;chown [-R] 属主名：属组名 文件名&#xA;chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;8文件查看&#34;&gt;8.文件查看&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cat #查看文件所有内容&#xA;tac #倒序查看文件所有内容&#xA;nl #带行号查看你&#xA;more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行&#xA;less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）&#xA;head -n x（数字） #查看头x行文件内容&#xA;tail -n x（数字） #查看尾部x行内容&#xA;tail -f 文件名    #持续监控文件内容变化，ctrl+s暂停，ctrl+q继续&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;9创建连接&#34;&gt;9.创建连接&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化&#xA;ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;软连接和硬连接的区别&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Idea快捷键汇总（Mac）</title>
+				<link>/posts/idea-shortcut/</link>
+				<pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
+				<guid>/posts/idea-shortcut/</guid>
+				<description>&lt;p&gt;在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难：&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt+Insert&lt;/code&gt;: 添加父类或接口中的抽象方法&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt&lt;/code&gt;配合鼠标拖拽同时编辑多行重复代码&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;control + option + h&lt;/code&gt;: 查看方法与变量的使用&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>我的桌面备忘录分享「纯干货」</title>
+				<link>/posts/my-desktop-memo/</link>
+				<pubDate>Sun, 16 Oct 2022 21:44:49 +0800</pubDate>
+				<guid>/posts/my-desktop-memo/</guid>
+				<description>&lt;h3 id=&#34;1使用sql脚本数据库cmd操作&#34;&gt;1.使用SQL脚本数据库cmd操作&lt;/h3&gt;&#xA;&lt;p&gt;mysql -u root -p 123456 已有数据库名&amp;lt;SQL脚本绝对路径&lt;/p&gt;&#xA;&lt;h3 id=&#34;2使用cmd开启mysql服务&#34;&gt;2.使用cmd开启mysql服务&lt;/h3&gt;&#xA;&lt;p&gt;net start mysql&lt;/p&gt;&#xA;&lt;h3 id=&#34;3使用navicat生成表结构数据字典&#34;&gt;3.使用Navicat生成表结构数据字典&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在Navicat中“新建查询”，输入下列脚本&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT&#xA;&#x9;COLUMN_NAME 列名,&#xA;&#x9;COLUMN_TYPE 数据类型,&#xA;&#x9;DATA_TYPE 字段类型,&#xA;&#x9;CHARACTER_MAXIMUM_LENGTH 长度,&#xA;&#x9;IS_NULLABLE 是否为空,&#xA;&#x9;COLUMN_DEFAULT 默认值,&#xA;&#x9;COLUMN_COMMENT 备注&#xA;FROM&#xA;&#x9;INFORMATION_SCHEMA. COLUMNS&#xA;WHERE&#xA;&#x9;-- super_express为数据库名称，到时候只需要修改成你要导出表结构的数据库即可&#xA;&#x9;table_schema = &#39;super_express&#39;&#xA;AND &#xA;&#x9;-- s_patient_list为表名，到时候换成你要导出的表的名称&#xA;&#x9;table_name = &#39;example&#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;全选输出的查询结果，右键选择复制为“制表符分隔值（字段名和数据）”&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Vue学习札记</title>
+				<link>/posts/vue-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
+				<guid>/posts/vue-learning-note/</guid>
+				<description>&lt;h2 id=&#34;episode1初识vue&#34;&gt;Episode1：初识vue&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;vue渐进式JavaScript框架&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;英文官网：https://vuejs.org/&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;中文官网：https://cn.vuejs.org/&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>关于为什么选择开通博客</title>
+				<link>/essays/reson-to-why-start-myblog/</link>
+				<pubDate>Sat, 15 Oct 2022 23:39:28 +0800</pubDate>
+				<guid>/essays/reson-to-why-start-myblog/</guid>
+				<description>&lt;p&gt;最开始写博客就是想着在一个随时自己可以访问的平台记录下自己的学习笔记，很多时候做过了事情你要是不总结，觉得会忘记。而且你做过以后这件事以后，再回头看你做过的东西，总是会觉得有很多的地方需要改进，或者是又有了新的思路。于是乎就找到了CSDN。这个平台真的很简单，注册就可以开始写博客啦。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MySQL中datetime字段插入0值数据错误解决</title>
+				<link>/posts/mysql-datetimecolumn-0value-issue/</link>
+				<pubDate>Sat, 15 Oct 2022 19:58:44 +0800</pubDate>
+				<guid>/posts/mysql-datetimecolumn-0value-issue/</guid>
+				<description>&lt;p&gt;当使用Java在操作MySQL时，如果你的MySQL表中存在datetime类型的字段，相信你有可能会遇到这种情况，0值的datetime字段，显示在MySql里显示为&amp;quot;0000-00-00 00:00:00&amp;quot;，恰恰是这个值，当赋值给实体类对应的属性Timestamp类型时，会提示错误&amp;quot;Cannot convert value &amp;lsquo;0000-00-00 00:00:00&amp;rsquo; from column N to TIMESTAMP&amp;quot;。一般这种情况我们更希望数据库驱动能帮我们这个特殊的家伙自动地转为null。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MySQL数据插入乱码问题解决</title>
+				<link>/posts/mysql-datainsert-badcharset-issue/</link>
+				<pubDate>Sat, 15 Oct 2022 19:52:26 +0800</pubDate>
+				<guid>/posts/mysql-datainsert-badcharset-issue/</guid>
+				<description>&lt;p&gt;今天在向MySQL数据插入数据过程中遇到了数据乱码的情况，遂在线寻找解决方案，使用了定制&lt;code&gt;jdbc&lt;/code&gt;链接的方式解决了乱码问题，下面贴上链接：&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;jdbc:mysql://localhost/test?user=monty&amp;amp;password=greatsqldb&amp;amp;useUnicode=true&amp;amp;characterEncoding=gb2312&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;希望能够帮到路过的你~&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring定时任务学习札记</title>
+				<link>/posts/spring-scheduletask-learn-note/</link>
+				<pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+				<guid>/posts/spring-scheduletask-learn-note/</guid>
+				<description>&lt;p&gt;Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. 添加Schedule依赖&lt;/strong&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>LinuxShell编程学习札记</title>
+				<link>/posts/linuxshell-coding-learning-note/</link>
+				<pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
+				<guid>/posts/linuxshell-coding-learning-note/</guid>
+				<description>&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# shell脚本开头&#xA;#!/bin/bash&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$n&lt;/code&gt;变量得到执行脚本时输入的第n个参数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$#&lt;/code&gt;变量拿到执行脚本时输入的参数个数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$*&lt;/code&gt;或&lt;code&gt;$@&lt;/code&gt;获取执行脚本输入的所有参数（其中&lt;code&gt;$*&lt;/code&gt;将所有参数当做一个整体）&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>面试高频知识点分享-2021</title>
+				<link>/posts/interview-topic/</link>
+				<pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
+				<guid>/posts/interview-topic/</guid>
+				<description>&lt;p&gt;将近期的面试过程中遇到的问题和部分解答总结如下，留个纪念的同时也希望可以帮到路过的你~&lt;/p&gt;&#xA;&lt;h3 id=&#34;aop重点动态代理&#34;&gt;AOP（重点：动态代理）：&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;思想：定义一个切面，在切面的纵向定义处理方法，处理完成之后，回到横向业务流。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Maven项目整合Mybatis</title>
+				<link>/posts/mybatis-maven-demo-proj/</link>
+				<pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
+				<guid>/posts/mybatis-maven-demo-proj/</guid>
+				<description>&lt;p&gt;下面&lt;strong&gt;详细&lt;/strong&gt;记录下Maven项目整合Mybatis的详细步骤：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在IDEA中开始界面选择“New Project”&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302220015387.png&#34; alt=&#34;image-20230222001542370&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;左侧项目类型选择“Maven”，右侧选择jdk版本，这里不选取项目模板来进行全新创建&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302220011156.png&#34; alt=&#34;image-20230222001110117&#34;&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chapter 1</title>
+				<link>/docs/example-doc/chapter-1/</link>
+				<pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+				<guid>/docs/example-doc/chapter-1/</guid>
+				<description>&lt;p&gt;This is chapter 1 of example doc.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chapter 1</title>
+				<link>/docs/example-doc/nested-chapter/chapter-1/</link>
+				<pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+				<guid>/docs/example-doc/nested-chapter/chapter-1/</guid>
+				<description>&lt;p&gt;This is chapter 1 of nested chapter.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chapter 2</title>
+				<link>/docs/example-doc/chapter-2/</link>
+				<pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+				<guid>/docs/example-doc/chapter-2/</guid>
+				<description>&lt;p&gt;This is chapter 2 of example doc.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chapter 2</title>
+				<link>/docs/example-doc/nested-chapter/chapter-2/</link>
+				<pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+				<guid>/docs/example-doc/nested-chapter/chapter-2/</guid>
+				<description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

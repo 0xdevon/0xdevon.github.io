@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Docker | Devon Chan</title>
+<title>Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,8 +71,8 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
@@ -103,24 +103,24 @@
             "@type":"ListItem",
             "position":  1 ,
             "name": "MacBook使用docker方式部署Redis踩坑经历",
-            "description": "问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused",
+            "description": "\u003cp\u003e\u003cstrong\u003e问题\u003c/strong\u003e：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eorg.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; \nnested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool;\nnested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379\n\tat org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553)\n\tat org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461)\n \nCaused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; \nnested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379\n\tat org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)\n\tat org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459)\n\t... 78 more\nCaused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379\n\tat io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)\n \nCaused by: io.lettuce.core.RedisConnectionException: Connection closed prematurely\n\tat io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:86)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e思路\u003c/strong\u003e：停止原有进程，删除容器，宿主机写好配置文件后与容器进行映射，镜像第一次启动时使用映射的配置文件进行启动\u003c/p\u003e",
             "url": "/posts/redis-on-docker/"
         },{
             "@type":"ListItem",
             "position":  2 ,
             "name": "MacBook使用docker方式部署MySQL 8踩坑经历",
-            "description": "问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'biz.XXL_JOB_QRTZ' doesn't exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like '%case%' 如果区分大小写，则结果为： +------------------------+-------+ |",
+            "description": "\u003cp\u003e\u003cstrong\u003e问题\u003c/strong\u003e：启动项目时报错\u003ccode\u003eError querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'biz.XXL_JOB_QRTZ' doesn't exist\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e原因\u003c/strong\u003e：MySQL大小写敏感配置\u003c/p\u003e\n\u003cp\u003e查看MySQL大小写敏感配置：\u003ccode\u003eshow variables like '%case%'\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e如果区分大小写，则结果为：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e+------------------------+-------+\n| Variable_name          | Value |\n+------------------------+-------+\n| lower_case_file_system | OFF   |\n| lower_case_table_names | 0     |\n+------------------------+-------+\n2 rows in set (0.01 sec)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e常规思路\u003c/strong\u003e：修改\u003ccode\u003emy.cnf\u003c/code\u003e\u003c/p\u003e",
             "url": "/posts/mysql-on-docker/"
         },{
             "@type":"ListItem",
             "position":  3 ,
             "name": "Docker镜像简单部署（基于Kylin-Linux）",
-            "description": "1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后",
+            "description": "\u003ch3 id=\"1-安装docker\"\u003e1. 安装docker\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e有网环境下安装：\u003ccode\u003eapt install docker docker.io\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e无网络环境下安装：在\u003ccode\u003edeb\u003c/code\u003e包所在目录下执行\u003ccode\u003edpkg -i *.deb\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"2-启动docker\"\u003e2. 启动docker\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e执行\u003ccode\u003eservice restart docker\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e执行命令后执行\u003ccode\u003esystemctl status docker\u003c/code\u003e查看docker运行状态\u003c/p\u003e",
             "url": "/posts/docker-image-deploy-steps/"
         }
     ]
 }
-</script><meta property="og:title" content="Docker | Devon Chan" />
+</script><meta property="og:title" content="Devon Chan" />
 <meta property="og:type" content="website" />
 
 
@@ -159,6 +159,7 @@
 
 
 <link rel="alternate" type="application/rss+xml" href="/tags/docker/index.xml" title="Devon Chan" />
+
 
 
   <body class="flex min-h-screen flex-col">
@@ -251,7 +252,9 @@
     <h3 class="mt-0">MacBook使用docker方式部署Redis踩坑经历</h3>
   </a>
   
-    问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused
+    问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459) ... 78 more Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78) Caused by: io.lettuce.core.RedisConnectionException: Connection closed prematurely at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:86) 思路：停止原有进程，删除容器，宿主机写好配置文件后与容器进行映射，镜像第一次启动时使用映射的配置文件进行启动
+
   
 
   
@@ -292,7 +295,12 @@
     <h3 class="mt-0">MacBook使用docker方式部署MySQL 8踩坑经历</h3>
   </a>
   
-    问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： &#43;------------------------&#43;-------&#43; |
+    问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist
+原因：MySQL大小写敏感配置
+查看MySQL大小写敏感配置：show variables like &#39;%case%&#39;
+如果区分大小写，则结果为：
+&#43;------------------------&#43;-------&#43; | Variable_name | Value | &#43;------------------------&#43;-------&#43; | lower_case_file_system | OFF | | lower_case_table_names | 0 | &#43;------------------------&#43;-------&#43; 2 rows in set (0.01 sec) 常规思路：修改my.cnf
+
   
 
   
@@ -333,7 +341,11 @@
     <h3 class="mt-0">Docker镜像简单部署（基于Kylin-Linux）</h3>
   </a>
   
-    1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后
+    1. 安装docker 有网环境下安装：apt install docker docker.io
+无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb
+2. 启动docker 执行service restart docker
+执行命令后执行systemctl status docker查看docker运行状态
+
   
 
   

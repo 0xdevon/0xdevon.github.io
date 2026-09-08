@@ -1,94 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>学习札记 on Devon Chan</title>
-    <link>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</link>
-    <description>Recent content in 学习札记 on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>学习札记 on Devon Chan</title>
+		<link>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</link>
+		<description>Recent content in 学习札记 on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 22:46:27 +0800</lastBuildDate><atom:link href="/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linux中sudo系列命令的区别</title>
-      <link>/posts/linux-sudo-cli-note/</link>
-      <pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
-      
-      <guid>/posts/linux-sudo-cli-note/</guid>
-      <description>前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式</description>
-    </item>
-    
-    <item>
-      <title>CSS复习小记</title>
-      <link>/posts/css-review-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
-      
-      <guid>/posts/css-review-note/</guid>
-      <description>虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下： 样式种类 行内样</description>
-    </item>
-    
-    <item>
-      <title>JUC学习札记</title>
-      <link>/posts/juc-coding-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
-      
-      <guid>/posts/juc-coding-learning-note/</guid>
-      <description>I.基础理论： 1.1 线程和进程 进程：系统进行资源分配和调度的基本单位 线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元） 1.2 线程中的状态</description>
-    </item>
-    
-    <item>
-      <title>Mybatis学习札记</title>
-      <link>/posts/mybatis-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
-      
-      <guid>/posts/mybatis-learning-note/</guid>
-      <description>1.MyBatis部分： mapper.xml文件通过namespace属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的</description>
-    </item>
-    
-    <item>
-      <title>Linux命令学习札记</title>
-      <link>/posts/linux-cmd-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
-      
-      <guid>/posts/linux-cmd-learning-note/</guid>
-      <description>1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &amp;quot;^-&amp;quot;| wc -l 其中data_trs指代解压后的文</description>
-    </item>
-    
-    <item>
-      <title>Vue学习札记</title>
-      <link>/posts/vue-learning-note/</link>
-      <pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
-      
-      <guid>/posts/vue-learning-note/</guid>
-      <description>Episode1：初识vue vue渐进式JavaScript框架 渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能 英文官网：https:</description>
-    </item>
-    
-    <item>
-      <title>Spring定时任务学习札记</title>
-      <link>/posts/spring-scheduletask-learn-note/</link>
-      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
-      
-      <guid>/posts/spring-scheduletask-learn-note/</guid>
-      <description>Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。 1. 添加Schedule依赖</description>
-    </item>
-    
-    <item>
-      <title>LinuxShell编程学习札记</title>
-      <link>/posts/linuxshell-coding-learning-note/</link>
-      <pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
-      
-      <guid>/posts/linuxshell-coding-learning-note/</guid>
-      <description># shell脚本开头 #!/bin/bash 使用$n变量得到执行脚本时输入的第n个参数 使用$#变量拿到执行脚本时输入的参数个数 使用$*或$@获取执行脚本输入的所有参数（其中</description>
-    </item>
-    
-    <item>
-      <title>Maven项目整合Mybatis</title>
-      <link>/posts/mybatis-maven-demo-proj/</link>
-      <pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
-      
-      <guid>/posts/mybatis-maven-demo-proj/</guid>
-      <description>下面详细记录下Maven项目整合Mybatis的详细步骤： 在IDEA中开始界面选择“New Project” 左侧项目类型选择“Maven”，右侧选择jd</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Wed, 15 Mar 2023 22:21:53 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Linux中sudo系列命令的区别</title>
+				<link>/posts/linux-sudo-cli-note/</link>
+				<pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
+				<guid>/posts/linux-sudo-cli-note/</guid>
+				<description>&lt;p&gt;前些日子在Linux上部署应用时总会用到root权限，而对于切换root权限这个操作大家似乎都有自己常用的方式，于是我专门爬帖摸清了目前常用的一些方式以及这些方式之间的差异：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CSS复习小记</title>
+				<link>/posts/css-review-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:52:05 +0800</pubDate>
+				<guid>/posts/css-review-note/</guid>
+				<description>&lt;p&gt;虽然在本科期间已经对HTML相关知识进行了系统的学习，但时常在做页面样式调整时会犯迷糊，遂打算再复习一下CSS3相关理论知识来巩固一下：&lt;/p&gt;&#xA;&lt;h3 id=&#34;样式种类&#34;&gt;样式种类&lt;/h3&gt;&#xA;&lt;p&gt;行内样式：直接在元素标签中添加&lt;code&gt;style&lt;/code&gt;属性直接设置需要的样式，下面给出示例：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JUC学习札记</title>
+				<link>/posts/juc-coding-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:21:53 +0800</pubDate>
+				<guid>/posts/juc-coding-learning-note/</guid>
+				<description>&lt;h3 id=&#34;i基础理论&#34;&gt;I.基础理论：&lt;/h3&gt;&#xA;&lt;h4 id=&#34;11-线程和进程&#34;&gt;1.1 线程和进程&lt;/h4&gt;&#xA;&lt;p&gt;进程：系统进行资源分配和调度的基本单位&lt;/p&gt;&#xA;&lt;p&gt;线程：操作系统能够进行运算调度的最小单位（分配处理器时间资源的基本单元）&lt;/p&gt;&#xA;&lt;h4 id=&#34;12-线程中的状态&#34;&gt;1.2 线程中的状态&lt;/h4&gt;&#xA;&lt;p&gt;即&lt;code&gt;Thread.State&lt;/code&gt;，有以下状态：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Mybatis学习札记</title>
+				<link>/posts/mybatis-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:21:23 +0800</pubDate>
+				<guid>/posts/mybatis-learning-note/</guid>
+				<description>&lt;h3 id=&#34;1mybatis部分&#34;&gt;1.MyBatis部分：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mapper.xml文件通过&lt;code&gt;namespace&lt;/code&gt;属性(mapper接口全类名)与mapper接口一一对应，其中的每条sql语句的&lt;code&gt;id&lt;/code&gt;属性和mapper接口中的方法名称一一对应；查询标签中&lt;code&gt;resultType&lt;/code&gt;属性用来设置结果类型，即查询的数据要转换为的java类型，&lt;code&gt;resultMap&lt;/code&gt;自定义映射，处理多对多或一对多的映射关系&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linux命令学习札记</title>
+				<link>/posts/linux-cmd-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 22:11:49 +0800</pubDate>
+				<guid>/posts/linux-cmd-learning-note/</guid>
+				<description>&lt;h3 id=&#34;1使用unzip命令批量递归解压缩文件&#34;&gt;1.使用&lt;code&gt;unzip&lt;/code&gt;命令批量递归解压缩文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ls  $(pwd)|grep zip |xargs -I {} sh -c &amp;quot;unzip {} -d data_trs&amp;quot;&#xA;# 使用下面的命列出当前位置下的文件个数&#xA;ls -l | grep &amp;quot;^-&amp;quot;| wc -l&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;其中&lt;code&gt;data_trs&lt;/code&gt;指代解压后的文件另存到的文件夹目录&lt;/p&gt;&#xA;&lt;h3 id=&#34;2hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&#34;&gt;2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;3hybase批量导出数据trs格式数据文件&#34;&gt;3.Hybase批量导出数据trs格式数据文件&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;4给文件或文件夹赋予权限&#34;&gt;4.给文件或文件夹赋予权限&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限&#xA;chmod +x *.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;5基本开关机&#34;&gt;5.基本开关机&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sync #将数据由内存同步到硬盘中&#xA;shutdown #关机命令&#xA;shutdown -h 10 #10分钟后关机&#xA;shutdown -h now #立即关机&#xA;shutdown -h 20:25 #在下午20:25关机&#xA;shutdown -h +10 #十分钟后关机&#xA;shutdown -r now #立即重启&#xA;shutdown -r +10 #10分钟后重启&#xA;rebot #重启，相当于shutdown -r now&#xA;halt #关闭系统，等同于shutdown -h now 和 power off  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;6文件操作&#34;&gt;6.文件操作&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rmdir #删除空文件夹&#xA;rmdir -p #递归删除多个目录&#xA;&#xA;rm -f 强制删除&#xA;rm -i 互动，询问是否删除&#xA;rm -r 递归删除&#xA;&#xA;mv -f 强制移动&#xA;mv -u 只替换已经更新过的文件&#xA;&#xA;vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&amp;quot;:&amp;quot;进入底线命令模式，继续输入&amp;quot;wq&amp;quot;保存修改内容并退出编辑器 &#xA;#在编辑器中设置行号:set nu&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Space&amp;gt;&amp;quot;使得可以将光标向右跳转n个位置&#xA;#命令模式下使用&amp;quot;n(数字) &amp;lt;Enter&amp;gt;&amp;quot;使得可以将光标向下跳转n行&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;7文件权限&#34;&gt;7.文件权限&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;文件类型&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属主权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;属组权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;其他用户权限&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;d：目录 l:链接 -：文件&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;r（读）w（写）x（执行）&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;chgrp [-R] 属组名 文件名 #递归更改文件属组&#xA;chown [-R] 属主名 文件名&#xA;chown [-R] 属主名：属组名 文件名&#xA;chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;8文件查看&#34;&gt;8.文件查看&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cat #查看文件所有内容&#xA;tac #倒序查看文件所有内容&#xA;nl #带行号查看你&#xA;more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行&#xA;less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）&#xA;head -n x（数字） #查看头x行文件内容&#xA;tail -n x（数字） #查看尾部x行内容&#xA;tail -f 文件名    #持续监控文件内容变化，ctrl+s暂停，ctrl+q继续&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;9创建连接&#34;&gt;9.创建连接&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化&#xA;ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;软连接和硬连接的区别&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Vue学习札记</title>
+				<link>/posts/vue-learning-note/</link>
+				<pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
+				<guid>/posts/vue-learning-note/</guid>
+				<description>&lt;h2 id=&#34;episode1初识vue&#34;&gt;Episode1：初识vue&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;vue渐进式JavaScript框架&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;渐进式：以核心库为基础，通过安装插件来实现基础功能以外的其他功能&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;英文官网：https://vuejs.org/&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;中文官网：https://cn.vuejs.org/&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring定时任务学习札记</title>
+				<link>/posts/spring-scheduletask-learn-note/</link>
+				<pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+				<guid>/posts/spring-scheduletask-learn-note/</guid>
+				<description>&lt;p&gt;Scheduled定时任务器是Spring 3.0后自带的一个定时任务器。如果仅使用一些简单的定时程序，使用自带的定时器即可。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. 添加Schedule依赖&lt;/strong&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>LinuxShell编程学习札记</title>
+				<link>/posts/linuxshell-coding-learning-note/</link>
+				<pubDate>Sat, 15 Oct 2022 19:07:41 +0800</pubDate>
+				<guid>/posts/linuxshell-coding-learning-note/</guid>
+				<description>&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# shell脚本开头&#xA;#!/bin/bash&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$n&lt;/code&gt;变量得到执行脚本时输入的第n个参数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$#&lt;/code&gt;变量拿到执行脚本时输入的参数个数&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用&lt;code&gt;$*&lt;/code&gt;或&lt;code&gt;$@&lt;/code&gt;获取执行脚本输入的所有参数（其中&lt;code&gt;$*&lt;/code&gt;将所有参数当做一个整体）&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Maven项目整合Mybatis</title>
+				<link>/posts/mybatis-maven-demo-proj/</link>
+				<pubDate>Sun, 21 Feb 2021 23:54:13 +0800</pubDate>
+				<guid>/posts/mybatis-maven-demo-proj/</guid>
+				<description>&lt;p&gt;下面&lt;strong&gt;详细&lt;/strong&gt;记录下Maven项目整合Mybatis的详细步骤：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在IDEA中开始界面选择“New Project”&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302220015387.png&#34; alt=&#34;image-20230222001542370&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;左侧项目类型选择“Maven”，右侧选择jdk版本，这里不选取项目模板来进行全新创建&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/0xdevon/pic_repo@master/202302220011156.png&#34; alt=&#34;image-20230222001110117&#34;&gt;&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -10,7 +10,7 @@
 <title>Docker镜像简单部署（基于Kylin-Linux） | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,11 +71,26 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
-  content="1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后">
+  content="1. 安装docker
+
+
+有网环境下安装：apt install docker docker.io
+
+
+无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb
+
+
+2. 启动docker
+
+
+执行service restart docker
+
+
+执行命令后执行systemctl status docker查看docker运行状态">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,7 +128,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后"
+    "description": "\u003ch3 id=\u00221-安装docker\u0022\u003e1. 安装docker\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e有网环境下安装：\u003ccode\u003eapt install docker docker.io\u003c\/code\u003e\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e无网络环境下安装：在\u003ccode\u003edeb\u003c\/code\u003e包所在目录下执行\u003ccode\u003edpkg -i *.deb\u003c\/code\u003e\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u00222-启动docker\u0022\u003e2. 启动docker\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e执行\u003ccode\u003eservice restart docker\u003c\/code\u003e\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e执行命令后执行\u003ccode\u003esystemctl status docker\u003c\/code\u003e查看docker运行状态\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="Docker镜像简单部署（基于Kylin-Linux） | Devon Chan" />
 <meta property="og:type" content="article" />
@@ -127,7 +142,22 @@
 
 
 
-<meta property="og:description" content="1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后" />
+<meta property="og:description" content="1. 安装docker
+
+
+有网环境下安装：apt install docker docker.io
+
+
+无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb
+
+
+2. 启动docker
+
+
+执行service restart docker
+
+
+执行命令后执行systemctl status docker查看docker运行状态" />
 
 
 
@@ -155,6 +185,7 @@
 
 
 <meta property="article:tag" content="Docker" />
+
 
 
 

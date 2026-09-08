@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Docker on Devon Chan</title>
-    <link>/tags/docker/</link>
-    <description>Recent content in Docker on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>Docker on Devon Chan</title>
+		<link>/tags/docker/</link>
+		<description>Recent content in Docker on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 00:26:21 +0800</lastBuildDate><atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MacBook使用docker方式部署Redis踩坑经历</title>
-      <link>/posts/redis-on-docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
-      
-      <guid>/posts/redis-on-docker/</guid>
-      <description>问题：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝 org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379 at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553) at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461) Caused</description>
-    </item>
-    
-    <item>
-      <title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
-      <link>/posts/mysql-on-docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
-      
-      <guid>/posts/mysql-on-docker/</guid>
-      <description>问题：启动项目时报错Error querying database. Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist 原因：MySQL大小写敏感配置 查看MySQL大小写敏感配置：show variables like &#39;%case%&#39; 如果区分大小写，则结果为： +------------------------+-------+ |</description>
-    </item>
-    
-    <item>
-      <title>Docker镜像简单部署（基于Kylin-Linux）</title>
-      <link>/posts/docker-image-deploy-steps/</link>
-      <pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
-      
-      <guid>/posts/docker-image-deploy-steps/</guid>
-      <description>1. 安装docker 有网环境下安装：apt install docker docker.io 无网络环境下安装：在deb包所在目录下执行dpkg -i *.deb 2. 启动docker 执行service restart docker 执行命令后</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Sun, 16 Jul 2023 00:26:21 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>MacBook使用docker方式部署Redis踩坑经历</title>
+				<link>/posts/redis-on-docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+				<guid>/posts/redis-on-docker/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：docker宿主机上SpringBoot项目连接docker中的Redis被拒绝&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; &#xA;nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool;&#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461)&#xA; &#xA;Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; &#xA;nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)&#xA;&#x9;at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459)&#xA;&#x9;... 78 more&#xA;Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379&#xA;&#x9;at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)&#xA; &#xA;Caused by: io.lettuce.core.RedisConnectionException: Connection closed prematurely&#xA;&#x9;at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:86)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;思路&lt;/strong&gt;：停止原有进程，删除容器，宿主机写好配置文件后与容器进行映射，镜像第一次启动时使用映射的配置文件进行启动&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MacBook使用docker方式部署MySQL 8踩坑经历</title>
+				<link>/posts/mysql-on-docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
+				<guid>/posts/mysql-on-docker/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：启动项目时报错&lt;code&gt;Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &#39;biz.XXL_JOB_QRTZ&#39; doesn&#39;t exist&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：MySQL大小写敏感配置&lt;/p&gt;&#xA;&lt;p&gt;查看MySQL大小写敏感配置：&lt;code&gt;show variables like &#39;%case%&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果区分大小写，则结果为：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;+------------------------+-------+&#xA;| Variable_name          | Value |&#xA;+------------------------+-------+&#xA;| lower_case_file_system | OFF   |&#xA;| lower_case_table_names | 0     |&#xA;+------------------------+-------+&#xA;2 rows in set (0.01 sec)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;常规思路&lt;/strong&gt;：修改&lt;code&gt;my.cnf&lt;/code&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Docker镜像简单部署（基于Kylin-Linux）</title>
+				<link>/posts/docker-image-deploy-steps/</link>
+				<pubDate>Sun, 16 Oct 2022 22:20:45 +0800</pubDate>
+				<guid>/posts/docker-image-deploy-steps/</guid>
+				<description>&lt;h3 id=&#34;1-安装docker&#34;&gt;1. 安装docker&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;有网环境下安装：&lt;code&gt;apt install docker docker.io&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;无网络环境下安装：在&lt;code&gt;deb&lt;/code&gt;包所在目录下执行&lt;code&gt;dpkg -i *.deb&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-启动docker&#34;&gt;2. 启动docker&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;执行&lt;code&gt;service restart docker&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;执行命令后执行&lt;code&gt;systemctl status docker&lt;/code&gt;查看docker运行状态&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,157 +1,132 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Devon Chan</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>Tags on Devon Chan</title>
+		<link>/tags/</link>
+		<description>Recent content in Tags on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 00:38:35 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>程序人生</title>
-      <link>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</link>
-      <pubDate>Sun, 16 Jul 2023 00:38:35 +0800</pubDate>
-      
-      <guid>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>/tags/docker/</link>
-      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
-      
-      <guid>/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Redis</title>
-      <link>/tags/redis/</link>
-      <pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
-      
-      <guid>/tags/redis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MySQL</title>
-      <link>/tags/mysql/</link>
-      <pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
-      
-      <guid>/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>/tags/linux/</link>
-      <pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
-      
-      <guid>/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>算法</title>
-      <link>/tags/%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Mon, 05 Dec 2022 22:02:32 +0800</pubDate>
-      
-      <guid>/tags/%E7%AE%97%E6%B3%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SpringAOP</title>
-      <link>/tags/springaop/</link>
-      <pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
-      
-      <guid>/tags/springaop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>编程</title>
-      <link>/tags/%E7%BC%96%E7%A8%8B/</link>
-      <pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
-      
-      <guid>/tags/%E7%BC%96%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>练习</title>
-      <link>/tags/%E7%BB%83%E4%B9%A0/</link>
-      <pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
-      
-      <guid>/tags/%E7%BB%83%E4%B9%A0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mac</title>
-      <link>/tags/mac/</link>
-      <pubDate>Wed, 02 Nov 2022 21:39:12 +0800</pubDate>
-      
-      <guid>/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>学习札记</title>
-      <link>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</link>
-      <pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
-      
-      <guid>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tomcat</title>
-      <link>/tags/tomcat/</link>
-      <pubDate>Sun, 16 Oct 2022 22:20:13 +0800</pubDate>
-      
-      <guid>/tags/tomcat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>小技巧</title>
-      <link>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
-      <pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
-      
-      <guid>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>/tags/vue/</link>
-      <pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
-      
-      <guid>/tags/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>/tags/spring/</link>
-      <pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
-      
-      <guid>/tags/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>面试</title>
-      <link>/tags/%E9%9D%A2%E8%AF%95/</link>
-      <pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
-      
-      <guid>/tags/%E9%9D%A2%E8%AF%95/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Sun, 16 Jul 2023 00:38:35 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>程序人生</title>
+				<link>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</link>
+				<pubDate>Sun, 16 Jul 2023 00:38:35 +0800</pubDate>
+				<guid>/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Docker</title>
+				<link>/tags/docker/</link>
+				<pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+				<guid>/tags/docker/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Redis</title>
+				<link>/tags/redis/</link>
+				<pubDate>Sun, 16 Jul 2023 00:26:21 +0800</pubDate>
+				<guid>/tags/redis/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MySQL</title>
+				<link>/tags/mysql/</link>
+				<pubDate>Sun, 16 Jul 2023 00:22:27 +0800</pubDate>
+				<guid>/tags/mysql/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Linux</title>
+				<link>/tags/linux/</link>
+				<pubDate>Tue, 21 Feb 2023 13:28:10 +0800</pubDate>
+				<guid>/tags/linux/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>算法</title>
+				<link>/tags/%E7%AE%97%E6%B3%95/</link>
+				<pubDate>Mon, 05 Dec 2022 22:02:32 +0800</pubDate>
+				<guid>/tags/%E7%AE%97%E6%B3%95/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>SpringAOP</title>
+				<link>/tags/springaop/</link>
+				<pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
+				<guid>/tags/springaop/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>编程</title>
+				<link>/tags/%E7%BC%96%E7%A8%8B/</link>
+				<pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
+				<guid>/tags/%E7%BC%96%E7%A8%8B/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>练习</title>
+				<link>/tags/%E7%BB%83%E4%B9%A0/</link>
+				<pubDate>Tue, 22 Nov 2022 10:16:11 +0800</pubDate>
+				<guid>/tags/%E7%BB%83%E4%B9%A0/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Mac</title>
+				<link>/tags/mac/</link>
+				<pubDate>Wed, 02 Nov 2022 21:39:12 +0800</pubDate>
+				<guid>/tags/mac/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>学习札记</title>
+				<link>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</link>
+				<pubDate>Thu, 20 Oct 2022 22:46:27 +0800</pubDate>
+				<guid>/tags/%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tomcat</title>
+				<link>/tags/tomcat/</link>
+				<pubDate>Sun, 16 Oct 2022 22:20:13 +0800</pubDate>
+				<guid>/tags/tomcat/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>小技巧</title>
+				<link>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+				<pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
+				<guid>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vue</title>
+				<link>/tags/vue/</link>
+				<pubDate>Sun, 16 Oct 2022 21:37:41 +0800</pubDate>
+				<guid>/tags/vue/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Spring</title>
+				<link>/tags/spring/</link>
+				<pubDate>Sat, 15 Oct 2022 19:24:57 +0800</pubDate>
+				<guid>/tags/spring/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>面试</title>
+				<link>/tags/%E9%9D%A2%E8%AF%95/</link>
+				<pubDate>Fri, 16 Jul 2021 21:42:51 +0800</pubDate>
+				<guid>/tags/%E9%9D%A2%E8%AF%95/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

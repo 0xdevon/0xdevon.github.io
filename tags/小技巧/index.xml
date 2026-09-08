@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>小技巧 on Devon Chan</title>
-    <link>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
-    <description>Recent content in 小技巧 on Devon Chan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
+	<channel>
+		<title>小技巧 on Devon Chan</title>
+		<link>/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+		<description>Recent content in 小技巧 on Devon Chan</description>
+		<generator>Hugo</generator>
+		<language>zh</language>
+		
+		
+		
+			<copyright>Copyright &amp;copy; 2026 &lt;a href=&#34;https://www.devonchan.com&#34;&gt;Devon Chan&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 16 Oct 2022 21:58:53 +0800</lastBuildDate><atom:link href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Idea快捷键汇总（Mac）</title>
-      <link>/posts/idea-shortcut/</link>
-      <pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
-      
-      <guid>/posts/idea-shortcut/</guid>
-      <description>在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难： Alt+Insert: 添加父类或接口中的抽象方法 Alt配合鼠标拖拽同时编辑多行重复代码</description>
-    </item>
-    
-    <item>
-      <title>我的桌面备忘录分享「纯干货」</title>
-      <link>/posts/my-desktop-memo/</link>
-      <pubDate>Sun, 16 Oct 2022 21:44:49 +0800</pubDate>
-      
-      <guid>/posts/my-desktop-memo/</guid>
-      <description>1.使用SQL脚本数据库cmd操作 mysql -u root -p 123456 已有数据库名&amp;lt;SQL脚本绝对路径 2.使用cmd开启mysql服务 net start mysql 3.使用Navicat生成表结</description>
-    </item>
-    
-  </channel>
+		
+		
+			<lastBuildDate>Sun, 16 Oct 2022 21:58:53 +0800</lastBuildDate>
+		
+			<atom:link href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Idea快捷键汇总（Mac）</title>
+				<link>/posts/idea-shortcut/</link>
+				<pubDate>Sun, 16 Oct 2022 21:58:53 +0800</pubDate>
+				<guid>/posts/idea-shortcut/</guid>
+				<description>&lt;p&gt;在IDE中熟练运用快捷键无疑是合格程序猿必备的技能，有了这些快捷键，不按时下班都难：&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt+Insert&lt;/code&gt;: 添加父类或接口中的抽象方法&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt&lt;/code&gt;配合鼠标拖拽同时编辑多行重复代码&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;control + option + h&lt;/code&gt;: 查看方法与变量的使用&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>我的桌面备忘录分享「纯干货」</title>
+				<link>/posts/my-desktop-memo/</link>
+				<pubDate>Sun, 16 Oct 2022 21:44:49 +0800</pubDate>
+				<guid>/posts/my-desktop-memo/</guid>
+				<description>&lt;h3 id=&#34;1使用sql脚本数据库cmd操作&#34;&gt;1.使用SQL脚本数据库cmd操作&lt;/h3&gt;&#xA;&lt;p&gt;mysql -u root -p 123456 已有数据库名&amp;lt;SQL脚本绝对路径&lt;/p&gt;&#xA;&lt;h3 id=&#34;2使用cmd开启mysql服务&#34;&gt;2.使用cmd开启mysql服务&lt;/h3&gt;&#xA;&lt;p&gt;net start mysql&lt;/p&gt;&#xA;&lt;h3 id=&#34;3使用navicat生成表结构数据字典&#34;&gt;3.使用Navicat生成表结构数据字典&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在Navicat中“新建查询”，输入下列脚本&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT&#xA;&#x9;COLUMN_NAME 列名,&#xA;&#x9;COLUMN_TYPE 数据类型,&#xA;&#x9;DATA_TYPE 字段类型,&#xA;&#x9;CHARACTER_MAXIMUM_LENGTH 长度,&#xA;&#x9;IS_NULLABLE 是否为空,&#xA;&#x9;COLUMN_DEFAULT 默认值,&#xA;&#x9;COLUMN_COMMENT 备注&#xA;FROM&#xA;&#x9;INFORMATION_SCHEMA. COLUMNS&#xA;WHERE&#xA;&#x9;-- super_express为数据库名称，到时候只需要修改成你要导出表结构的数据库即可&#xA;&#x9;table_schema = &#39;super_express&#39;&#xA;AND &#xA;&#x9;-- s_patient_list为表名，到时候换成你要导出的表的名称&#xA;&#x9;table_name = &#39;example&#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;全选输出的查询结果，右键选择复制为“制表符分隔值（字段名和数据）”&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -10,7 +10,7 @@
 <title>浅谈Quicksort（快速排序） | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,11 +71,12 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
-  content="题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大">
+  content="题外话
+最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大部分资料都或多或少有些「照本宣科」的成分，加上「快速排序」这个知识点存在多种实现思想，看过一些视频后反而觉得大脑混沌杂乱，也感慨道有些粉丝量不少的博主在视频中讲解知识点时也会有层次不分明和不尽人意的地方，或许独立学会某个知识点和教会他人一个知识点这两件事之间并不是某种意义上的等价，遂打算爬帖来阅读，也终于在腾讯云社区找到一篇干货帖子，逻辑清晰并且可靠，帖子标题为【算法图文动画详解系列】QuickSort 快速排序算法，这期内容主要援引自这篇帖子，打算作为「快速排序」问题的标准答案记录下！">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,7 +114,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大"
+    "description": "\u003ch3 id=\u0022题外话\u0022\u003e题外话\u003c\/h3\u003e\n\u003cp\u003e最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大部分资料都或多或少有些「照本宣科」的成分，加上「快速排序」这个知识点存在多种实现思想，看过一些视频后反而觉得大脑混沌杂乱，也感慨道有些粉丝量不少的博主在视频中讲解知识点时也会有层次不分明和不尽人意的地方，或许独立学会某个知识点和教会他人一个知识点这两件事之间并不是某种意义上的等价，遂打算爬帖来阅读，也终于在腾讯云社区找到一篇干货帖子，逻辑清晰并且可靠，帖子标题为\u003ca href=\u0022https:\/\/cloud.tencent.com\/developer\/article\/1819946\u0022\u003e\u003cstrong\u003e【算法图文动画详解系列】QuickSort 快速排序算法\u003c\/strong\u003e\u003c\/a\u003e，这期内容主要援引自这篇帖子，打算作为「快速排序」问题的标准答案记录下！\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="浅谈Quicksort（快速排序） | Devon Chan" />
 <meta property="og:type" content="article" />
@@ -127,7 +128,8 @@
 
 
 
-<meta property="og:description" content="题外话 最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大" />
+<meta property="og:description" content="题外话
+最近在修炼内功的同时，也试图把一些常见的高频算法捡起来上手操作一下，温故而知新总是有道理的，期间查阅了各种渠道的资料来辅助记忆，但是发现到手的大部分资料都或多或少有些「照本宣科」的成分，加上「快速排序」这个知识点存在多种实现思想，看过一些视频后反而觉得大脑混沌杂乱，也感慨道有些粉丝量不少的博主在视频中讲解知识点时也会有层次不分明和不尽人意的地方，或许独立学会某个知识点和教会他人一个知识点这两件事之间并不是某种意义上的等价，遂打算爬帖来阅读，也终于在腾讯云社区找到一篇干货帖子，逻辑清晰并且可靠，帖子标题为【算法图文动画详解系列】QuickSort 快速排序算法，这期内容主要援引自这篇帖子，打算作为「快速排序」问题的标准答案记录下！" />
 
 
 
@@ -155,6 +157,7 @@
 
 
 <meta property="article:tag" content="算法" />
+
 
 
 

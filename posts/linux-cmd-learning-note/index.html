@@ -10,7 +10,7 @@
 <title>Linux命令学习札记 | Devon Chan</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<link rel="stylesheet" href="/css/eureka.min.c45d794ac2ce06316566e92a621eb2dde738b0428526e62b3b5581a31fcd656e99e6f933178dd6abe5589c247a89c6c1.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.fbf58334762fcb42c16e0593596bb7b04a0c32bf8e0cdd596701a58706a96ef120cb2abab225e9591ee227ffd9043e5a.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f1c61bf275124e0c855635fe0c352f9678a93493e9ad77e2758211245a90ae265e65b06234df8f05cdf28cad406cdb2d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -71,11 +71,95 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_huce8e8dedf505879ede662da526747d97_23434_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu_bfc86c510c5ef8e1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu_6b7e968c4c124297.png">
 
 <meta name="description"
-  content="1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &quot;^-&quot;| wc -l 其中data_trs指代解压后的文">
+  content="1.使用unzip命令批量递归解压缩文件
+ls  $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot;
+# 使用下面的命列出当前位置下的文件个数
+ls -l | grep &quot;^-&quot;| wc -l
+
+其中data_trs指代解压后的文件另存到的文件夹目录
+2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据
+./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs
+
+3.Hybase批量导出数据trs格式数据文件
+./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE
+
+4.给文件或文件夹赋予权限
+# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限
+chmod &#43;x *.sh
+
+5.基本开关机
+sync #将数据由内存同步到硬盘中
+shutdown #关机命令
+shutdown -h 10 #10分钟后关机
+shutdown -h now #立即关机
+shutdown -h 20:25 #在下午20:25关机
+shutdown -h &#43;10 #十分钟后关机
+shutdown -r now #立即重启
+shutdown -r &#43;10 #10分钟后重启
+rebot #重启，相当于shutdown -r now
+halt #关闭系统，等同于shutdown -h now 和 power off  
+
+6.文件操作
+rmdir #删除空文件夹
+rmdir -p #递归删除多个目录
+
+rm -f 强制删除
+rm -i 互动，询问是否删除
+rm -r 递归删除
+
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+
+vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&quot;:&quot;进入底线命令模式，继续输入&quot;wq&quot;保存修改内容并退出编辑器 
+#在编辑器中设置行号:set nu
+#命令模式下使用&quot;n(数字) &lt;Space&gt;&quot;使得可以将光标向右跳转n个位置
+#命令模式下使用&quot;n(数字) &lt;Enter&gt;&quot;使得可以将光标向下跳转n行
+
+7.文件权限
+
+	
+			
+					文件类型
+					属主权限
+					属组权限
+					其他用户权限
+			
+	
+	
+			
+					d：目录 l:链接 -：文件
+					r（读）w（写）x（执行）
+					r（读）w（写）x（执行）
+					r（读）w（写）x（执行）
+			
+	
+
+chgrp [-R] 属组名 文件名 #递归更改文件属组
+chown [-R] 属主名 文件名
+chown [-R] 属主名：属组名 文件名
+chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分
+
+8.文件查看
+cat #查看文件所有内容
+tac #倒序查看文件所有内容
+nl #带行号查看你
+more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行
+less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）
+head -n x（数字） #查看头x行文件内容
+tail -n x（数字） #查看尾部x行内容
+tail -f 文件名    #持续监控文件内容变化，ctrl&#43;s暂停，ctrl&#43;q继续
+
+9.创建连接
+ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化
+ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化
+
+
+
+软连接和硬连接的区别">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,7 +197,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c \u0026quot;unzip {} -d data_trs\u0026quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep \u0026quot;^-\u0026quot;| wc -l 其中data_trs指代解压后的文"
+    "description": "\u003ch3 id=\u00221使用unzip命令批量递归解压缩文件\u0022\u003e1.使用\u003ccode\u003eunzip\u003c\/code\u003e命令批量递归解压缩文件\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-sh\u0022\u003els  $(pwd)|grep zip |xargs -I {} sh -c \u0026quot;unzip {} -d data_trs\u0026quot;\n# 使用下面的命列出当前位置下的文件个数\nls -l | grep \u0026quot;^-\u0026quot;| wc -l\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003e其中\u003ccode\u003edata_trs\u003c\/code\u003e指代解压后的文件另存到的文件夹目录\u003c\/p\u003e\n\u003ch3 id=\u00222hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据\u0022\u003e2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-sh\u0022\u003e.\/hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  .\/a.trs .\/b.trs .\/c.trs\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00223hybase批量导出数据trs格式数据文件\u0022\u003e3.Hybase批量导出数据trs格式数据文件\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-sh\u0022\u003e.\/hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  \/home\/trs\/lfa.trs -db dh_media_analysisCE\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00224给文件或文件夹赋予权限\u0022\u003e4.给文件或文件夹赋予权限\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003e# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限\nchmod \u002bx *.sh\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00225基本开关机\u0022\u003e5.基本开关机\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003esync #将数据由内存同步到硬盘中\nshutdown #关机命令\nshutdown -h 10 #10分钟后关机\nshutdown -h now #立即关机\nshutdown -h 20:25 #在下午20:25关机\nshutdown -h \u002b10 #十分钟后关机\nshutdown -r now #立即重启\nshutdown -r \u002b10 #10分钟后重启\nrebot #重启，相当于shutdown -r now\nhalt #关闭系统，等同于shutdown -h now 和 power off  \n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00226文件操作\u0022\u003e6.文件操作\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003ermdir #删除空文件夹\nrmdir -p #递归删除多个目录\n\nrm -f 强制删除\nrm -i 互动，询问是否删除\nrm -r 递归删除\n\nmv -f 强制移动\nmv -u 只替换已经更新过的文件\n\nvim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i\/a\/o进入输入模式;按Esc退出输入模式进入命令模式;输入\u0026quot;:\u0026quot;进入底线命令模式，继续输入\u0026quot;wq\u0026quot;保存修改内容并退出编辑器 \n#在编辑器中设置行号:set nu\n#命令模式下使用\u0026quot;n(数字) \u0026lt;Space\u0026gt;\u0026quot;使得可以将光标向右跳转n个位置\n#命令模式下使用\u0026quot;n(数字) \u0026lt;Enter\u0026gt;\u0026quot;使得可以将光标向下跳转n行\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00227文件权限\u0022\u003e7.文件权限\u003c\/h3\u003e\n\u003ctable\u003e\n\t\u003cthead\u003e\n\t\t\t\u003ctr\u003e\n\t\t\t\t\t\u003cth\u003e文件类型\u003c\/th\u003e\n\t\t\t\t\t\u003cth\u003e属主权限\u003c\/th\u003e\n\t\t\t\t\t\u003cth\u003e属组权限\u003c\/th\u003e\n\t\t\t\t\t\u003cth\u003e其他用户权限\u003c\/th\u003e\n\t\t\t\u003c\/tr\u003e\n\t\u003c\/thead\u003e\n\t\u003ctbody\u003e\n\t\t\t\u003ctr\u003e\n\t\t\t\t\t\u003ctd\u003ed：目录 l:链接 -：文件\u003c\/td\u003e\n\t\t\t\t\t\u003ctd\u003er（读）w（写）x（执行）\u003c\/td\u003e\n\t\t\t\t\t\u003ctd\u003er（读）w（写）x（执行）\u003c\/td\u003e\n\t\t\t\t\t\u003ctd\u003er（读）w（写）x（执行）\u003c\/td\u003e\n\t\t\t\u003c\/tr\u003e\n\t\u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003echgrp [-R] 属组名 文件名 #递归更改文件属组\nchown [-R] 属主名 文件名\nchown [-R] 属主名：属组名 文件名\nchmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00228文件查看\u0022\u003e8.文件查看\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003ecat #查看文件所有内容\ntac #倒序查看文件所有内容\nnl #带行号查看你\nmore #翻页查看文件 按空格来向下翻页 按回车来往下翻一行\nless #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用\/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）\nhead -n x（数字） #查看头x行文件内容\ntail -n x（数字） #查看尾部x行内容\ntail -f 文件名    #持续监控文件内容变化，ctrl\u002bs暂停，ctrl\u002bq继续\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch3 id=\u00229创建连接\u0022\u003e9.创建连接\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003eln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化\nln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e软连接和硬连接的区别\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="Linux命令学习札记 | Devon Chan" />
 <meta property="og:type" content="article" />
@@ -127,7 +211,91 @@
 
 
 
-<meta property="og:description" content="1.使用unzip命令批量递归解压缩文件 ls $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot; # 使用下面的命列出当前位置下的文件个数 ls -l | grep &quot;^-&quot;| wc -l 其中data_trs指代解压后的文" />
+<meta property="og:description" content="1.使用unzip命令批量递归解压缩文件
+ls  $(pwd)|grep zip |xargs -I {} sh -c &quot;unzip {} -d data_trs&quot;
+# 使用下面的命列出当前位置下的文件个数
+ls -l | grep &quot;^-&quot;| wc -l
+
+其中data_trs指代解压后的文件另存到的文件夹目录
+2.Hybase批量导出trs格式数据文件以及读取trs文件向库中导入数据
+./hybase-load.sh -h 127.0.0.1 -u admin -p trsadmin  -db dh_media_analysis_test  ./a.trs ./b.trs ./c.trs
+
+3.Hybase批量导出数据trs格式数据文件
+./hybase-export.sh -h 127.0.0.1 -u admin -p tradmin -out  /home/trs/lfa.trs -db dh_media_analysisCE
+
+4.给文件或文件夹赋予权限
+# 例如，在Tomcat安装目录的bin文件夹下对启动脚本授予可执行权限
+chmod &#43;x *.sh
+
+5.基本开关机
+sync #将数据由内存同步到硬盘中
+shutdown #关机命令
+shutdown -h 10 #10分钟后关机
+shutdown -h now #立即关机
+shutdown -h 20:25 #在下午20:25关机
+shutdown -h &#43;10 #十分钟后关机
+shutdown -r now #立即重启
+shutdown -r &#43;10 #10分钟后重启
+rebot #重启，相当于shutdown -r now
+halt #关闭系统，等同于shutdown -h now 和 power off  
+
+6.文件操作
+rmdir #删除空文件夹
+rmdir -p #递归删除多个目录
+
+rm -f 强制删除
+rm -i 互动，询问是否删除
+rm -r 递归删除
+
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+
+vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则创建文件 并进入命令模式（命令模式下编辑器底部依次是文件名，行数，字符数，光标位置）在命令模式下添加按i/a/o进入输入模式;按Esc退出输入模式进入命令模式;输入&quot;:&quot;进入底线命令模式，继续输入&quot;wq&quot;保存修改内容并退出编辑器 
+#在编辑器中设置行号:set nu
+#命令模式下使用&quot;n(数字) &lt;Space&gt;&quot;使得可以将光标向右跳转n个位置
+#命令模式下使用&quot;n(数字) &lt;Enter&gt;&quot;使得可以将光标向下跳转n行
+
+7.文件权限
+
+	
+			
+					文件类型
+					属主权限
+					属组权限
+					其他用户权限
+			
+	
+	
+			
+					d：目录 l:链接 -：文件
+					r（读）w（写）x（执行）
+					r（读）w（写）x（执行）
+					r（读）w（写）x（执行）
+			
+	
+
+chgrp [-R] 属组名 文件名 #递归更改文件属组
+chown [-R] 属主名 文件名
+chown [-R] 属主名：属组名 文件名
+chmod 777 文件名 #给文件赋予可读可写可执行权限，rwx分别代表读、写、执行权限，分别与具有4,2,1分，可以根据需要来赋予文件不同的权限分
+
+8.文件查看
+cat #查看文件所有内容
+tac #倒序查看文件所有内容
+nl #带行号查看你
+more #翻页查看文件 按空格来向下翻页 按回车来往下翻一行
+less #翻页查看文件 使用空格键向下翻页 使用上下键上下按行翻动 使用Q键退出查看文件（相比于more命令，less可以向前翻动 向下查询指定字符使用/ 向上查询指定字符使用? n继续搜寻上一个 N继续搜寻下一个）
+head -n x（数字） #查看头x行文件内容
+tail -n x（数字） #查看尾部x行内容
+tail -f 文件名    #持续监控文件内容变化，ctrl&#43;s暂停，ctrl&#43;q继续
+
+9.创建连接
+ln f1 f2 #为f1创建硬连接 f1中的内容发生变化后 访问f2也会发生变化
+ln -s f1 f3 #为f1创建软连接（类似与windows中的快捷方式） f1中的内容发生变化后 访问f3会同步变化
+
+
+
+软连接和硬连接的区别" />
 
 
 
@@ -169,6 +337,7 @@
 <meta property="og:see_also" content="/posts/spring-scheduletask-learn-note/" />
 
 <meta property="og:see_also" content="/posts/mybatis-maven-demo-proj/" />
+
 
 
 
@@ -324,22 +493,22 @@ vim test.txt #如果文件存在 则修改文件内容 如果文件不存在 则
 </code></pre>
 <h3 id="7文件权限">7.文件权限</h3>
 <table>
-<thead>
-<tr>
-<th>文件类型</th>
-<th>属主权限</th>
-<th>属组权限</th>
-<th>其他用户权限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>d：目录 l:链接 -：文件</td>
-<td>r（读）w（写）x（执行）</td>
-<td>r（读）w（写）x（执行）</td>
-<td>r（读）w（写）x（执行）</td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th>文件类型</th>
+					<th>属主权限</th>
+					<th>属组权限</th>
+					<th>其他用户权限</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>d：目录 l:链接 -：文件</td>
+					<td>r（读）w（写）x（执行）</td>
+					<td>r（读）w（写）x（执行）</td>
+					<td>r（读）w（写）x（执行）</td>
+			</tr>
+	</tbody>
 </table>
 <pre><code class="language-shell">chgrp [-R] 属组名 文件名 #递归更改文件属组
 chown [-R] 属主名 文件名
